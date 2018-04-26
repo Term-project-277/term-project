@@ -1,0 +1,6 @@
+framework module Pods_term_project {
+  umbrella header "Pods-term project-umbrella.h"
+
+  export *
+  module * { export * }
+}
