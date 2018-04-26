@@ -23,4 +23,7 @@ pod 'FBSDKCoreKit'
 pod 'FBSDKShareKit'
 pod 'FBSDKLoginKit'
 
+# Google sign in 
+pod 'GoogleSignIn'
+
 end

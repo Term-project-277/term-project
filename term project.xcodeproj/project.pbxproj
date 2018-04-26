@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		56C669A0A28D0D746F150283 /* Pods_term_project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 425BA24F5817EE2CBA7AAC3C /* Pods_term_project.framework */; };
+		99618B2E20924DFF00B359F9 /* client_868442633715-a9elkntjjet7hsvvdlas1fjmrrck01c8.apps.googleusercontent.com.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99618B2D20924DFF00B359F9 /* client_868442633715-a9elkntjjet7hsvvdlas1fjmrrck01c8.apps.googleusercontent.com.plist */; };
 		996DA3712090178900C7E4E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996DA3702090178900C7E4E6 /* AppDelegate.swift */; };
 		996DA3732090178900C7E4E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996DA3722090178900C7E4E6 /* ViewController.swift */; };
 		996DA3762090178900C7E4E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 996DA3742090178900C7E4E6 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 		425BA24F5817EE2CBA7AAC3C /* Pods_term_project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_term_project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7209BCD5ADF394D4B6F69396 /* Pods_term_projectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_term_projectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72FA7CC862752708F37F7B65 /* Pods-term project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-term project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-term project/Pods-term project.debug.xcconfig"; sourceTree = "<group>"; };
+		99618B2D20924DFF00B359F9 /* client_868442633715-a9elkntjjet7hsvvdlas1fjmrrck01c8.apps.googleusercontent.com.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "client_868442633715-a9elkntjjet7hsvvdlas1fjmrrck01c8.apps.googleusercontent.com.plist"; sourceTree = "<group>"; };
 		996DA36D2090178900C7E4E6 /* term project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "term project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		996DA3702090178900C7E4E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		996DA3722090178900C7E4E6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				996DA3772090178D00C7E4E6 /* Assets.xcassets */,
 				996DA3792090178D00C7E4E6 /* LaunchScreen.storyboard */,
 				996DA37C2090178D00C7E4E6 /* Info.plist */,
+				99618B2D20924DFF00B359F9 /* client_868442633715-a9elkntjjet7hsvvdlas1fjmrrck01c8.apps.googleusercontent.com.plist */,
 			);
 			path = "term project";
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 				996DA36A2090178900C7E4E6 /* Frameworks */,
 				996DA36B2090178900C7E4E6 /* Resources */,
 				282D0352BD07B4FEF281F47C /* [CP] Embed Pods Frameworks */,
+				49E32BDF05F4EC1D6D65D091 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -275,6 +279,7 @@
 			files = (
 				996DA37B2090178D00C7E4E6 /* LaunchScreen.storyboard in Resources */,
 				996DA3782090178D00C7E4E6 /* Assets.xcassets in Resources */,
+				99618B2E20924DFF00B359F9 /* client_868442633715-a9elkntjjet7hsvvdlas1fjmrrck01c8.apps.googleusercontent.com.plist in Resources */,
 				996DA3762090178900C7E4E6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,6 +312,9 @@
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -314,10 +322,31 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-term project/Pods-term project-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		49E32BDF05F4EC1D6D65D091 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-term project/Pods-term project-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-term project/Pods-term project-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		98EE20C2F8D97D60009D701B /* [CP] Check Pods Manifest.lock */ = {
@@ -558,7 +587,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "term project/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-77.term-project";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -573,7 +605,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "term project/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-77.term-project";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -589,7 +624,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "term projectTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-77.term-projectTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -606,7 +645,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "term projectTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-77.term-projectTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -622,7 +665,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "term projectUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-77.term-projectUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -638,7 +685,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "term projectUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-77.term-projectUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
