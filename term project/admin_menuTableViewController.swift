@@ -11,6 +11,8 @@ import UIKit
 struct appet : Decodable {
     let Name : String
     let Preparationtime: Int?
+    let Calories: Int?
+    let Unitprice: Double
 }
 
  var appets = [appet] ()
@@ -19,11 +21,31 @@ struct drink : Decodable {
     let Name : String
     let Preparationtime: Int?
     let Calories: Int?
+    let Unitprice: Double
 }
 
 var drinks = [drink] ()
 
-var cat1 = [String] ()  // Drink
+
+struct main : Decodable {
+    let Name : String
+    let Preparationtime: Int?
+    let Calories: Int?
+    let Unitprice: Double
+}
+
+var mains = [main] ()
+
+struct desert : Decodable {
+    let Name : String
+    let Preparationtime: Int?
+    let Calories: Int?
+    let Unitprice: Double
+}
+
+var deserts = [desert] ()
+
+
 var cat2 = [String] ()  // Appetizers
 var cat3 = [String] ()  // Main course
 var cat4 = [String] ()  // dessert
@@ -49,6 +71,9 @@ class admin_menuTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
+      
         
         loadAppetizers()
         loadDrink()
@@ -59,10 +84,6 @@ class admin_menuTableViewController: UITableViewController {
     
     func loadAppetizers()
     {
-        print("in tabeleview ####################################00000@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-        print(cat3)
-        print(cat3.count)
-        
         let jsonurl = "https://mobile-ios-backend.herokuapp.com/menu/Appetizer"
         let url = URL(string: jsonurl )
         
@@ -71,17 +92,7 @@ class admin_menuTableViewController: UITableViewController {
         URLSession.shared.dataTask(with: url!) { (data, resp, err) in
             
             do {
-                
                 appets = try JSONDecoder().decode([appet].self, from: data!)
-                
-                cat2.removeAll()
-                
-                for eachAppet in appets {
-                    print(eachAppet.Name)
-                    cat2.append(eachAppet.Name)
-                    print(cat2)
-                    self.tableView.reloadData()
-                }
             }
             catch{
                 print(err)
@@ -92,10 +103,7 @@ class admin_menuTableViewController: UITableViewController {
     
     func loadDrink()
     {
-        print("in tabeleview ####################################00000@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-        print(cat3)
-        print(cat3.count)
-        
+       
         let jsonurl = "https://mobile-ios-backend.herokuapp.com/menu/Drink"
         let url = URL(string: jsonurl )
         
@@ -104,32 +112,17 @@ class admin_menuTableViewController: UITableViewController {
         URLSession.shared.dataTask(with: url!) { (data, resp, err) in
             
             do {
-                
-                drinks = try JSONDecoder().decode([drink].self, from: data!)
-                
-                cat1.removeAll()
-                
-                for eachAppet in drinks {
-                    print(eachAppet.Name)
-                    cat1.append(eachAppet.Name)
-                    
-                    print(cat1)
+                    drinks = try JSONDecoder().decode([drink].self, from: data!)
                     self.tableView.reloadData()
                 }
-            }
-            catch{
-                print(err)
-            }
-            
+                catch{
+                    print(err)
+                }
             }.resume()
     }
     
     func loadDesert()
     {
-        print("in tabeleview ####################################00000@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-        print(cat3)
-        print(cat3.count)
-        
         let jsonurl = "https://mobile-ios-backend.herokuapp.com/menu/Desert"
         let url = URL(string: jsonurl )
         
@@ -138,16 +131,7 @@ class admin_menuTableViewController: UITableViewController {
         URLSession.shared.dataTask(with: url!) { (data, resp, err) in
             
             do {
-                
-                appets = try JSONDecoder().decode([appet].self, from: data!)
-                cat4.removeAll()
-                
-                for eachAppet in appets {
-                    print(eachAppet.Name)
-                    cat4.append(eachAppet.Name)
-                    print(cat4)
-                    self.tableView.reloadData()
-                }
+                deserts = try JSONDecoder().decode([desert].self, from: data!)
             }
             catch{
                 print(err)
@@ -158,9 +142,6 @@ class admin_menuTableViewController: UITableViewController {
     
     func loadMain()
     {
-        print("in tabeleview ####################################00000@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-        print(cat3)
-        print(cat3.count)
         
         let jsonurl = "https://mobile-ios-backend.herokuapp.com/menu/MainCourse"
         let url = URL(string: jsonurl )
@@ -170,16 +151,7 @@ class admin_menuTableViewController: UITableViewController {
         URLSession.shared.dataTask(with: url!) { (data, resp, err) in
             
             do {
-                
-                appets = try JSONDecoder().decode([appet].self, from: data!)
-                cat3.removeAll()
-                
-                for eachAppet in appets {
-                    print(eachAppet.Name)
-                    cat3.append(eachAppet.Name)
-                    print(cat3)
-                    self.tableView.reloadData()
-                }
+                mains = try JSONDecoder().decode([main].self, from: data!)
             }
             catch{
                 print(err)
@@ -212,11 +184,9 @@ class admin_menuTableViewController: UITableViewController {
        
         label.font = label.font.withSize(40)
         label.textColor = UIColor.white
-        label.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        label.backgroundColor = #colorLiteral(red: 0.1215686277, green: 0.01176470611, blue: 0.4235294163, alpha: 1)
         return label
-        
-        
-        print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+  
     }
 
    
@@ -232,20 +202,20 @@ class admin_menuTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         if section == 0
         {
-                return cat1.count
+                return drinks.count
         }
         if section == 1
         {
-            return cat2.count
+            return appets.count
         }
         if section == 2
         {
             
-            return cat3.count
+            return mains.count
         }
         if section == 3
         {
-            return cat4.count
+            return deserts.count
         }
         
         return 2
@@ -255,18 +225,34 @@ class admin_menuTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
-
+        
+        cell.textLabel?.numberOfLines = 0
+  
+        
         if indexPath.section == 0 {
-            cell.textLabel?.text = "\( cat1[indexPath.row] ) \t Prep time :  \(drinks[indexPath.row].Preparationtime!)  \t Calories : \(drinks[indexPath.row].Calories!)"
+            
+            var attributes = [NSAttributedStringKey: AnyObject]()
+            attributes[.foregroundColor] = UIColor.brown
+            attributes[.font] = UIFont.boldSystemFont(ofSize: 34) as AnyObject
+            
+            print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+            
+           
+            let attributedString = NSMutableAttributedString(string: "\( drinks[indexPath.row].Name ) \n ", attributes:attributes)
+            let normalString = NSMutableAttributedString(string: "Prep time :  \(drinks[indexPath.row].Preparationtime!)  \t Calories : \(drinks[indexPath.row].Calories!) \t Unit price :\(drinks[indexPath.row].Unitprice)")
+            attributedString.append(normalString)
+           
+
+            cell.textLabel?.attributedText = attributedString
         }
         if indexPath.section == 1 {
-            cell.textLabel?.text = cat2[indexPath.row]
+            cell.textLabel?.text = "\( appets[indexPath.row].Name ) \t Prep time :  \(appets[indexPath.row].Preparationtime!)  \t Calories : \(appets[indexPath.row].Calories!) \t Unit price :\(appets[indexPath.row].Unitprice) "
         }
         if indexPath.section == 2 {
-            cell.textLabel?.text = cat3[indexPath.row]
+            cell.textLabel?.text = "\( mains[indexPath.row].Name ) \t Prep time :  \(mains[indexPath.row].Preparationtime!)  \t Calories : \(mains[indexPath.row].Calories!) \t Unit price :\(mains[indexPath.row].Unitprice) "
         }
         if indexPath.section == 3 {
-            cell.textLabel?.text = cat4[indexPath.row]
+            cell.textLabel?.text = "\( deserts[indexPath.row].Name ) \t Prep time :  \(deserts[indexPath.row].Preparationtime!)  \t Calories : \(deserts[indexPath.row].Calories!) \t Unit price :\(deserts[indexPath.row].Unitprice) "
         }
         
 
@@ -289,22 +275,23 @@ class admin_menuTableViewController: UITableViewController {
 //             Delete the row from the data source
             if indexPath.section == 0
             {
-                cat1.remove(at: indexPath.row)
+                drinks.remove(at: indexPath.row)
+               
                 tableView.reloadData()
             }
             if indexPath.section == 1
             {
-                cat2.remove(at: indexPath.row)
+                appets.remove(at: indexPath.row)
                 tableView.reloadData()
             }
             if indexPath.section == 2
             {
-                cat3.remove(at: indexPath.row)
+                mains.remove(at: indexPath.row)
                 tableView.reloadData()
             }
             if indexPath.section == 3
             {
-                cat4.remove(at: indexPath.row)
+                deserts.remove(at: indexPath.row)
                 tableView.reloadData()
             }
             

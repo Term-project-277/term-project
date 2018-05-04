@@ -20,20 +20,20 @@ class DetailsViewController: UIViewController {
         
         if selected_section == 0
         {
-                deatils_label.text = cat1[selected_row]
+                deatils_label.text = drinks[selected_row].Name
         }
         
         if selected_section == 1
         {
-            deatils_label.text = cat2[selected_row]
+            deatils_label.text = appets[selected_row].Name
         }
         if selected_section == 2
         {
-            deatils_label.text = cat3[selected_row]
+            deatils_label.text = mains[selected_row].Name
         }
         if selected_section == 3
         {
-            deatils_label.text = cat4[selected_row]
+            deatils_label.text = deserts[selected_row].Name
         }
         
          

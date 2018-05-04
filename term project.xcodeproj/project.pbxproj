@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		56C669A0A28D0D746F150283 /* Pods_term_project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 425BA24F5817EE2CBA7AAC3C /* Pods_term_project.framework */; };
+		994692D8209CEE57004D2DDB /* Add_MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994692D7209CEE57004D2DDB /* Add_MenuViewController.swift */; };
 		994CB7F22099116A000E5208 /* admin_menuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994CB7F12099116A000E5208 /* admin_menuTableViewController.swift */; };
 		994CB7F420992B40000E5208 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994CB7F320992B40000E5208 /* DetailsViewController.swift */; };
 		99618B2E20924DFF00B359F9 /* client_868442633715-a9elkntjjet7hsvvdlas1fjmrrck01c8.apps.googleusercontent.com.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99618B2D20924DFF00B359F9 /* client_868442633715-a9elkntjjet7hsvvdlas1fjmrrck01c8.apps.googleusercontent.com.plist */; };
@@ -46,6 +47,7 @@
 		425BA24F5817EE2CBA7AAC3C /* Pods_term_project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_term_project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7209BCD5ADF394D4B6F69396 /* Pods_term_projectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_term_projectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72FA7CC862752708F37F7B65 /* Pods-term project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-term project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-term project/Pods-term project.debug.xcconfig"; sourceTree = "<group>"; };
+		994692D7209CEE57004D2DDB /* Add_MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Add_MenuViewController.swift; sourceTree = "<group>"; };
 		994CB7F12099116A000E5208 /* admin_menuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = admin_menuTableViewController.swift; sourceTree = "<group>"; };
 		994CB7F320992B40000E5208 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		99618B2D20924DFF00B359F9 /* client_868442633715-a9elkntjjet7hsvvdlas1fjmrrck01c8.apps.googleusercontent.com.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "client_868442633715-a9elkntjjet7hsvvdlas1fjmrrck01c8.apps.googleusercontent.com.plist"; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				996DA3742090178900C7E4E6 /* Main.storyboard */,
 				996DA3772090178D00C7E4E6 /* Assets.xcassets */,
 				996DA3792090178D00C7E4E6 /* LaunchScreen.storyboard */,
+				994692D7209CEE57004D2DDB /* Add_MenuViewController.swift */,
 				996DA37C2090178D00C7E4E6 /* Info.plist */,
 				994CB7F320992B40000E5208 /* DetailsViewController.swift */,
 				994CB7F12099116A000E5208 /* admin_menuTableViewController.swift */,
@@ -419,6 +422,7 @@
 				994CB7F22099116A000E5208 /* admin_menuTableViewController.swift in Sources */,
 				996DA3732090178900C7E4E6 /* ViewController.swift in Sources */,
 				996DA3712090178900C7E4E6 /* AppDelegate.swift in Sources */,
+				994692D8209CEE57004D2DDB /* Add_MenuViewController.swift in Sources */,
 				994CB7F420992B40000E5208 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
