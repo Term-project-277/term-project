@@ -6,16 +6,19 @@
 //  Copyright © 2018 Shweta Kothari. All rights reserved.
 //
 
+
 import UIKit
 import FBSDKLoginKit
 
 import GoogleSignIn
 import GoogleToolboxForMac
 
+
+
+
 class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate, GIDSignInDelegate {
     
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -38,6 +41,10 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
         google_signin.frame = CGRect(x: 16, y: 150, width: view.frame.width-32, height: 50)
        
         GIDSignIn.sharedInstance().uiDelegate  =  self
+        
+        
+        
+
     }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {

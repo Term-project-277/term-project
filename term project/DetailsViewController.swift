@@ -8,9 +8,11 @@
 
 import UIKit
 
+
+
 class DetailsViewController: UIViewController {
     
-    
+   
 
     @IBOutlet var deatils_label: UILabel!
     override func viewDidLoad() {
@@ -34,15 +36,12 @@ class DetailsViewController: UIViewController {
             deatils_label.text = cat4[selected_row]
         }
         
+         
         
-
       
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+
     
 
     /*

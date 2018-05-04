@@ -8,10 +8,25 @@
 
 import UIKit
 
-var cat1 = ["Shweta", "Payal" , "Preyas" , "Saloni" ]
-var cat2 = ["f", "f" , "f" , "f" ]
-var cat3 = ["w", "w" , "w" , "w" ]
-var cat4 = ["r", "r" , "r" , "r" ]
+struct appet : Decodable {
+    let Name : String
+    let Preparationtime: Int?
+}
+
+ var appets = [appet] ()
+
+struct drink : Decodable {
+    let Name : String
+    let Preparationtime: Int?
+    let Calories: Int?
+}
+
+var drinks = [drink] ()
+
+var cat1 = [String] ()  // Drink
+var cat2 = [String] ()  // Appetizers
+var cat3 = [String] ()  // Main course
+var cat4 = [String] ()  // dessert
 
 var selected_section = 0
 var selected_row = 0
@@ -35,9 +50,149 @@ class admin_menuTableViewController: UITableViewController {
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
         
-       
+        loadAppetizers()
+        loadDrink()
+        loadMain()
+        loadDesert()
         
     }
+    
+    func loadAppetizers()
+    {
+        print("in tabeleview ####################################00000@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+        print(cat3)
+        print(cat3.count)
+        
+        let jsonurl = "https://mobile-ios-backend.herokuapp.com/menu/Appetizer"
+        let url = URL(string: jsonurl )
+        
+        print(url )
+        
+        URLSession.shared.dataTask(with: url!) { (data, resp, err) in
+            
+            do {
+                
+                appets = try JSONDecoder().decode([appet].self, from: data!)
+                
+                cat2.removeAll()
+                
+                for eachAppet in appets {
+                    print(eachAppet.Name)
+                    cat2.append(eachAppet.Name)
+                    print(cat2)
+                    self.tableView.reloadData()
+                }
+            }
+            catch{
+                print(err)
+            }
+            
+            }.resume()
+    }
+    
+    func loadDrink()
+    {
+        print("in tabeleview ####################################00000@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+        print(cat3)
+        print(cat3.count)
+        
+        let jsonurl = "https://mobile-ios-backend.herokuapp.com/menu/Drink"
+        let url = URL(string: jsonurl )
+        
+        print(url )
+        
+        URLSession.shared.dataTask(with: url!) { (data, resp, err) in
+            
+            do {
+                
+                drinks = try JSONDecoder().decode([drink].self, from: data!)
+                
+                cat1.removeAll()
+                
+                for eachAppet in drinks {
+                    print(eachAppet.Name)
+                    cat1.append(eachAppet.Name)
+                    
+                    print(cat1)
+                    self.tableView.reloadData()
+                }
+            }
+            catch{
+                print(err)
+            }
+            
+            }.resume()
+    }
+    
+    func loadDesert()
+    {
+        print("in tabeleview ####################################00000@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+        print(cat3)
+        print(cat3.count)
+        
+        let jsonurl = "https://mobile-ios-backend.herokuapp.com/menu/Desert"
+        let url = URL(string: jsonurl )
+        
+        print(url )
+        
+        URLSession.shared.dataTask(with: url!) { (data, resp, err) in
+            
+            do {
+                
+                appets = try JSONDecoder().decode([appet].self, from: data!)
+                cat4.removeAll()
+                
+                for eachAppet in appets {
+                    print(eachAppet.Name)
+                    cat4.append(eachAppet.Name)
+                    print(cat4)
+                    self.tableView.reloadData()
+                }
+            }
+            catch{
+                print(err)
+            }
+            
+            }.resume()
+    }
+    
+    func loadMain()
+    {
+        print("in tabeleview ####################################00000@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+        print(cat3)
+        print(cat3.count)
+        
+        let jsonurl = "https://mobile-ios-backend.herokuapp.com/menu/MainCourse"
+        let url = URL(string: jsonurl )
+        
+        print(url )
+        
+        URLSession.shared.dataTask(with: url!) { (data, resp, err) in
+            
+            do {
+                
+                appets = try JSONDecoder().decode([appet].self, from: data!)
+                cat3.removeAll()
+                
+                for eachAppet in appets {
+                    print(eachAppet.Name)
+                    cat3.append(eachAppet.Name)
+                    print(cat3)
+                    self.tableView.reloadData()
+                }
+            }
+            catch{
+                print(err)
+            }
+            
+            }.resume()
+    }
+    
+    
+    
+    
+
+
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel()
@@ -59,6 +214,9 @@ class admin_menuTableViewController: UITableViewController {
         label.textColor = UIColor.white
         label.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         return label
+        
+        
+        print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
     }
 
    
@@ -82,6 +240,7 @@ class admin_menuTableViewController: UITableViewController {
         }
         if section == 2
         {
+            
             return cat3.count
         }
         if section == 3
@@ -91,13 +250,14 @@ class admin_menuTableViewController: UITableViewController {
         
         return 2
     }
-
+    
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
 
         if indexPath.section == 0 {
-            cell.textLabel?.text = "\( cat1[indexPath.row] ) \t Prep time : "
+            cell.textLabel?.text = "\( cat1[indexPath.row] ) \t Prep time :  \(drinks[indexPath.row].Preparationtime!)  \t Calories : \(drinks[indexPath.row].Calories!)"
         }
         if indexPath.section == 1 {
             cell.textLabel?.text = cat2[indexPath.row]
