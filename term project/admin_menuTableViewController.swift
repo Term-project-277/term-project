@@ -231,17 +231,16 @@ class admin_menuTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
         
         cell.textLabel?.numberOfLines = 0
+        
+        var attributes = [NSAttributedStringKey: AnyObject]()
+        attributes[.foregroundColor] = UIColor.brown
+        attributes[.font] = UIFont.boldSystemFont(ofSize: 34) as AnyObject
   
         
         if indexPath.section == 0 {
             
-            var attributes = [NSAttributedStringKey: AnyObject]()
-            attributes[.foregroundColor] = UIColor.brown
-            attributes[.font] = UIFont.boldSystemFont(ofSize: 34) as AnyObject
-            
-            print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
-            
-            
+           
+          
             let attributedString = NSMutableAttributedString(string: "\( drinks[indexPath.row].Name ) \n ", attributes:attributes)
             let normalString = NSMutableAttributedString(string: "Prep time :  \(drinks[indexPath.row].Preparationtime!)  \t Calories : \(drinks[indexPath.row].Calories!) \t Unit price :\(drinks[indexPath.row].Unitprice)")
             attributedString.append(normalString)
@@ -250,13 +249,35 @@ class admin_menuTableViewController: UITableViewController {
             cell.textLabel?.attributedText = attributedString
         }
         if indexPath.section == 1 {
-            cell.textLabel?.text = "\( appets[indexPath.row].Name ) \t Prep time :  \(appets[indexPath.row].Preparationtime!)  \t Calories : \(appets[indexPath.row].Calories!) \t Unit price :\(appets[indexPath.row].Unitprice) "
+            
+          
+            
+         let attributedString = NSMutableAttributedString(string: "\( appets[indexPath.row].Name ) \n ", attributes:attributes)
+            let normalString = NSMutableAttributedString(string: "Prep time :  \(appets[indexPath.row].Preparationtime!)  \t Calories : \(appets[indexPath.row].Calories!) \t Unit price :\(appets[indexPath.row].Unitprice)")
+            attributedString.append(normalString)
+            
+           cell.textLabel?.attributedText = attributedString
         }
         if indexPath.section == 2 {
-            cell.textLabel?.text = "\( mains[indexPath.row].Name ) \t Prep time :  \(mains[indexPath.row].Preparationtime!)  \t Calories : \(mains[indexPath.row].Calories!) \t Unit price :\(mains[indexPath.row].Unitprice) "
+            
+             let attributedString = NSMutableAttributedString(string: "\( mains[indexPath.row].Name ) \n ", attributes:attributes)
+            
+            let normalString = NSMutableAttributedString(string: "Prep time :  \(mains[indexPath.row].Preparationtime!)  \t Calories : \(mains[indexPath.row].Calories!) \t Unit price :\(mains[indexPath.row].Unitprice)")
+            attributedString.append(normalString)
+            
+            cell.textLabel?.attributedText = attributedString
+            
+            
         }
         if indexPath.section == 3 {
-            cell.textLabel?.text = "\( deserts[indexPath.row].Name ) \t Prep time :  \(deserts[indexPath.row].Preparationtime!)  \t Calories : \(deserts[indexPath.row].Calories!) \t Unit price :\(deserts[indexPath.row].Unitprice) "
+            
+             let attributedString = NSMutableAttributedString(string: "\( deserts[indexPath.row].Name ) \n ", attributes:attributes)
+            let normalString = NSMutableAttributedString(string: "Prep time :  \(deserts[indexPath.row].Preparationtime!)  \t Calories : \(deserts[indexPath.row].Calories!) \t Unit price :\(deserts[indexPath.row].Unitprice)")
+            attributedString.append(normalString)
+            
+            cell.textLabel?.attributedText = attributedString
+            
+            
         }
         
 
