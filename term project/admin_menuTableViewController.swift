@@ -93,6 +93,8 @@ class admin_menuTableViewController: UITableViewController {
             
             do {
                 appets = try JSONDecoder().decode([appet].self, from: data!)
+                
+                self.tableView.reloadData()
             }
             catch{
                 print(err)
@@ -132,6 +134,7 @@ class admin_menuTableViewController: UITableViewController {
             
             do {
                 deserts = try JSONDecoder().decode([desert].self, from: data!)
+                self.tableView.reloadData()
             }
             catch{
                 print(err)
@@ -152,6 +155,7 @@ class admin_menuTableViewController: UITableViewController {
             
             do {
                 mains = try JSONDecoder().decode([main].self, from: data!)
+                self.tableView.reloadData()
             }
             catch{
                 print(err)
