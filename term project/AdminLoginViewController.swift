@@ -17,6 +17,8 @@ class AdminLoginViewController: UIViewController {
     @IBOutlet weak var username: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+        
 
         // Do any additional setup after loading the view.
     }
