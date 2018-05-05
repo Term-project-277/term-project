@@ -26,4 +26,7 @@ pod 'FBSDKLoginKit'
 # Google sign in 
 pod 'GoogleSignIn'
 
+#
+pod 'NotificationBannerSwift'
+
 end

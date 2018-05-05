@@ -31,12 +31,18 @@ PODS:
   - GTMSessionFetcher/Core (1.1.15)
   - GTMSessionFetcher/Full (1.1.15):
     - GTMSessionFetcher/Core (= 1.1.15)
+  - MarqueeLabel/Swift (3.1.4)
+  - NotificationBannerSwift (1.6.2):
+    - MarqueeLabel/Swift
+    - SnapKit (~> 4.0)
+  - SnapKit (4.0.0)
 
 DEPENDENCIES:
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
   - GoogleSignIn
+  - NotificationBannerSwift
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -48,6 +54,9 @@ SPEC REPOS:
     - GoogleToolboxForMac
     - GTMOAuth2
     - GTMSessionFetcher
+    - MarqueeLabel
+    - NotificationBannerSwift
+    - SnapKit
 
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
@@ -58,7 +67,10 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GTMOAuth2: c77fe325e4acd453837e72d91e3b5f13116857b2
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
+  MarqueeLabel: bf768455fe88d427f71476ebb23f9092b660f40b
+  NotificationBannerSwift: 4eceb2add9d5eaa0596c63d49690b4d6476e74ec
+  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
 
-PODFILE CHECKSUM: 16f0f020e28ce0e5e705276fb89c751cb8971a96
+PODFILE CHECKSUM: 8ede2549ee69cc710937170369d5464fb5dca4be
 
 COCOAPODS: 1.5.0

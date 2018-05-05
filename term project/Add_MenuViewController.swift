@@ -7,66 +7,99 @@
 //
 
 import UIKit
+import NotificationBannerSwift
 
-class Add_MenuViewController: UIViewController {
+class Add_MenuViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
-    @IBOutlet var label: UILabel!
+   
+    let cats = ["Drink","Appetizer","MainCourse","Desert"]
+    
+    var parameters = ["Category": "Drink",
+                      "Name":  "",
+                      "Unitprice": 0,
+                      "Calories" : 0,
+                      "Preparationtime": 0
+        ] as [String : Any]
+    var sel =  false
     
     @IBOutlet var menu_name_text: UITextField!
+    @IBOutlet var price: UITextField!
+    @IBOutlet var prep: UITextField!
+    @IBOutlet var calories: UITextField!
+    
+    @IBOutlet var picker1: UIPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
-        
-        
-        
-        
+        sel = false
+    }
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return cats.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+            sel = true
+            parameters["Category"] = cats[row]
+            print(parameters["Category"])
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return cats[row]
     }
 
    
     @IBAction func submit_Action(_ sender: Any) {
         
-        
-        
-        
-        var parameters = ["Category": "MainCourse",
-                          "Name":  "",
-                          "Unitprice": 1000.99,
-                          "Calories" : 0,
-                          "Preparationtime": 30
-            ] as [String : Any]
-        
-        
-        
-        parameters["Name"] =  menu_name_text.text
-        
- 
-        guard let url = URL(string: "https://mobile-ios-backend.herokuapp.com/menu") else { return }
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
-        request.httpBody = httpBody
-        
-        let session = URLSession.shared
-        session.dataTask(with: request) { (data, response, error) in
-            if let response = response {
-                print(response)
-            }
+        if  (sel == false) || menu_name_text.text! == "" || price.text! == ""
+            || calories.text == "" || prep.text == ""{
             
-            if let data = data {
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    print(json)
-                    self.label.text = "added!"
-                } catch {
-                    print(error)
-                    self.label.text = error as! String
+            let banner = NotificationBanner(title: "Error !!", subtitle: "Pls select all the 4 numbers", style: .danger)
+            banner.show()
+        }
+        
+        else
+        {
+            
+            // "Drink"   "MainCourse"
+            parameters["Name"] =  menu_name_text.text
+            parameters["Unitprice"] = Int(price.text!)
+            parameters["Calories"] = Int(calories.text!)
+            parameters["Preparationtime"] = Int(prep.text!)
+            
+            
+            guard let url = URL(string: "https://mobile-ios-backend.herokuapp.com/menu") else { return }
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
+            request.httpBody = httpBody
+            
+            let session = URLSession.shared
+            session.dataTask(with: request) { (data, response, error) in
+                if let response = response {
+                    print(response)
                 }
-            }
+                
+                if let data = data {
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: data, options: [])
+                        print(json)
+                        
+                    } catch {
+                        print(error)
+                        
+                    }
+                }
+                
+                }.resume()
             
-            }.resume()
+        }
+        
+        
     }
     
     /*
