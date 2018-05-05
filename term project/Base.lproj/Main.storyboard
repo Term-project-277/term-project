@@ -85,7 +85,7 @@
                                     </attributedString>
                                 </state>
                                 <connections>
-                                    <segue destination="PuN-Gb-ACy" kind="show" identifier="adminLoginIdentifier" id="hAl-Tn-L7s"/>
+                                    <action selector="login_button:" destination="RFY-Mo-npA" eventType="touchUpInside" id="M9Z-4u-NnS"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VN7-vi-1dq">
@@ -99,6 +99,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="rbF-J5-xNg"/>
                     </view>
+                    <connections>
+                        <outlet property="password" destination="VN7-vi-1dq" id="ZtT-fo-rgk"/>
+                        <outlet property="username" destination="oD3-eH-rnK" id="pNB-vd-ir2"/>
+                        <segue destination="PuN-Gb-ACy" kind="presentation" identifier="adminLoginIdentifier" id="ffl-Mr-Q2e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nx5-kZ-Xn9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -387,6 +392,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="hAl-Tn-L7s"/>
+        <segue reference="ffl-Mr-Q2e"/>
     </inferredMetricsTieBreakers>
 </document>
