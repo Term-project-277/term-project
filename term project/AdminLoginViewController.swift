@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NotificationBannerSwift
 
 class AdminLoginViewController: UIViewController {
     let adminUserName = "Thrishna"
@@ -35,6 +36,12 @@ class AdminLoginViewController: UIViewController {
         pword = password.text!
         if(userName == adminUserName && pword == adminPassword){
         self.performSegue(withIdentifier: "adminLoginIdentifier", sender: self)
+        }
+        else{
+            let banner = NotificationBanner(title: "Invalid Credentials!", subtitle: "Please enter valid admin user name and password!", style: .info
+            )
+            banner.show()
+            
         }
         
         
