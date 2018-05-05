@@ -237,12 +237,12 @@ class admin_menuTableViewController: UITableViewController {
             
             print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
             
-           
+            
             let attributedString = NSMutableAttributedString(string: "\( drinks[indexPath.row].Name ) \n ", attributes:attributes)
             let normalString = NSMutableAttributedString(string: "Prep time :  \(drinks[indexPath.row].Preparationtime!)  \t Calories : \(drinks[indexPath.row].Calories!) \t Unit price :\(drinks[indexPath.row].Unitprice)")
             attributedString.append(normalString)
-           
-
+            
+            
             cell.textLabel?.attributedText = attributedString
         }
         if indexPath.section == 1 {
