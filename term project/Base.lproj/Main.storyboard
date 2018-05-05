@@ -42,10 +42,10 @@
             </objects>
             <point key="canvasLocation" x="-882.39999999999998" y="98.50074962518741"/>
         </scene>
-        <!--View Controller-->
+        <!--Admin Login View Controller-->
         <scene sceneID="GDM-GG-PhT">
             <objects>
-                <viewController id="RFY-Mo-npA" sceneMemberID="viewController">
+                <viewController id="RFY-Mo-npA" customClass="AdminLoginViewController" customModule="term_project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pLq-vX-1I3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -71,11 +71,22 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="045-gx-DQo">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="045-gx-DQo">
                                 <rect key="frame" x="235" y="448" width="124" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                <state key="normal" title="LogIn"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="LogIn">
+                                            <attributes>
+                                                <font key="NSFont" size="18" name="ArialMT"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <segue destination="PuN-Gb-ACy" kind="show" identifier="adminLoginIdentifier" id="hAl-Tn-L7s"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VN7-vi-1dq">
                                 <rect key="frame" x="16" y="388" width="336" height="30"/>
@@ -376,6 +387,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wpq-pG-PCn"/>
+        <segue reference="hAl-Tn-L7s"/>
     </inferredMetricsTieBreakers>
 </document>
