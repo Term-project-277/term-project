@@ -12,13 +12,7 @@ class WelcomeSignInViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        /*let textAttributes = [NSAttributedStringKey.foregroundColor:UIColor.darkGray,
-             NSAttributedStringKey.font: UIFont(name: "Gill Sans", size: 24)!]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes*/
        
-        
-
         // Do any additional setup after loading the view.
     }
     
