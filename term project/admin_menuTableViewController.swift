@@ -9,6 +9,7 @@
 import UIKit
 
 struct appet : Decodable {
+    let ID : Int
     let Name : String
     let Preparationtime: Int?
     let Calories: Int?
@@ -18,6 +19,7 @@ struct appet : Decodable {
  var appets = [appet] ()
 
 struct drink : Decodable {
+    let ID : Int
     let Name : String
     let Preparationtime: Int?
     let Calories: Int?
@@ -28,6 +30,7 @@ var drinks = [drink] ()
 
 
 struct main : Decodable {
+    let ID : Int
     let Name : String
     let Preparationtime: Int?
     let Calories: Int?
@@ -37,6 +40,7 @@ struct main : Decodable {
 var mains = [main] ()
 
 struct desert : Decodable {
+    let ID : Int
     let Name : String
     let Preparationtime: Int?
     let Calories: Int?
@@ -295,7 +299,7 @@ class admin_menuTableViewController: UITableViewController {
             // wrap the attachment in its own attributed string so we can append it
             let image1String = NSAttributedString(attachment: image1Attachment)
             attributedString.append(image1String)
-            let normalString = NSMutableAttributedString(string: "\t\tPrep time: \(deserts[indexPath.row].Preparationtime!)\n\t\t\t\t\tCalories: \(deserts[indexPath.row].Calories!)\n\t\t\t\t\tUnit price : \(deserts[indexPath.row].Unitprice)")
+            let normalString = NSMutableAttributedString(string: "\t\tPrep time: \(deserts[indexPath.row].Preparationtime!)\n\t\t\t\t\tCalories: \(deserts[indexPath.row].Calories!)\n\t\t\t\t\tUnit price : \(deserts[indexPath.row].Unitprice) \t\tID : \(deserts[indexPath.row].ID)")
             attributedString.append(normalString)
             cell.textLabel?.attributedText = attributedString
             
@@ -319,27 +323,143 @@ class admin_menuTableViewController: UITableViewController {
 //     Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            
+            
+            
+            
+            
+//
+//
+//
+//
+//
+//            guard let url = URL(string: "https://mobile-ios-backend.herokuapp.com/menu") else { return }
+//            var request = URLRequest(url: url)
+//            request.httpMethod = "DELETE"
+//            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//            guard let httpBody = try? JSONSerialization.data(withJSONObject: deserts[indexPath.row].ID, options: []) else { return }
+//            request.httpBody = httpBody
+//
+//            let session = URLSession.shared
+//            session.dataTask(with: request) { (data, response, error) in
+//                if let response = response {
+//                    print(response)
+//                }
+//
+//                if let data = data {
+//                    do {
+//                        let json = try JSONSerialization.jsonObject(with: data, options: [])
+//                        print(json)
+//
+//                    } catch {
+//                        print(error)
+//
+//                    }
+//                }
+//
+//                }.resume()
+//
+//
+            
+            
+            
+            
+            
+            
+            
 //             Delete the row from the data source
             if indexPath.section == 0
             {
-                drinks.remove(at: indexPath.row)
+                var s = String(drinks[indexPath.row].ID)
+                let firstTodoEndpoint: String = "https://mobile-ios-backend.herokuapp.com/menu/" + s
+                
+                var firstTodoUrlRequest = URLRequest(url: URL(string: firstTodoEndpoint)!)
+                firstTodoUrlRequest.httpMethod = "DELETE"
+                
+                let session = URLSession.shared
+                
+                let task = session.dataTask(with: firstTodoUrlRequest) {
+                    (data, response, error) in
+                    guard let _ = data else {
+                        print("error calling DELETE on /todos/1")
+                        return
+                    }
+                    print("DELETE ok")
+                }
+                task.resume()
+                
+                loadDrink()
                
-                tableView.reloadData()
             }
             if indexPath.section == 1
             {
-                appets.remove(at: indexPath.row)
-                tableView.reloadData()
+                var s = String(appets[indexPath.row].ID)
+                let firstTodoEndpoint: String = "https://mobile-ios-backend.herokuapp.com/menu/" + s
+                
+                var firstTodoUrlRequest = URLRequest(url: URL(string: firstTodoEndpoint)!)
+                firstTodoUrlRequest.httpMethod = "DELETE"
+                
+                let session = URLSession.shared
+                
+                let task = session.dataTask(with: firstTodoUrlRequest) {
+                    (data, response, error) in
+                    guard let _ = data else {
+                        print("error calling DELETE on /todos/1")
+                        return
+                    }
+                    print("DELETE ok")
+                }
+                task.resume()
+                
+                loadAppetizers()
+                
             }
             if indexPath.section == 2
             {
-                mains.remove(at: indexPath.row)
-                tableView.reloadData()
+                var s = String(mains[indexPath.row].ID)
+                let firstTodoEndpoint: String = "https://mobile-ios-backend.herokuapp.com/menu/" + s
+                
+                var firstTodoUrlRequest = URLRequest(url: URL(string: firstTodoEndpoint)!)
+                firstTodoUrlRequest.httpMethod = "DELETE"
+                
+                let session = URLSession.shared
+                
+                let task = session.dataTask(with: firstTodoUrlRequest) {
+                    (data, response, error) in
+                    guard let _ = data else {
+                        print("error calling DELETE on /todos/1")
+                        return
+                    }
+                    print("DELETE ok")
+                }
+                task.resume()
+                
+                loadMain()
+               
             }
             if indexPath.section == 3
             {
-                deserts.remove(at: indexPath.row)
-                tableView.reloadData()
+                
+                var s = String(deserts[indexPath.row].ID)
+                let firstTodoEndpoint: String = "https://mobile-ios-backend.herokuapp.com/menu/" + s
+                
+                var firstTodoUrlRequest = URLRequest(url: URL(string: firstTodoEndpoint)!)
+                firstTodoUrlRequest.httpMethod = "DELETE"
+
+                let session = URLSession.shared
+
+                let task = session.dataTask(with: firstTodoUrlRequest) {
+                    (data, response, error) in
+                    guard let _ = data else {
+                        print("error calling DELETE on /todos/1")
+                        return
+                    }
+                    print("DELETE ok")
+                }
+                task.resume()
+
+                loadDesert()
+                
             }
             
            
