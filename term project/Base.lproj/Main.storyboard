@@ -35,7 +35,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWi-CO-Qfd">
-                                <rect key="frame" x="67" y="282" width="241" height="30"/>
+                                <rect key="frame" x="145" y="444" width="241" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <state key="normal" title="Customer Login"/>
@@ -44,7 +44,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z27-o0-NDe">
-                                <rect key="frame" x="97" y="349" width="172" height="44"/>
+                                <rect key="frame" x="197" y="491" width="172" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <state key="normal" title="Admin Login"/>
@@ -52,6 +52,18 @@
                                     <segue destination="RFY-Mo-npA" kind="show" id="Lfe-2H-fjt"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="istock_000019639558_medium" translatesAutoresizingMaskIntoConstraints="NO" id="3QZ-ZG-VwA">
+                                <rect key="frame" x="0.0" y="73" width="375" height="330"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to BayLeaf !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQ5-rz-R0i">
+                                <rect key="frame" x="0.0" y="26" width="369" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="GillSans-SemiBoldItalic" family="Gill Sans" pointSize="36"/>
+                                <color key="textColor" red="0.99700453369999997" green="0.4079691687" blue="0.093890221349999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="xv3-92-cYM"/>
@@ -413,6 +425,9 @@
             <point key="canvasLocation" x="2320.8000000000002" y="99.400299850074973"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="istock_000019639558_medium" width="1696" height="1132"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ffl-Mr-Q2e"/>
     </inferredMetricsTieBreakers>
