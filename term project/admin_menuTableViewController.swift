@@ -238,15 +238,29 @@ class admin_menuTableViewController: UITableViewController {
   
         
         if indexPath.section == 0 {
-            
-           
           
             let attributedString = NSMutableAttributedString(string: "\( drinks[indexPath.row].Name ) \n ", attributes:attributes)
-            let normalString = NSMutableAttributedString(string: "Prep time :  \(drinks[indexPath.row].Preparationtime!)  \t Calories : \(drinks[indexPath.row].Calories!) \t Unit price :\(drinks[indexPath.row].Unitprice)")
+            let normalString = NSMutableAttributedString(string: "Prep time :  \(drinks[indexPath.row].Preparationtime!)  \t Calories : \(drinks[indexPath.row].Calories!) \t     Unit price :\(drinks[indexPath.row].Unitprice)")
             attributedString.append(normalString)
+            
+                // create our NSTextAttachment
+            let image1Attachment = NSTextAttachment()
+            image1Attachment.image = UIImage(named: "s1.png")
+            
+            let rect = CGRect(x: 0, y: 0, width: 40, height: 40)
+            
+            image1Attachment.bounds = rect
+            
+            // wrap the attachment in its own attributed string so we can append it
+            let image1String = NSAttributedString(attachment: image1Attachment)
+            
+             attributedString.append(image1String)
             
             
             cell.textLabel?.attributedText = attributedString
+            
+            
+            
         }
         if indexPath.section == 1 {
             
