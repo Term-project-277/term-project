@@ -295,8 +295,8 @@ class admin_menuTableViewController: UITableViewController {
             // wrap the attachment in its own attributed string so we can append it
             let image1String = NSAttributedString(attachment: image1Attachment)
             attributedString.append(image1String)
-            /*let normalString = NSMutableAttributedString(string: "\t\tPrep time: \(deserts[indexPath.row].Preparationtime!)\n\t\tCalories: \(deserts[indexPath.row].Calories!)\n\t\tUnit price : \(deserts[indexPath.row].Unitprice)")
-            attributedString.append(normalString)*/
+            let normalString = NSMutableAttributedString(string: "\t\tPrep time: \(deserts[indexPath.row].Preparationtime!)\n\t\t\t\t\tCalories: \(deserts[indexPath.row].Calories!)\n\t\t\t\t\tUnit price : \(deserts[indexPath.row].Unitprice)")
+            attributedString.append(normalString)
             cell.textLabel?.attributedText = attributedString
             
             
