@@ -234,7 +234,7 @@ class admin_menuTableViewController: UITableViewController {
         
         var attributes = [NSAttributedStringKey: AnyObject]()
         attributes[.foregroundColor] = UIColor.brown
-        attributes[.font] = UIFont.boldSystemFont(ofSize: 34) as AnyObject
+        attributes[.font] = UIFont.boldSystemFont(ofSize: 32) as AnyObject
   
         
         if indexPath.section == 0 {
