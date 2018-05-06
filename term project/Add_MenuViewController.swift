@@ -9,9 +9,12 @@
 import UIKit
 import NotificationBannerSwift
 
-class Add_MenuViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class Add_MenuViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,UIImagePickerControllerDelegate,
+UINavigationControllerDelegate {
 
-   
+    
+    @IBOutlet weak var imageView: UIImageView!
+    let picker = UIImagePickerController()
     let cats = ["Drink","Appetizer","MainCourse","Desert"]
     
     var parameters = ["Category": "Drink",
@@ -21,7 +24,7 @@ class Add_MenuViewController: UIViewController, UIPickerViewDataSource, UIPicker
                       "Preparationtime": 0
         ] as [String : Any]
     var sel =  false
-    
+    let imagePicker = UIImagePickerController()
     @IBOutlet var menu_name_text: UITextField!
     @IBOutlet var price: UITextField!
     @IBOutlet var prep: UITextField!
@@ -29,10 +32,48 @@ class Add_MenuViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     @IBOutlet var picker1: UIPickerView!
     
+    @IBAction func camera_button(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            picker.allowsEditing = false
+            picker.sourceType = UIImagePickerControllerSourceType.camera
+            picker.cameraCaptureMode = .photo
+            picker.modalPresentationStyle = .fullScreen
+            present(picker,animated: true,completion: nil)
+        } else {
+            noCamera()
+        }
+    }
+    
+    
+    
+    @IBAction func gallery_button(_ sender: Any) {
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .photoLibrary
+        
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         sel = false
+        imagePicker.delegate = self
+        //picker.delegate = self
     }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            imageView.contentMode = .scaleAspectFit
+            imageView.image = pickedImage
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -57,7 +98,7 @@ class Add_MenuViewController: UIViewController, UIPickerViewDataSource, UIPicker
         if  (sel == false) || menu_name_text.text! == "" || price.text! == ""
             || calories.text == "" || prep.text == ""{
             
-            let banner = NotificationBanner(title: "Error !!", subtitle: "Pls select all the 4 numbers", style: .danger)
+            let banner = NotificationBanner(title: "Error !!", subtitle: "Pls select all fields", style: .danger)
             banner.show()
         }
         
@@ -101,6 +142,41 @@ class Add_MenuViewController: UIViewController, UIPickerViewDataSource, UIPicker
         
         
     }
+    
+    
+    func noCamera(){
+        let alertVC = UIAlertController(
+            title: "No Camera",
+            message: "Sorry, this device has no camera",
+            preferredStyle: .alert)
+        let okAction = UIAlertAction(
+            title: "OK",
+            style:.default,
+            handler: nil)
+        alertVC.addAction(okAction)
+        present(
+            alertVC,
+            animated: true,
+            completion: nil)
+    }
+    
+    
+   
+    
+    /*func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        imageView.image = image
+        dismiss(animated:true, completion: nil)
+        var imageData = UIImageJPEGRepresentation(imageView.image!, 1)
+        var compressedJPGImage = UIImage(data: imageData!)
+        UIImageWriteToSavedPhotosAlbum(compressedJPGImage!, nil, nil, nil)
+        
+        var alert = UIAlertView(title: "Wow",
+                                message: "Your image has been saved to Photo Library!",
+                                delegate: nil,
+                                cancelButtonTitle: "Ok")
+        alert.show()
+    }*/
     
     /*
     // MARK: - Navigation
