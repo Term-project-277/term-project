@@ -20,13 +20,16 @@ class DetailsViewController: UIViewController {
     @IBOutlet var category_label: UILabel!
     @IBOutlet var calories_label: UILabel!
     
+    @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if selected_section == 0
         {
-            name_label.text = drinks[selected_row].Name
+            var name = drinks[selected_row].Name
+            imageView.image = UIImage(named: name)
+            name_label.text = name
             price_label.text = String( drinks[selected_row].Unitprice )
             prep_time_label.text = String(drinks[selected_row].Preparationtime!)
             calories_label.text = String(drinks[selected_row].Calories!)
@@ -35,15 +38,19 @@ class DetailsViewController: UIViewController {
         
         if selected_section == 1
         {
-            name_label.text = appets[selected_row].Name
-            price_label.text = String( appets[selected_row].Unitprice )
+            var name = appets[selected_row].Name
+            imageView.image = UIImage(named: name)
+            name_label.text = name
+            price_label.text =  String( appets[selected_row].Unitprice )
             prep_time_label.text = String(appets[selected_row].Preparationtime!)
             calories_label.text = String(appets[selected_row].Calories!)
             category_label.text = "Appetizers"
         }
         if selected_section == 2
         {
-            name_label.text = mains[selected_row].Name
+            var name = mains[selected_row].Name
+            imageView.image = UIImage(named: name)
+            name_label.text = name
             price_label.text = String( mains[selected_row].Unitprice )
             prep_time_label.text = String(mains[selected_row].Preparationtime!)
             calories_label.text = String(mains[selected_row].Calories!)
@@ -51,7 +58,9 @@ class DetailsViewController: UIViewController {
         }
         if selected_section == 3
         {
-            name_label.text = deserts[selected_row].Name
+            var name = deserts[selected_row].Name
+            imageView.image = UIImage(named: name)
+            name_label.text = name
             price_label.text = String( deserts[selected_row].Unitprice )
             prep_time_label.text = String(deserts[selected_row].Preparationtime!)
             calories_label.text = String(deserts[selected_row].Calories!)
