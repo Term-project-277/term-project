@@ -239,56 +239,64 @@ class admin_menuTableViewController: UITableViewController {
         
         if indexPath.section == 0 {
           
-            let attributedString = NSMutableAttributedString(string: "\( drinks[indexPath.row].Name ) \n ", attributes:attributes)
-            let normalString = NSMutableAttributedString(string: "Prep time :  \(drinks[indexPath.row].Preparationtime!)  \t Calories : \(drinks[indexPath.row].Calories!) \t     Unit price :\(drinks[indexPath.row].Unitprice)")
-            attributedString.append(normalString)
-            
-                // create our NSTextAttachment
+            let attributedString = NSMutableAttributedString(string: "\( drinks[indexPath.row].Name )\n", attributes:attributes)
             let image1Attachment = NSTextAttachment()
-            image1Attachment.image = UIImage(named: "s1.png")
-            
-            let rect = CGRect(x: 0, y: 0, width: 40, height: 40)
-            
+            image1Attachment.image = UIImage(named: "\(drinks[indexPath.row].Name).jpg")
+            let rect = CGRect(x: 0, y: 0, width: 100, height: 100)
             image1Attachment.bounds = rect
-            
             // wrap the attachment in its own attributed string so we can append it
             let image1String = NSAttributedString(attachment: image1Attachment)
-            
-             attributedString.append(image1String)
-            
-            
-            cell.textLabel?.attributedText = attributedString
-            
-            
-            
-        }
-        if indexPath.section == 1 {
-            
-          
-            
-         let attributedString = NSMutableAttributedString(string: "\( appets[indexPath.row].Name ) \n ", attributes:attributes)
-            let normalString = NSMutableAttributedString(string: "Prep time :  \(appets[indexPath.row].Preparationtime!)  \t Calories : \(appets[indexPath.row].Calories!) \t Unit price :\(appets[indexPath.row].Unitprice)")
+            attributedString.append(image1String)
+            let normalString = NSMutableAttributedString(string: "\t\tPrep time: \(drinks[indexPath.row].Preparationtime!)\n\t\t\t\t\tCalories: \(drinks[indexPath.row].Calories!)\n\t\t\t\t\tUnit price: \(drinks[indexPath.row].Unitprice)")
             attributedString.append(normalString)
             
-           cell.textLabel?.attributedText = attributedString
+            // create our NSTextAttachment
+            
+            cell.textLabel?.attributedText = attributedString
+        }
+        if indexPath.section == 1 {
+         let attributedString = NSMutableAttributedString(string: "\( appets[indexPath.row].Name )\n ", attributes:attributes)
+            var name:String = "\(appets[indexPath.row].Name)"
+            let image1Attachment = NSTextAttachment()
+            image1Attachment.image = UIImage(named: "\(name).jpg")
+            let rect = CGRect(x: 0, y: 0, width: 100, height: 100)
+            image1Attachment.bounds = rect
+            // wrap the attachment in its own attributed string so we can append it
+            let image1String = NSAttributedString(attachment: image1Attachment)
+            attributedString.append(image1String)
+            let normalString = NSMutableAttributedString(string: "\t\tPrep time: \(appets[indexPath.row].Preparationtime!)\n\t\t\t\t\tCalories: \(appets[indexPath.row].Calories!)\n\t\t\t\t\tUnit price : \(appets[indexPath.row].Unitprice)")
+            attributedString.append(normalString)
+            cell.textLabel?.attributedText = attributedString
         }
         if indexPath.section == 2 {
             
-             let attributedString = NSMutableAttributedString(string: "\( mains[indexPath.row].Name ) \n ", attributes:attributes)
-            
-            let normalString = NSMutableAttributedString(string: "Prep time :  \(mains[indexPath.row].Preparationtime!)  \t Calories : \(mains[indexPath.row].Calories!) \t Unit price :\(mains[indexPath.row].Unitprice)")
+             let attributedString = NSMutableAttributedString(string: "\( mains[indexPath.row].Name )\n ", attributes:attributes)
+            let image1Attachment = NSTextAttachment()
+            image1Attachment.image = UIImage(named:"\(mains[indexPath.row].Name).jpg")
+            let rect = CGRect(x: 0, y: 0, width: 100, height: 100)
+            image1Attachment.bounds = rect
+            // wrap the attachment in its own attributed string so we can append it
+            let image1String = NSAttributedString(attachment: image1Attachment)
+            attributedString.append(image1String)
+            let normalString = NSMutableAttributedString(string: "\t\tPrep time: \(mains[indexPath.row].Preparationtime!)\n\t\t\t\t\tCalories: \(mains[indexPath.row].Calories!)\n\t\t\t\t\tUnit price : \(mains[indexPath.row].Unitprice)")
             attributedString.append(normalString)
-            
             cell.textLabel?.attributedText = attributedString
-            
             
         }
         if indexPath.section == 3 {
             
-             let attributedString = NSMutableAttributedString(string: "\( deserts[indexPath.row].Name ) \n ", attributes:attributes)
-            let normalString = NSMutableAttributedString(string: "Prep time :  \(deserts[indexPath.row].Preparationtime!)  \t Calories : \(deserts[indexPath.row].Calories!) \t Unit price :\(deserts[indexPath.row].Unitprice)")
-            attributedString.append(normalString)
-            
+             let attributedString = NSMutableAttributedString(string: "\(deserts[indexPath.row].Name)\n ", attributes:attributes)
+            /*let normalString = NSMutableAttributedString(string: "Prep time: \(deserts[indexPath.row].Preparationtime!)\n\t\t\t\t\tCalories: \(deserts[indexPath.row].Calories!)\n\t\t\t\t\tUnit price: \(deserts[indexPath.row].Unitprice)")
+            attributedString.append(normalString)*/
+            let image1Attachment = NSTextAttachment()
+            image1Attachment.image = UIImage(named: "\(deserts[indexPath.row].Name).jpg")
+            let rect = CGRect(x: 0, y: 0, width: 100, height: 100)
+            image1Attachment.bounds = rect
+            // wrap the attachment in its own attributed string so we can append it
+            let image1String = NSAttributedString(attachment: image1Attachment)
+            attributedString.append(image1String)
+            /*let normalString = NSMutableAttributedString(string: "\t\tPrep time: \(deserts[indexPath.row].Preparationtime!)\n\t\tCalories: \(deserts[indexPath.row].Calories!)\n\t\tUnit price : \(deserts[indexPath.row].Unitprice)")
+            attributedString.append(normalString)*/
             cell.textLabel?.attributedText = attributedString
             
             
