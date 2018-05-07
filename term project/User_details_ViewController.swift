@@ -8,7 +8,7 @@
 
 import UIKit
 var sel = false
-class User_details_ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class User_details_ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -18,8 +18,8 @@ class User_details_ViewController: UIViewController, UIPickerViewDelegate, UIPic
     }
     
     // The data to return for the row and component (column) that's being passed in
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        var s:String = pickerData[row]
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
         return pickerData[row]
     }
 
@@ -38,7 +38,7 @@ class User_details_ViewController: UIViewController, UIPickerViewDelegate, UIPic
         super.viewDidLoad()
         self.quantityPicker.delegate = self
         self.quantityPicker.dataSource = self
-        pickerData = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"]
+        pickerData = ["1", "2", "3", "4", "5"]
         
         if selected_section == 0
         {
