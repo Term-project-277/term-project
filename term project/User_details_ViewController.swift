@@ -7,8 +7,17 @@
 //
 
 import UIKit
-var sel = false
-class User_details_ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+import NotificationBannerSwift
+
+class User_details_ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    var quantity:Int = 0
+    var name:String = ""
+    var price:Double = 0.0
+    var category:String = ""
+    var calories:Int = 0
+    var isSelected:Bool = false
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -18,14 +27,30 @@ class User_details_ViewController: UIViewController, UIPickerViewDelegate, UIPic
     }
     
     // The data to return for the row and component (column) that's being passed in
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        var s:String = pickerData[row]
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
         return pickerData[row]
     }
 
-    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+    {
+        isSelected = true
+        quantity = row + 1
+    }
     
    
+    @IBAction func addToCart_button(_ sender: Any) {
+        print(quantity)
+        print(name)
+        print(price)
+        print(category)
+        print(calories)
+        if(!isSelected){
+        let banner = NotificationBanner(title: "Please select the quantity!", subtitle: "", style: .danger)
+        banner.show()
+        }
+        
+    }
     
     
     @IBOutlet weak var calories_label: UILabel!
@@ -38,44 +63,56 @@ class User_details_ViewController: UIViewController, UIPickerViewDelegate, UIPic
         super.viewDidLoad()
         self.quantityPicker.delegate = self
         self.quantityPicker.dataSource = self
-        pickerData = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"]
+        pickerData = ["1", "2", "3", "4", "5"]
         
         if selected_section == 0
         {
-            var name = drinks[selected_row].Name
-            imageView.image = UIImage(named: name)
+            name = drinks[selected_row].Name
+            price = drinks[selected_row].Unitprice
+            calories = drinks[selected_row].Calories!
             name_label.text = name
-            price_label.text = String( drinks[selected_row].Unitprice )
-            calories_label.text = String(drinks[selected_row].Calories!)
-            category_label.text = "Drinks"
+            category = "Drinks"
+            imageView.image = UIImage(named: name)
+            price_label.text = String(price)
+            calories_label.text = String(calories)
+            category_label.text = category
         }
         
         if selected_section == 1
         {
-            var name = appets[selected_row].Name
-            imageView.image = UIImage(named: name)
+            name = appets[selected_row].Name
+            price = appets[selected_row].Unitprice
+            calories = appets[selected_row].Calories!
             name_label.text = name
-            price_label.text =  String( appets[selected_row].Unitprice )
-            calories_label.text = String(appets[selected_row].Calories!)
-            category_label.text = "Appetizers"
+            category = "Appetizers"
+            imageView.image = UIImage(named: name)
+            price_label.text = String(price)
+            calories_label.text = String(calories)
+            category_label.text = category
         }
         if selected_section == 2
         {
-            var name = mains[selected_row].Name
-            imageView.image = UIImage(named: name)
+            name = mains[selected_row].Name
+            price = mains[selected_row].Unitprice
+            calories = mains[selected_row].Calories!
             name_label.text = name
-            price_label.text = String( mains[selected_row].Unitprice )
-            calories_label.text = String(mains[selected_row].Calories!)
-            category_label.text = "Main Course"
+            category = "Main Course"
+            imageView.image = UIImage(named: name)
+            price_label.text = String(price)
+            calories_label.text = String(calories)
+            category_label.text = category
         }
         if selected_section == 3
         {
-            var name = deserts[selected_row].Name
-            imageView.image = UIImage(named: name)
+            name = deserts[selected_row].Name
+            price = deserts[selected_row].Unitprice
+            calories = deserts[selected_row].Calories!
             name_label.text = name
-            price_label.text = String( deserts[selected_row].Unitprice )
-            calories_label.text = String(deserts[selected_row].Calories!)
-            category_label.text = "Deserts"
+            category = "Deserts"
+            imageView.image = UIImage(named: name)
+            price_label.text = String(price)
+            calories_label.text = String(calories)
+            category_label.text = category
         }
         
 
