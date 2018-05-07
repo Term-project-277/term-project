@@ -150,8 +150,47 @@ class User_menu_TableViewController: UITableViewController {
         return 0
     }
     
+    
+    @objc func buttonClicked(sender:UIButton)
+    {
+        if(sender.tag == 1){
+            
+            print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+            
+            sender.backgroundColor = UIColor.brown
+            
+            //Do something for tag 1
+        }
+        
+        
+        var o = "select how you want to sort!!! "
+        let alert = UIAlertController(title: o, message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Price", style: .default, handler: { action in self.sort_price() } ))
+        alert.addAction(UIAlertAction(title: "Popularity", style: .default, handler: { action in self.sort_popularity() } ))
+        alert.addAction(UIAlertAction(title: "Name", style: .default, handler: { action in self.sort_name() } ))
+        
+         self.present(alert, animated: true)
+        
+        print("buttonClicked")
+    }
+    
+    func sort_price()  {
+        print("sorting by price")
+    }
+    
+    func sort_popularity() {
+        print("sorting by popularity")
+    }
+    
+    func sort_name()  {
+        print("sorting by name")
+    }
+    
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let label = UILabel()
+       
+        
+         let rect111 = CGRect(x: 0, y: 10, width: 300, height: 40)
+        let label = UILabel(frame: rect111)
         
         if section == 0 {
             label.text = "Drink"
@@ -167,11 +206,45 @@ class User_menu_TableViewController: UITableViewController {
         }
         
         label.font = label.font.withSize(40)
-        label.textColor = UIColor.white
-        label.backgroundColor = #colorLiteral(red: 0.1215686277, green: 0.01176470611, blue: 0.4235294163, alpha: 1)
-        return label
+        label.textColor = UIColor.black
+        label.backgroundColor =  #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+        
+
+      let rect = CGRect(x: 300, y: 10, width: 100, height: 40)
+        
+        
+        
+        let frame = tableView.frame
+        let button = UIButton(frame: rect)
+        button.tag = section
+     
+        var image:UIImage!
+    
+
+        button.setImage(UIImage(named: "connect-arrow-up-down-7.png"), for: UIControlState.normal)
+       
+      
+        button.addTarget(self,action:#selector(buttonClicked),for:.touchUpInside)
+        
+         let rect1 = CGRect(x: 300, y: 0, width: frame.width, height: frame.height)
+        let headerView = UIView(frame: rect)
+        headerView.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+        
+        headerView.addSubview(label)
+        
+         headerView.addSubview(button)
+        
+        return headerView
         
     }
+    
+    
+    // height of the section
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CGFloat(60)
+    }
+    
+  
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)

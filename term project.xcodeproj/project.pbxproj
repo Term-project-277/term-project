@@ -11,6 +11,8 @@
 		9934E1A9209FD25800C486EE /* User_menu_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9934E1A8209FD25800C486EE /* User_menu_TableViewController.swift */; };
 		9934E1AC209FE32000C486EE /* shopping-cart.png in Resources */ = {isa = PBXBuildFile; fileRef = 9934E1AB209FE31F00C486EE /* shopping-cart.png */; };
 		9934E1AE209FE59C00C486EE /* User_details_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9934E1AD209FE59C00C486EE /* User_details_ViewController.swift */; };
+		9934E1B020A02D2800C486EE /* arrow-big-12.png in Resources */ = {isa = PBXBuildFile; fileRef = 9934E1AF20A02D2800C486EE /* arrow-big-12.png */; };
+		9934E1B220A02F1400C486EE /* connect-arrow-up-down-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 9934E1B120A02F1300C486EE /* connect-arrow-up-down-7.png */; };
 		994692D8209CEE57004D2DDB /* Add_MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994692D7209CEE57004D2DDB /* Add_MenuViewController.swift */; };
 		994CB7F22099116A000E5208 /* admin_menuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994CB7F12099116A000E5208 /* admin_menuTableViewController.swift */; };
 		994CB7F420992B40000E5208 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994CB7F320992B40000E5208 /* DetailsViewController.swift */; };
@@ -55,6 +57,8 @@
 		9934E1A8209FD25800C486EE /* User_menu_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User_menu_TableViewController.swift; sourceTree = "<group>"; };
 		9934E1AB209FE31F00C486EE /* shopping-cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shopping-cart.png"; sourceTree = "<group>"; };
 		9934E1AD209FE59C00C486EE /* User_details_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User_details_ViewController.swift; sourceTree = "<group>"; };
+		9934E1AF20A02D2800C486EE /* arrow-big-12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-big-12.png"; sourceTree = "<group>"; };
+		9934E1B120A02F1300C486EE /* connect-arrow-up-down-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connect-arrow-up-down-7.png"; sourceTree = "<group>"; };
 		994692D7209CEE57004D2DDB /* Add_MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Add_MenuViewController.swift; sourceTree = "<group>"; };
 		994CB7F12099116A000E5208 /* admin_menuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = admin_menuTableViewController.swift; sourceTree = "<group>"; };
 		994CB7F320992B40000E5208 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +124,8 @@
 		9934E1AA209FE2FA00C486EE /* pics */ = {
 			isa = PBXGroup;
 			children = (
+				9934E1AF20A02D2800C486EE /* arrow-big-12.png */,
+				9934E1B120A02F1300C486EE /* connect-arrow-up-down-7.png */,
 				9934E1AB209FE31F00C486EE /* shopping-cart.png */,
 			);
 			name = pics;
@@ -312,7 +318,9 @@
 			files = (
 				996DA37B2090178D00C7E4E6 /* LaunchScreen.storyboard in Resources */,
 				996DA3782090178D00C7E4E6 /* Assets.xcassets in Resources */,
+				9934E1B220A02F1400C486EE /* connect-arrow-up-down-7.png in Resources */,
 				99618B2E20924DFF00B359F9 /* client_868442633715-a9elkntjjet7hsvvdlas1fjmrrck01c8.apps.googleusercontent.com.plist in Resources */,
+				9934E1B020A02D2800C486EE /* arrow-big-12.png in Resources */,
 				996DA3762090178900C7E4E6 /* Main.storyboard in Resources */,
 				9934E1AC209FE32000C486EE /* shopping-cart.png in Resources */,
 			);
