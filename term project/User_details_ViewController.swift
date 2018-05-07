@@ -7,15 +7,38 @@
 //
 
 import UIKit
+var sel = false
+class User_details_ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    // The data to return for the row and component (column) that's being passed in
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        var s:String = pickerData[row]
+        return pickerData[row]
+    }
 
-class User_details_ViewController: UIViewController {
-
+    
+    
+   
+    
+    
     @IBOutlet weak var calories_label: UILabel!
     @IBOutlet weak var price_label: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var name_label: UILabel!
+    @IBOutlet weak var quantityPicker: UIPickerView!
+    var pickerData: [String] = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.quantityPicker.delegate = self
+        self.quantityPicker.dataSource = self
+        pickerData = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"]
         
         if selected_section == 0
         {
@@ -54,14 +77,15 @@ class User_details_ViewController: UIViewController {
             calories_label.text = String(deserts[selected_row].Calories!)
             category_label.text = "Deserts"
         }
+        
 
         // Do any additional setup after loading the view.
     }
     @IBOutlet weak var category_label: UILabel!
     
-   
     
-
+    
+    
     /*
     // MARK: - Navigation
 
