@@ -24,6 +24,7 @@
 		996DA37B2090178D00C7E4E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 996DA3792090178D00C7E4E6 /* LaunchScreen.storyboard */; };
 		996DA3862090178D00C7E4E6 /* term_projectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996DA3852090178D00C7E4E6 /* term_projectTests.swift */; };
 		996DA3912090178D00C7E4E6 /* term_projectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996DA3902090178D00C7E4E6 /* term_projectUITests.swift */; };
+		99C0823220A102BD00AC955D /* Cart_items_user_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C0823120A102BD00AC955D /* Cart_items_user_TableViewController.swift */; };
 		B11B09A31901D080ADE3DF52 /* Pods_term_projectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7209BCD5ADF394D4B6F69396 /* Pods_term_projectUITests.framework */; };
 		BA088DA8CE5DD530C4BA4986 /* Pods_term_projectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A521B212970E738F24ECD7B4 /* Pods_term_projectTests.framework */; };
 		C057CB2C209E308700E56177 /* WelcomeSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C057CB2B209E308700E56177 /* WelcomeSignInViewController.swift */; };
@@ -76,6 +77,7 @@
 		996DA38C2090178D00C7E4E6 /* term projectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "term projectUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		996DA3902090178D00C7E4E6 /* term_projectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = term_projectUITests.swift; sourceTree = "<group>"; };
 		996DA3922090178D00C7E4E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		99C0823120A102BD00AC955D /* Cart_items_user_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart_items_user_TableViewController.swift; sourceTree = "<group>"; };
 		A521B212970E738F24ECD7B4 /* Pods_term_projectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_term_projectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7193FEBF27E997FD1C4E74B /* Pods-term project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-term project.release.xcconfig"; path = "Pods/Target Support Files/Pods-term project/Pods-term project.release.xcconfig"; sourceTree = "<group>"; };
 		C057CB2B209E308700E56177 /* WelcomeSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeSignInViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				9934E1AA209FE2FA00C486EE /* pics */,
 				996DA3702090178900C7E4E6 /* AppDelegate.swift */,
 				996DA3722090178900C7E4E6 /* ViewController.swift */,
+				99C0823120A102BD00AC955D /* Cart_items_user_TableViewController.swift */,
 				996DA3742090178900C7E4E6 /* Main.storyboard */,
 				996DA3772090178D00C7E4E6 /* Assets.xcassets */,
 				996DA3792090178D00C7E4E6 /* LaunchScreen.storyboard */,
@@ -467,6 +470,7 @@
 				C057CB2E209E363000E56177 /* AdminLoginViewController.swift in Sources */,
 				9934E1A9209FD25800C486EE /* User_menu_TableViewController.swift in Sources */,
 				9934E1AE209FE59C00C486EE /* User_details_ViewController.swift in Sources */,
+				99C0823220A102BD00AC955D /* Cart_items_user_TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

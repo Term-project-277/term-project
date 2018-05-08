@@ -606,7 +606,7 @@
                                     <barButtonItem key="rightBarButtonItem" title="Item" image="shopping-cart.png" id="D0A-gG-ZSl">
                                         <color key="tintColor" red="1" green="0.5409764051" blue="0.84731429820000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <segue destination="70K-rW-ufz" kind="show" id="zP9-wa-MvC"/>
+                                            <segue destination="BIs-Db-1o2" kind="show" id="68e-B8-CQe"/>
                                         </connections>
                                     </barButtonItem>
                                 </navigationItem>
@@ -766,6 +766,45 @@
             </objects>
             <point key="canvasLocation" x="900" y="909.89505247376314"/>
         </scene>
+        <!--Cart items user Table View Controller-->
+        <scene sceneID="T36-HO-PQ4">
+            <objects>
+                <tableViewController id="BIs-Db-1o2" customClass="Cart_items_user_TableViewController" customModule="term_project" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="VpX-Vq-GYE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="yF3-iy-t3d">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <navigationItem title="Cart Items" id="6gG-T1-eyd">
+                                    <barButtonItem key="rightBarButtonItem" title="Place order" style="done" id="O3R-DQ-wOD">
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </barButtonItem>
+                                </navigationItem>
+                            </items>
+                        </navigationBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="26" id="uKV-TI-YJc">
+                                <rect key="frame" x="0.0" y="72" width="375" height="26"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uKV-TI-YJc" id="7eG-4d-URA">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="25.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="BIs-Db-1o2" id="uXc-hE-Ae8"/>
+                            <outlet property="delegate" destination="BIs-Db-1o2" id="4kc-xc-h2v"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dnR-Dd-53z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1837.5999999999999" y="928.78560719640188"/>
+        </scene>
         <!--Add Menu View Controller-->
         <scene sceneID="KjX-VU-La5">
             <objects>
@@ -801,7 +840,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EdU-gC-siy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1681" y="910"/>
+            <point key="canvasLocation" x="3284" y="967"/>
         </scene>
     </scenes>
     <resources>
@@ -813,6 +852,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="rkV-Xe-Sab"/>
-        <segue reference="Ebn-y5-5dG"/>
+        <segue reference="ffl-Mr-Q2e"/>
     </inferredMetricsTieBreakers>
 </document>

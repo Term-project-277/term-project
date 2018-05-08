@@ -153,37 +153,159 @@ class User_menu_TableViewController: UITableViewController {
     
     @objc func buttonClicked(sender:UIButton)
     {
-        if(sender.tag == 1){
-            
-            print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
-            
-            sender.backgroundColor = UIColor.brown
-            
-            //Do something for tag 1
-        }
-        
         
         var o = "select how you want to sort!!! "
         let alert = UIAlertController(title: o, message: "", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Price", style: .default, handler: { action in self.sort_price() } ))
-        alert.addAction(UIAlertAction(title: "Popularity", style: .default, handler: { action in self.sort_popularity() } ))
-        alert.addAction(UIAlertAction(title: "Name", style: .default, handler: { action in self.sort_name() } ))
+        
+        if(sender.tag == 0){
+            
+            print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+            var pr1 = "https://mobile-ios-backend.herokuapp.com/menu/Drink/Price"
+            var n1 = "https://mobile-ios-backend.herokuapp.com/menu/Drink/Name"
+            
+            
+            alert.addAction(UIAlertAction(title: "Price", style: .default, handler: { action in self.sort_price(x: pr1 , y: sender.tag) } ))
+            alert.addAction(UIAlertAction(title: "Popularity", style: .default, handler: { action in self.sort_popularity() } ))
+            alert.addAction(UIAlertAction(title: "Name", style: .default, handler: { action in self.sort_name( x: n1 , y: sender.tag) } ))
+        }
+        
+        if(sender.tag == 1){
+            
+            print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+            var pr1 = "https://mobile-ios-backend.herokuapp.com/menu/Appetizer/Price"
+            var n1 = "https://mobile-ios-backend.herokuapp.com/menu/Appetizer/Name"
+            
+            
+            alert.addAction(UIAlertAction(title: "Price", style: .default, handler: { action in self.sort_price(x: pr1 , y: sender.tag) } ))
+            alert.addAction(UIAlertAction(title: "Popularity", style: .default, handler: { action in self.sort_popularity() } ))
+            alert.addAction(UIAlertAction(title: "Name", style: .default, handler: { action in self.sort_name( x: n1 , y: sender.tag) } ))
+        }
+        
+        if(sender.tag == 2){
+            
+            print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+            var pr1 = "https://mobile-ios-backend.herokuapp.com/menu/MainCourse/Price"
+            var n1 = "https://mobile-ios-backend.herokuapp.com/menu/MainCourse/Name"
+            
+            
+            alert.addAction(UIAlertAction(title: "Price", style: .default, handler: { action in self.sort_price(x: pr1 , y: sender.tag) } ))
+            alert.addAction(UIAlertAction(title: "Popularity", style: .default, handler: { action in self.sort_popularity() } ))
+            alert.addAction(UIAlertAction(title: "Name", style: .default, handler: { action in self.sort_name( x: n1 , y: sender.tag) } ))
+        }
+        
+        if(sender.tag == 3){
+            
+            print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+            var pr1 = "https://mobile-ios-backend.herokuapp.com/menu/Desert/Price"
+            var n1 = "https://mobile-ios-backend.herokuapp.com/menu/Desert/Name"
+            
+            
+            alert.addAction(UIAlertAction(title: "Price", style: .default, handler: { action in self.sort_price(x: pr1 , y: sender.tag) } ))
+            alert.addAction(UIAlertAction(title: "Popularity", style: .default, handler: { action in self.sort_popularity() } ))
+            alert.addAction(UIAlertAction(title: "Name", style: .default, handler: { action in self.sort_name( x: n1 , y: sender.tag) } ))
+        }
+        
+        
+        
+        
         
          self.present(alert, animated: true)
         
         print("buttonClicked")
     }
     
-    func sort_price()  {
+    func sort_price( x : String , y : Int)  {
         print("sorting by price")
+        
+        //https://mobile-ios-backend.herokuapp.com/menu/MainCourse/Price
+        
+        
+        let jsonurl = x
+        let url = URL(string: jsonurl )
+        
+        print(url )
+        
+        URLSession.shared.dataTask(with: url!) { (data, resp, err) in
+            
+            do {
+                
+                if( y == 0)
+                {
+                   drinks = try JSONDecoder().decode([drink].self, from: data!)
+                }
+                if( y == 1)
+                {
+                    appets = try JSONDecoder().decode([appet].self, from: data!)
+                }
+                if( y == 2)
+                {
+                    mains = try JSONDecoder().decode([main].self, from: data!)
+                }
+                if( y == 3)
+                {
+                    deserts = try JSONDecoder().decode([desert].self, from: data!)
+                }
+                
+             
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    // your code here
+                    self.tableView.reloadData()
+                }
+                
+            }
+            catch{
+                print(err)
+            }
+            
+            }.resume()
     }
     
     func sort_popularity() {
         print("sorting by popularity")
     }
     
-    func sort_name()  {
+    func sort_name(  x : String , y : Int )  {
         print("sorting by name")
+        
+        
+        let jsonurl = x
+        let url = URL(string: jsonurl )
+        
+        print(url )
+        
+        URLSession.shared.dataTask(with: url!) { (data, resp, err) in
+            
+            do {
+                if( y == 0)
+                {
+                    drinks = try JSONDecoder().decode([drink].self, from: data!)
+                }
+                if( y == 1)
+                {
+                    appets = try JSONDecoder().decode([appet].self, from: data!)
+                }
+                if( y == 2)
+                {
+                    mains = try JSONDecoder().decode([main].self, from: data!)
+                }
+                if( y == 3)
+                {
+                    deserts = try JSONDecoder().decode([desert].self, from: data!)
+                }
+                
+                
+                DispatchQueue.main.async {
+                     self.tableView.reloadData()
+                }
+               
+               
+            }
+            catch{
+                print(err)
+            }
+            
+            }.resume()
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

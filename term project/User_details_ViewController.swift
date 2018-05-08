@@ -17,6 +17,7 @@ class User_details_ViewController: UIViewController, UIPickerViewDataSource, UIP
     var category:String = ""
     var calories:Int = 0
     var isSelected:Bool = false
+    var MenuID: Int = 0
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -49,6 +50,51 @@ class User_details_ViewController: UIViewController, UIPickerViewDataSource, UIP
         let banner = NotificationBanner(title: "Please select the quantity!", subtitle: "", style: .danger)
         banner.show()
         }
+        else
+        {
+            
+            var parameters = ["User": "shweta",
+                              "MenuID":  0,
+                              "Quantity": 0,
+                ] as [String : Any]
+            
+            
+            
+            parameters["MenuID"] = MenuID
+            parameters["Quantity"] = quantity
+            
+            // put call on cart
+            
+            
+            guard let url = URL(string: "https://mobile-ios-backend.herokuapp.com/cart/") else { return }
+            var request = URLRequest(url: url)
+            request.httpMethod = "PUT"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
+            request.httpBody = httpBody
+            
+            let session = URLSession.shared
+            session.dataTask(with: request) { (data, response, error) in
+                if let response = response {
+                    print(response)
+                }
+                
+                if let data = data {
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: data, options: [])
+                        print(json)
+                        
+                        let banner = NotificationBanner(title: "\(self.quantity) \(self.name) added to cart successfully! ", subtitle: "", style: .danger)
+                        banner.show()
+                        
+                    } catch {
+                        print(error)
+                        
+                    }
+                }
+                
+                }.resume()
+        }
         
     }
     
@@ -67,6 +113,7 @@ class User_details_ViewController: UIViewController, UIPickerViewDataSource, UIP
         
         if selected_section == 0
         {
+             MenuID = drinks[selected_row].ID
             name = drinks[selected_row].Name
             price = drinks[selected_row].Unitprice
             calories = drinks[selected_row].Calories!
@@ -80,6 +127,7 @@ class User_details_ViewController: UIViewController, UIPickerViewDataSource, UIP
         
         if selected_section == 1
         {
+             MenuID = appets[selected_row].ID
             name = appets[selected_row].Name
             price = appets[selected_row].Unitprice
             calories = appets[selected_row].Calories!
@@ -92,6 +140,7 @@ class User_details_ViewController: UIViewController, UIPickerViewDataSource, UIP
         }
         if selected_section == 2
         {
+             MenuID = mains[selected_row].ID
             name = mains[selected_row].Name
             price = mains[selected_row].Unitprice
             calories = mains[selected_row].Calories!
@@ -104,6 +153,7 @@ class User_details_ViewController: UIViewController, UIPickerViewDataSource, UIP
         }
         if selected_section == 3
         {
+             MenuID = deserts[selected_row].ID
             name = deserts[selected_row].Name
             price = deserts[selected_row].Unitprice
             calories = deserts[selected_row].Calories!
