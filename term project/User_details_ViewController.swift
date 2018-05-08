@@ -52,8 +52,8 @@ class User_details_ViewController: UIViewController, UIPickerViewDataSource, UIP
         }
         else
         {
-            
-            var parameters = ["User": "shweta",
+          
+            var parameters = ["User": "shwetha@gmail.com",
                               "MenuID":  0,
                               "Quantity": 0,
                 ] as [String : Any]
