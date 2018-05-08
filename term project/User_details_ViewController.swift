@@ -53,7 +53,7 @@ class User_details_ViewController: UIViewController, UIPickerViewDataSource, UIP
         else
         {
           
-            var parameters = ["User": "shwetha@gmail.com",
+            var parameters = [
                               "MenuID":  0,
                               "Quantity": 0,
                 ] as [String : Any]
@@ -66,7 +66,7 @@ class User_details_ViewController: UIViewController, UIPickerViewDataSource, UIP
             // put call on cart
             
             
-            guard let url = URL(string: "https://mobile-ios-backend.herokuapp.com/cart/") else { return }
+            guard let url = URL(string: "https://mobile-ios-backend.herokuapp.com/cart/shwetha@gmail.com") else { return }
             var request = URLRequest(url: url)
             request.httpMethod = "PUT"
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
