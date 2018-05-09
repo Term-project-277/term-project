@@ -861,6 +861,7 @@
         <image name="shopping-cart.png" width="29" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="xP1-HZ-dfw"/>
         <segue reference="rkV-Xe-Sab"/>
         <segue reference="ffl-Mr-Q2e"/>
     </inferredMetricsTieBreakers>

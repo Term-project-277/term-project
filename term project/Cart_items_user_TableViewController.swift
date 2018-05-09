@@ -81,12 +81,20 @@ class Cart_items_user_TableViewController: UITableViewController {
 //         Configure the cell...
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
-        
-        cell.textLabel?.numberOfLines = 0
-        
+        cell.textLabel?.numberOfLines = 2
         
         //Unitprice
-        cell.textLabel?.text = " \(items[indexPath.row].Name) \t\t\t  \(items[indexPath.row].Quantity) \t\t  \(items[indexPath.row].Unitprice)"
+        var text = "\(items[indexPath.row].Name)"
+        var count =  text.count
+        var diff = 20 - count
+        if(diff > 0){
+        for index in 1...diff
+        {
+            text += "  "
+            }
+        }
+        
+        cell.textLabel?.text = "\(text)\(items[indexPath.row].Quantity)\t\t\t\t\(items[indexPath.row].Unitprice)"
 
        
         return cell
@@ -95,8 +103,8 @@ class Cart_items_user_TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let label = UILabel()
-        label.text = "Name \t \t \t \t Quantity \t\t Price"
-        label.font = label.font.withSize(30)
+        label.text = "Name\t\t\t  Quantity\t  Price"
+        label.font = label.font.withSize(28)
         label.textColor = UIColor.white
         label.backgroundColor =  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
      

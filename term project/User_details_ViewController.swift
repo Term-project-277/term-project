@@ -11,7 +11,7 @@ import NotificationBannerSwift
 
 class User_details_ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
-    var quantity:Int = 0
+    var quantity:Int = 1
     var name:String = ""
     var price:Double = 0.0
     var category:String = ""
@@ -30,28 +30,23 @@ class User_details_ViewController: UIViewController, UIPickerViewDataSource, UIP
     // The data to return for the row and component (column) that's being passed in
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
-        return pickerData[row]
+        return String(pickerData[row])
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
-        isSelected = true
+        //isSelected = true
         quantity = row + 1
     }
     
    
     @IBAction func addToCart_button(_ sender: Any) {
-        print(quantity)
-        print(name)
-        print(price)
-        print(category)
-        print(calories)
-        if(!isSelected){
-        let banner = NotificationBanner(title: "Please select the quantity!", subtitle: "", style: .danger)
-        banner.show()
-        }
-        else
-        {
+        //if(!isSelected){
+        /*let banner = NotificationBanner(title: "Please select the quantity!", subtitle: "", style: .danger)
+        banner.show()*/
+       // }
+        //else
+        //{
           
             var parameters = [
                               "MenuID":  0,
@@ -94,7 +89,7 @@ class User_details_ViewController: UIViewController, UIPickerViewDataSource, UIP
                 }
                 
                 }.resume()
-        }
+        //}
         
     }
     
@@ -104,12 +99,12 @@ class User_details_ViewController: UIViewController, UIPickerViewDataSource, UIP
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var name_label: UILabel!
     @IBOutlet weak var quantityPicker: UIPickerView!
-    var pickerData: [String] = [String]()
+    var pickerData: [Int] = [Int]()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.quantityPicker.delegate = self
         self.quantityPicker.dataSource = self
-        pickerData = ["1", "2", "3", "4", "5"]
+        pickerData = Array(1...99)
         
         if selected_section == 0
         {
