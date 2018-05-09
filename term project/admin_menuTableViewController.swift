@@ -191,8 +191,8 @@ class admin_menuTableViewController: UITableViewController {
         }
        
         label.font = label.font.withSize(40)
-        label.textColor = UIColor.white
-        label.backgroundColor = #colorLiteral(red: 0.1215686277, green: 0.01176470611, blue: 0.4235294163, alpha: 1)
+        label.textColor = UIColor.black
+        label.backgroundColor = #colorLiteral(red: 1, green: 0.8323456645, blue: 0.4732058644, alpha: 1)
         return label
   
     }
@@ -324,49 +324,7 @@ class admin_menuTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             
-            
-            
-            
-            
-//
-//
-//
-//
-//
-//            guard let url = URL(string: "https://mobile-ios-backend.herokuapp.com/menu") else { return }
-//            var request = URLRequest(url: url)
-//            request.httpMethod = "DELETE"
-//            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//            guard let httpBody = try? JSONSerialization.data(withJSONObject: deserts[indexPath.row].ID, options: []) else { return }
-//            request.httpBody = httpBody
-//
-//            let session = URLSession.shared
-//            session.dataTask(with: request) { (data, response, error) in
-//                if let response = response {
-//                    print(response)
-//                }
-//
-//                if let data = data {
-//                    do {
-//                        let json = try JSONSerialization.jsonObject(with: data, options: [])
-//                        print(json)
-//
-//                    } catch {
-//                        print(error)
-//
-//                    }
-//                }
-//
-//                }.resume()
-//
-//
-            
-            
-            
-            
-            
-            
-            
+          
 //             Delete the row from the data source
             if indexPath.section == 0
             {

@@ -79,8 +79,12 @@ class User_details_ViewController: UIViewController, UIPickerViewDataSource, UIP
                         let json = try JSONSerialization.jsonObject(with: data, options: [])
                         print(json)
                         
-                        let banner = NotificationBanner(title: "\(self.quantity) \(self.name) added to cart successfully! ", subtitle: "", style: .danger)
-                        banner.show()
+                        DispatchQueue.main.async {
+                            let banner = NotificationBanner(title: "\(self.quantity) \(self.name) added to cart successfully! ", subtitle: "", style: .success)
+                            banner.show()
+                        }
+                        
+                       
                         
                     } catch {
                         print(error)

@@ -103,60 +103,50 @@ class Cart_items_user_TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let label = UILabel()
+//          let rect = CGRect(x: 0, y: 0, width: 100, height: 100)
+//        label.bounds = rect
         label.text = "Name\t\t\t  Quantity\t  Price"
-        label.font = label.font.withSize(28)
-        label.textColor = UIColor.white
-        label.backgroundColor =  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-     
+        label.font = label.font.withSize(25)
+        label.textColor = UIColor.black
+        label.backgroundColor =  #colorLiteral(red: 1, green: 0.8323456645, blue: 0.4732058644, alpha: 1)
+        
         
         return label
         
     }
  
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+   
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//
+//
+//            //             Delete the row from the data source
+//
+//                var s = String(items[indexPath.row].ID)
+//                let firstTodoEndpoint: String = "https://mobile-ios-backend.herokuapp.com/menu/" + s
+//
+//                var firstTodoUrlRequest = URLRequest(url: URL(string: firstTodoEndpoint)!)
+//                firstTodoUrlRequest.httpMethod = "DELETE"
+//
+//                let session = URLSession.shared
+//
+//                let task = session.dataTask(with: firstTodoUrlRequest) {
+//                    (data, response, error) in
+//                    guard let _ = data else {
+//                        print("error calling DELETE on /todos/1")
+//                        return
+//                    }
+//                    print("DELETE ok")
+//                }
+//                task.resume()
+//
+//            DispatchQueue.main.async {
+//               tableView.reloadData()
+//            }
+//           }
+//    }
+    
+    
+    
 }
