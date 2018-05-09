@@ -22,12 +22,16 @@ var user_email = ""
 class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate, GIDSignInDelegate {
     
     
+    @IBOutlet var Google_signout: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // make google logout button look good here
+        Google_signout.bounds = CGRect(x: 30, y: 450, width: view.frame.width-80, height: 30)
     
         let loginButton = FBSDKLoginButton()
         view.addSubview(loginButton)
-        loginButton.frame = CGRect(x: 16, y: 50, width: view.frame.width-32, height: 50)
+        loginButton.frame = CGRect(x: 30, y: 250, width: view.frame.width-62, height: 50)
         loginButton.delegate =  self
         
        
@@ -41,7 +45,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
         GIDSignIn.sharedInstance().delegate = self
         let google_signin = GIDSignInButton()
         view.addSubview(google_signin)
-        google_signin.frame = CGRect(x: 16, y: 150, width: view.frame.width-32, height: 50)
+        google_signin.frame = CGRect(x: 30, y: 350, width: view.frame.width-62, height: 50)
        
         GIDSignIn.sharedInstance().uiDelegate  =  self
         
