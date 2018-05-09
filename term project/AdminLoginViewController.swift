@@ -10,8 +10,8 @@ import UIKit
 import NotificationBannerSwift
 
 class AdminLoginViewController: UIViewController {
-    let adminUserName = "Thrishna"
-    let adminPassword = "cmpe@277"
+    let adminUserName = "admin"
+    let adminPassword = "admin"
     var userName = ""
     var pword = ""
 
