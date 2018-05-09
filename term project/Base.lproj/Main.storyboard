@@ -781,6 +781,9 @@
                                 <navigationItem title="Cart Items" id="6gG-T1-eyd">
                                     <barButtonItem key="rightBarButtonItem" title="Place order" style="done" id="O3R-DQ-wOD">
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="oRz-wT-Hpr" kind="show" id="EMT-Nh-myp"/>
+                                        </connections>
                                     </barButtonItem>
                                 </navigationItem>
                             </items>
@@ -805,42 +808,45 @@
             </objects>
             <point key="canvasLocation" x="1837.5999999999999" y="928.78560719640188"/>
         </scene>
-        <!--Add Menu View Controller-->
-        <scene sceneID="KjX-VU-La5">
+        <!--View Controller-->
+        <scene sceneID="C78-9V-cST">
             <objects>
-                <viewController id="70K-rW-ufz" customClass="Add_MenuViewController" customModule="term_project" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="QRB-Sy-8hU">
+                <viewController id="oRz-wT-Hpr" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8oD-b0-rTj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IhR-aY-7tN">
-                                <rect key="frame" x="263" y="578" width="96" height="35"/>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="BnT-QP-EV2">
+                                <rect key="frame" x="17" y="149" width="341" height="132"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <date key="date" timeIntervalSinceReferenceDate="547519631.52940094">
+                                    <!--2018-05-09 00:47:11 +0000-->
+                                </date>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select pick up time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GdC-FW-gea">
+                                <rect key="frame" x="39" y="47" width="303" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.098499173470000007" green="0.60193796300000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="place order ">
-                                            <attributes>
-                                                <font key="NSFont" size="15" name="Arial-BoldMT"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1oA-Xf-7Se">
+                                <rect key="frame" x="87" y="401" width="192" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Place order">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="submit_Action:" destination="70K-rW-ufz" eventType="touchUpInside" id="Fam-iC-1LL"/>
-                                </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.92336453669999996" green="0.96431751939999999" blue="0.9214186942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="tintColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="k6L-hf-soj"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="iVh-1O-MlC"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EdU-gC-siy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4vi-dM-wt2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3284" y="967"/>
+            <point key="canvasLocation" x="2637.5999999999999" y="913.49325337331345"/>
         </scene>
     </scenes>
     <resources>
