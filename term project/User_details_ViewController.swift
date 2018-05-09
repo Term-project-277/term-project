@@ -61,7 +61,7 @@ class User_details_ViewController: UIViewController, UIPickerViewDataSource, UIP
             // put call on cart
             
             
-            guard let url = URL(string: "https://mobile-ios-backend.herokuapp.com/cart/shwetha@gmail.com") else { return }
+            guard let url = URL(string: "https://mobile-ios-backend.herokuapp.com/cart/\(user_email)") else { return }
             var request = URLRequest(url: url)
             request.httpMethod = "PUT"
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")

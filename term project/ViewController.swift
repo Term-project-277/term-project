@@ -14,6 +14,9 @@ import GoogleSignIn
 import GoogleToolboxForMac
 
 
+var user_email = ""
+
+
 
 
 class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate, GIDSignInDelegate {
@@ -58,7 +61,45 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
         }
         else{
          
+            user_email = user.profile.email
             print("@@@@@@@@@@@@@@@@@@@@@@@@@ " + user.profile.email)
+            
+            // do post on  https://mobile-ios-backend.herokuapp.com/cart/ with
+                //request payload ->
+//            {        "User": "shiva322@gmail.com"
+//            } to create cart
+            
+            var parameters = [
+                              "User":  ""
+                              
+                ] as [String : Any]
+            
+            parameters["User"] = user_email
+            
+            guard let url = URL(string: "https://mobile-ios-backend.herokuapp.com/cart/") else { return }
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
+            request.httpBody = httpBody
+            
+            let session = URLSession.shared
+            session.dataTask(with: request) { (data, response, error) in
+                if let response = response {
+                    print(response)
+                }
+                
+                if let data = data {
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: data, options: [])
+                        print(json)
+                    } catch {
+                        print(error)
+                    }
+                }
+                }.resume()
+            
+            performSegue(withIdentifier: "user_logged_in1", sender: self )
             
            label.text = "Successsfully signed into Google!"
         }
@@ -84,9 +125,65 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
              print(error)
             return
         }
+        
+        else{
+            
+            fetchProfile()
+            
+            var parameters = [
+                "User":  ""
+                
+                ] as [String : Any]
+            
+            parameters["User"] = user_email
+            
+            guard let url = URL(string: "https://mobile-ios-backend.herokuapp.com/cart/") else { return }
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
+            request.httpBody = httpBody
+            
+            let session = URLSession.shared
+            session.dataTask(with: request) { (data, response, error) in
+                if let response = response {
+                    print(response)
+                }
+                
+                if let data = data {
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: data, options: [])
+                        print(json)
+                    } catch {
+                        print(error)
+                    }
+                }
+                }.resume()
+            
+            performSegue(withIdentifier: "user_logged_in1", sender: self )
+            
+            
+        }
+        
         print("successfully  logged in ! ")
         
         
+    }
+    
+    func fetchProfile(){
+        FBSDKGraphRequest(graphPath: "/me", parameters: ["fields" : "email, name, id, gender"])
+            .start(completionHandler:  { (connection, result, error) in
+                guard let result = result as? NSDictionary, let email = result["email"] as? String,
+                    let user_name = result["name"] as? String,
+                    let user_gender = result["gender"] as? String,
+                    let user_id_fb = result["id"]  as? String
+                    else {
+                        return
+                }
+                
+                user_email = email
+            })
+
     }
     
 

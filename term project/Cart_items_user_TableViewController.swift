@@ -39,7 +39,7 @@ class Cart_items_user_TableViewController: UITableViewController {
     
     func loadcart()
     {
-        let jsonurl = "https://mobile-ios-backend.herokuapp.com/cart/shwetha@gmail.com"
+        let jsonurl = "https://mobile-ios-backend.herokuapp.com/cart/\(user_email)"
         let url = URL(string: jsonurl )
         
         print(url )
@@ -131,7 +131,7 @@ class Cart_items_user_TableViewController: UITableViewController {
             //             Delete the row from the data source
 
                 var s = String(items[indexPath.row].ID)
-                let firstTodoEndpoint: String = "https://mobile-ios-backend.herokuapp.com/cart/shwetha@gmail.com/" + s
+                let firstTodoEndpoint: String = "https://mobile-ios-backend.herokuapp.com/cart/\(user_email)/" + s
 
                 var firstTodoUrlRequest = URLRequest(url: URL(string: firstTodoEndpoint)!)
                 firstTodoUrlRequest.httpMethod = "DELETE"
