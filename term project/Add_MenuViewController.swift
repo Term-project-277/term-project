@@ -130,6 +130,18 @@ UINavigationControllerDelegate {
                         let json = try JSONSerialization.jsonObject(with: data, options: [])
                         print(json)
                         
+                        DispatchQueue.main.async {
+                            let banner = NotificationBanner(title: "\( self.parameters["Name"]! ) Added to Menu card!!", subtitle: "", style: .success)
+                            banner.show()
+                            
+                            self.menu_name_text.text = ""
+                            self.price.text = ""
+                            self.calories.text = ""
+                            self.prep.text = ""
+                            
+                            
+                        }
+                        
                     } catch {
                         print(error)
                         
