@@ -798,10 +798,10 @@
             </objects>
             <point key="canvasLocation" x="1837.5999999999999" y="928.78560719640188"/>
         </scene>
-        <!--View Controller-->
+        <!--Place order View Controller-->
         <scene sceneID="C78-9V-cST">
             <objects>
-                <viewController id="oRz-wT-Hpr" sceneMemberID="viewController">
+                <viewController id="oRz-wT-Hpr" customClass="Place_order_ViewController" customModule="term_project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8oD-b0-rTj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -813,7 +813,9 @@
                                     <!--2018-05-09 00:47:11 +0000-->
                                 </date>
                                 <connections>
+                                    <action selector="date:" destination="oRz-wT-Hpr" eventType="valueChanged" id="vGI-O0-0DR"/>
                                     <action selector="date_picker:" destination="GSt-qS-OcE" eventType="valueChanged" id="bPT-hS-zKk"/>
+                                    <action selector="datepicker_action:" destination="oRz-wT-Hpr" eventType="valueChanged" id="NhA-Il-c8R"/>
                                 </connections>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select pick up time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GdC-FW-gea">
@@ -836,6 +838,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="iVh-1O-MlC"/>
                     </view>
+                    <connections>
+                        <outlet property="date_picker" destination="BnT-QP-EV2" id="Z7C-se-ngs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4vi-dM-wt2" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="GSt-qS-OcE" userLabel="Exit" sceneMemberID="exit"/>
@@ -851,7 +856,6 @@
         <image name="shopping-cart.png" width="29" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xP1-HZ-dfw"/>
         <segue reference="fWi-GI-wNR"/>
         <segue reference="ffl-Mr-Q2e"/>
     </inferredMetricsTieBreakers>

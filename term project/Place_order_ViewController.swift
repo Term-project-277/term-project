@@ -10,8 +10,10 @@ import UIKit
 
 class Place_order_ViewController: UIViewController {
 
+    @IBOutlet var date_picker: UIDatePicker!
     
     @IBAction func date_picker(_ sender: Any) {
+
         
     }
     
@@ -22,6 +24,17 @@ class Place_order_ViewController: UIViewController {
     }
 
 
+    @IBAction func date(_ sender: Any) {
+        
+        
+        date_picker.timeZone = TimeZone.init(secondsFromGMT: 0)
+       
+       print( date_picker.date )
+        
+    }
+    @IBAction func datepicker_action(_ sender: Any) {
+       
+    }
     /*
     // MARK: - Navigation
 

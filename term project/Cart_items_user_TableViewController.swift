@@ -9,6 +9,7 @@
 import UIKit
 
 struct item : Decodable {
+    let ID : String
     let Name : String
     let Quantity : Int
     let Unitprice : Double
@@ -46,11 +47,17 @@ class Cart_items_user_TableViewController: UITableViewController {
         URLSession.shared.dataTask(with: url!) { (data, resp, err) in
             
             do {
+                
+                let myGroup = DispatchGroup()
+                myGroup.enter()
                 items = try JSONDecoder().decode([item].self, from: data!)
                 
-                print(" got all items")
+                myGroup.leave()
                 
-                self.tableView.reloadData()
+                myGroup.notify(queue: DispatchQueue.main) {
+                    self.tableView.reloadData()
+                }
+                
             }
             catch{
                 
@@ -117,35 +124,36 @@ class Cart_items_user_TableViewController: UITableViewController {
  
 
    
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//
-//
-//            //             Delete the row from the data source
-//
-//                var s = String(items[indexPath.row].ID)
-//                let firstTodoEndpoint: String = "https://mobile-ios-backend.herokuapp.com/menu/" + s
-//
-//                var firstTodoUrlRequest = URLRequest(url: URL(string: firstTodoEndpoint)!)
-//                firstTodoUrlRequest.httpMethod = "DELETE"
-//
-//                let session = URLSession.shared
-//
-//                let task = session.dataTask(with: firstTodoUrlRequest) {
-//                    (data, response, error) in
-//                    guard let _ = data else {
-//                        print("error calling DELETE on /todos/1")
-//                        return
-//                    }
-//                    print("DELETE ok")
-//                }
-//                task.resume()
-//
-//            DispatchQueue.main.async {
-//               tableView.reloadData()
-//            }
-//           }
-//    }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+
+
+            //             Delete the row from the data source
+
+                var s = String(items[indexPath.row].ID)
+                let firstTodoEndpoint: String = "https://mobile-ios-backend.herokuapp.com/cart/shwetha@gmail.com/" + s
+
+                var firstTodoUrlRequest = URLRequest(url: URL(string: firstTodoEndpoint)!)
+                firstTodoUrlRequest.httpMethod = "DELETE"
+
+                let session = URLSession.shared
+
+                let task = session.dataTask(with: firstTodoUrlRequest) {
+                    (data, response, error) in
+                    guard let _ = data else {
+                        print("error calling DELETE on /todos/1")
+                        return
+                    }
+                    print("DELETE ok")
+                    
+                    self.loadcart()
+                }
+                task.resume()
+
+            
+            
+        }
+    }
     
     
     
