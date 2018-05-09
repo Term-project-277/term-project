@@ -43,8 +43,8 @@ class AdminLoginViewController: UIViewController {
             banner.show()
             
         }
-        
-        
+        username.text = ""
+        password.text = ""
     }
     /*
     // MARK: - Navigation
