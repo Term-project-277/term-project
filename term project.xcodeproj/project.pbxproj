@@ -25,6 +25,7 @@
 		996DA3862090178D00C7E4E6 /* term_projectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996DA3852090178D00C7E4E6 /* term_projectTests.swift */; };
 		996DA3912090178D00C7E4E6 /* term_projectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996DA3902090178D00C7E4E6 /* term_projectUITests.swift */; };
 		99C0823220A102BD00AC955D /* Cart_items_user_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C0823120A102BD00AC955D /* Cart_items_user_TableViewController.swift */; };
+		99C0823420A280F900AC955D /* Place_order_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C0823320A280F900AC955D /* Place_order_ViewController.swift */; };
 		B11B09A31901D080ADE3DF52 /* Pods_term_projectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7209BCD5ADF394D4B6F69396 /* Pods_term_projectUITests.framework */; };
 		BA088DA8CE5DD530C4BA4986 /* Pods_term_projectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A521B212970E738F24ECD7B4 /* Pods_term_projectTests.framework */; };
 		C057CB2C209E308700E56177 /* WelcomeSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C057CB2B209E308700E56177 /* WelcomeSignInViewController.swift */; };
@@ -78,6 +79,7 @@
 		996DA3902090178D00C7E4E6 /* term_projectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = term_projectUITests.swift; sourceTree = "<group>"; };
 		996DA3922090178D00C7E4E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99C0823120A102BD00AC955D /* Cart_items_user_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart_items_user_TableViewController.swift; sourceTree = "<group>"; };
+		99C0823320A280F900AC955D /* Place_order_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place_order_ViewController.swift; sourceTree = "<group>"; };
 		A521B212970E738F24ECD7B4 /* Pods_term_projectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_term_projectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7193FEBF27E997FD1C4E74B /* Pods-term project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-term project.release.xcconfig"; path = "Pods/Target Support Files/Pods-term project/Pods-term project.release.xcconfig"; sourceTree = "<group>"; };
 		C057CB2B209E308700E56177 /* WelcomeSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeSignInViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				996DA37C2090178D00C7E4E6 /* Info.plist */,
 				9934E1AD209FE59C00C486EE /* User_details_ViewController.swift */,
 				994CB7F320992B40000E5208 /* DetailsViewController.swift */,
+				99C0823320A280F900AC955D /* Place_order_ViewController.swift */,
 				994CB7F12099116A000E5208 /* admin_menuTableViewController.swift */,
 				99618B2D20924DFF00B359F9 /* client_868442633715-a9elkntjjet7hsvvdlas1fjmrrck01c8.apps.googleusercontent.com.plist */,
 				C057CB2B209E308700E56177 /* WelcomeSignInViewController.swift */,
@@ -466,6 +469,7 @@
 				996DA3712090178900C7E4E6 /* AppDelegate.swift in Sources */,
 				994692D8209CEE57004D2DDB /* Add_MenuViewController.swift in Sources */,
 				994CB7F420992B40000E5208 /* DetailsViewController.swift in Sources */,
+				99C0823420A280F900AC955D /* Place_order_ViewController.swift in Sources */,
 				C057CB2C209E308700E56177 /* WelcomeSignInViewController.swift in Sources */,
 				C057CB2E209E363000E56177 /* AdminLoginViewController.swift in Sources */,
 				9934E1A9209FD25800C486EE /* User_menu_TableViewController.swift in Sources */,
