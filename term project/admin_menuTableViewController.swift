@@ -433,7 +433,10 @@ class admin_menuTableViewController: UITableViewController {
     }
 
 
-
+    @IBAction func logout_button(_ sender: Any) {
+        performSegue(withIdentifier:"logout_identifier" , sender: self)
+    }
+    
 
 
 //    // In a storyboard-based application, you will often want to do a little preparation before navigation
