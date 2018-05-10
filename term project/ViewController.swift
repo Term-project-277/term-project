@@ -66,10 +66,6 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
             user_email = user.profile.email
             print("@@@@@@@@@@@@@@@@@@@@@@@@@ " + user.profile.email)
             
-            // do post on  https://mobile-ios-backend.herokuapp.com/cart/ with
-                //request payload ->
-//            {        "User": "shiva322@gmail.com"
-//            } to create cart
             
             var parameters = [
                               "User":  ""
@@ -106,6 +102,13 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
            label.text = "Successsfully signed into Google!"
         }
 
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        // Perform any operations when the user disconnects from app here.
+        // ...
+        
+     
     }
     
     
@@ -170,6 +173,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
         
         print("successfully  logged in ! ")
     }
+    
+    
     
     
     func fetchProfile(){

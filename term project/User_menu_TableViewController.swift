@@ -157,6 +157,8 @@ class User_menu_TableViewController: UITableViewController {
         var o = "select how you want to sort!!! "
         let alert = UIAlertController(title: o, message: "", preferredStyle: .alert)
         
+        var po1 = "https://mobile-ios-backend.herokuapp.com/menu/MainCourse/Popularity"
+        
         if(sender.tag == 0){
             
             print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
@@ -165,7 +167,7 @@ class User_menu_TableViewController: UITableViewController {
             
             
             alert.addAction(UIAlertAction(title: "Price", style: .default, handler: { action in self.sort_price(x: pr1 , y: sender.tag) } ))
-            alert.addAction(UIAlertAction(title: "Popularity", style: .default, handler: { action in self.sort_popularity() } ))
+            alert.addAction(UIAlertAction(title: "Popularity", style: .default, handler: { action in self.sort_popularity(x: po1 , y: sender.tag) } ))
             alert.addAction(UIAlertAction(title: "Name", style: .default, handler: { action in self.sort_name( x: n1 , y: sender.tag) } ))
         }
         
@@ -177,7 +179,7 @@ class User_menu_TableViewController: UITableViewController {
             
             
             alert.addAction(UIAlertAction(title: "Price", style: .default, handler: { action in self.sort_price(x: pr1 , y: sender.tag) } ))
-            alert.addAction(UIAlertAction(title: "Popularity", style: .default, handler: { action in self.sort_popularity() } ))
+            alert.addAction(UIAlertAction(title: "Popularity", style: .default, handler: { action in self.sort_popularity(x: po1 , y: sender.tag) } ))
             alert.addAction(UIAlertAction(title: "Name", style: .default, handler: { action in self.sort_name( x: n1 , y: sender.tag) } ))
         }
         
@@ -189,7 +191,7 @@ class User_menu_TableViewController: UITableViewController {
             
             
             alert.addAction(UIAlertAction(title: "Price", style: .default, handler: { action in self.sort_price(x: pr1 , y: sender.tag) } ))
-            alert.addAction(UIAlertAction(title: "Popularity", style: .default, handler: { action in self.sort_popularity() } ))
+            alert.addAction(UIAlertAction(title: "Popularity", style: .default, handler: { action in self.sort_popularity(x: po1 , y: sender.tag) } ))
             alert.addAction(UIAlertAction(title: "Name", style: .default, handler: { action in self.sort_name( x: n1 , y: sender.tag) } ))
         }
         
@@ -200,8 +202,9 @@ class User_menu_TableViewController: UITableViewController {
             var n1 = "https://mobile-ios-backend.herokuapp.com/menu/Desert/Name"
             
             
+            
             alert.addAction(UIAlertAction(title: "Price", style: .default, handler: { action in self.sort_price(x: pr1 , y: sender.tag) } ))
-            alert.addAction(UIAlertAction(title: "Popularity", style: .default, handler: { action in self.sort_popularity() } ))
+            alert.addAction(UIAlertAction(title: "Popularity", style: .default, handler: { action in self.sort_popularity(x: po1 , y: sender.tag) } ))
             alert.addAction(UIAlertAction(title: "Name", style: .default, handler: { action in self.sort_name( x: n1 , y: sender.tag) } ))
         }
         
@@ -261,8 +264,46 @@ class User_menu_TableViewController: UITableViewController {
             }.resume()
     }
     
-    func sort_popularity() {
+    func sort_popularity(x : String , y : Int) {
         print("sorting by popularity")
+        
+        let jsonurl = x
+        let url = URL(string: jsonurl )
+        
+        print(url )
+        
+        URLSession.shared.dataTask(with: url!) { (data, resp, err) in
+            
+            do {
+                if( y == 0)
+                {
+                    drinks = try JSONDecoder().decode([drink].self, from: data!)
+                }
+                if( y == 1)
+                {
+                    appets = try JSONDecoder().decode([appet].self, from: data!)
+                }
+                if( y == 2)
+                {
+                    mains = try JSONDecoder().decode([main].self, from: data!)
+                }
+                if( y == 3)
+                {
+                    deserts = try JSONDecoder().decode([desert].self, from: data!)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    // your code here
+                    self.tableView.reloadData()
+                }
+                
+            }
+            catch{
+                print(err)
+            }
+            
+            }.resume()
+        
     }
     
     func sort_name(  x : String , y : Int )  {
