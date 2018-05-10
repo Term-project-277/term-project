@@ -9,8 +9,16 @@
 import UIKit
 import NotificationBannerSwift
 
-class Place_order_ViewController: UIViewController {
 
+
+
+
+
+class Place_order_ViewController: UIViewController {
+    
+    
+   
+    
     @IBOutlet var date_picker: UIDatePicker!
     
     @IBAction func date_picker(_ sender: Any) {
@@ -24,6 +32,9 @@ class Place_order_ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    
+   
+    
 
     @IBAction func date(_ sender: Any) {
         
@@ -32,7 +43,17 @@ class Place_order_ViewController: UIViewController {
        
        print( date_picker.date )
         
+        let currentDate = Date() // also get current time
+        
+        let oneDay = 24 * 60 * 60
+        let minDate = currentDate.addingTimeInterval(TimeInterval(0 * oneDay))
+        let maxDate = currentDate.addingTimeInterval(TimeInterval(7 * oneDay)) // save max time as well here ..
+        date_picker.minimumDate = minDate
+        date_picker.maximumDate = maxDate
     }
+    
+    
+    
     @IBAction func datepicker_action(_ sender: Any) {
        
     }
@@ -95,11 +116,18 @@ class Place_order_ViewController: UIViewController {
             if let data = data {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data) as? [String:Any]
+                    
+                    if let date_time = json!["PickupTime"] as? String   {
+                        print("\n  \n printing date tiem  here@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+                        print(date_time)
+                  
                         
                     if let foo = json!["Status"] as? String   {
                         
                         print("\n  \n printing foo here@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
                         print(foo)
+                        
+                        print(json)
                         
                         if foo == "PLACED"
                         {
@@ -109,11 +137,19 @@ class Place_order_ViewController: UIViewController {
                                 banner.show()
                             }
                         }
+                        else if foo == "SLOT_NOT_AVAILABLE"
+                        {
+                            DispatchQueue.main.async {
+                                let banner = NotificationBanner(title: "Slot is not available! ", subtitle: "latest available time is: \(date_time)!", style: .danger)
+                                banner.show()
+                            }
+                            
+                        }
                         
                         print("\n \n printing foo here@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
                         }
                     
-                    
+                }
                     
 
                 } catch {
