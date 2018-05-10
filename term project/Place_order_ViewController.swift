@@ -31,26 +31,12 @@ class Place_order_ViewController: UIViewController {
     
     
 
-    
-   
-    
-
     @IBAction func date(_ sender: Any) {
-        
-        
         date_picker.timeZone = TimeZone.init(secondsFromGMT: 0)
         let currentDate = Date()
         let oneDay = 24 * 60 * 60
         let minDate = currentDate.addingTimeInterval(TimeInterval(0 * oneDay))
         let maxDate = currentDate.addingTimeInterval(TimeInterval(7 * oneDay))
-        date_picker.minimumDate = minDate
-        date_picker.maximumDate = maxDate
-        
-        let currentDate = Date() // also get current time
-        
-        let oneDay = 24 * 60 * 60
-        let minDate = currentDate.addingTimeInterval(TimeInterval(0 * oneDay))
-        let maxDate = currentDate.addingTimeInterval(TimeInterval(7 * oneDay)) // save max time as well here ..
         date_picker.minimumDate = minDate
         date_picker.maximumDate = maxDate
     }
