@@ -807,11 +807,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="BnT-QP-EV2">
-                                <rect key="frame" x="17" y="149" width="341" height="132"/>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="BnT-QP-EV2">
+                                <rect key="frame" x="28" y="197" width="318" height="106"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <date key="date" timeIntervalSinceReferenceDate="547519631.52940094">
                                     <!--2018-05-09 00:47:11 +0000-->
+                                </date>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="546861600">
+                                    <!--2018-05-01 10:00:00 +0000-->
                                 </date>
                                 <connections>
                                     <action selector="date:" destination="oRz-wT-Hpr" eventType="valueChanged" id="vGI-O0-0DR"/>
@@ -819,15 +822,15 @@
                                     <action selector="datepicker_action:" destination="oRz-wT-Hpr" eventType="valueChanged" id="NhA-Il-c8R"/>
                                 </connections>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select pick up time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GdC-FW-gea">
-                                <rect key="frame" x="39" y="47" width="303" height="45"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose a pickup date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GdC-FW-gea">
+                                <rect key="frame" x="36" y="144" width="303" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1oA-Xf-7Se">
-                                <rect key="frame" x="87" y="401" width="192" height="57"/>
+                                <rect key="frame" x="0.0" y="547" width="375" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -835,12 +838,37 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose a pickup time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlM-FF-cby">
+                                <rect key="frame" x="28" y="311" width="303" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="10" translatesAutoresizingMaskIntoConstraints="NO" id="5ux-3q-ZCE">
+                                <rect key="frame" x="28" y="392" width="318" height="127"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <date key="date" timeIntervalSinceReferenceDate="547661371.18990397">
+                                    <!--2018-05-10 16:09:31 +0000-->
+                                </date>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="-978256800">
+                                    <!--1970-01-01 14:00:00 +0000-->
+                                </date>
+                                <date key="maximumDate" timeIntervalSinceReferenceDate="1167627600">
+                                    <!--2038-01-01 05:00:00 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="date:" destination="oRz-wT-Hpr" eventType="valueChanged" id="Pg4-Tx-rDc"/>
+                                    <action selector="timepicker_action:" destination="oRz-wT-Hpr" eventType="valueChanged" id="WHA-mE-pkx"/>
+                                </connections>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="iVh-1O-MlC"/>
                     </view>
                     <connections>
                         <outlet property="date_picker" destination="BnT-QP-EV2" id="Z7C-se-ngs"/>
+                        <outlet property="time_picker" destination="5ux-3q-ZCE" id="DoH-5l-ibw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4vi-dM-wt2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -858,8 +886,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Rwr-d1-vLH"/>
-        <segue reference="ffl-Mr-Q2e"/>
-        <segue reference="Lfe-2H-fjt"/>
+        <segue reference="Nb2-Rz-Chg"/>
+        <segue reference="UPc-WQ-pGc"/>
         <segue reference="X4S-EU-1Nv"/>
     </inferredMetricsTieBreakers>
 </document>

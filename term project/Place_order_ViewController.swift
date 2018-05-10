@@ -12,25 +12,31 @@ class Place_order_ViewController: UIViewController {
 
     @IBOutlet var date_picker: UIDatePicker!
     
-    @IBAction func date_picker(_ sender: Any) {
-
-        
-    }
+    @IBOutlet weak var time_picker: UIDatePicker!
     
+    //var datePicker = UIDatePicker()
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
+    
+    
 
 
     @IBAction func date(_ sender: Any) {
         
         
         date_picker.timeZone = TimeZone.init(secondsFromGMT: 0)
-       
-       print( date_picker.date )
+        let currentDate = Date()
+        let oneDay = 24 * 60 * 60
+        let minDate = currentDate.addingTimeInterval(TimeInterval(0 * oneDay))
+        let maxDate = currentDate.addingTimeInterval(TimeInterval(7 * oneDay))
+        date_picker.minimumDate = minDate
+        date_picker.maximumDate = maxDate
         
+    }
+    
+    @IBAction func timepicker_action(_ sender: Any) {
     }
     @IBAction func datepicker_action(_ sender: Any) {
        
