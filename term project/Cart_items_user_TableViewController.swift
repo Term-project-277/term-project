@@ -13,6 +13,7 @@ struct item : Decodable {
     let Name : String
     let Quantity : Int
     let Unitprice : Double
+    let Preparationtime : Int
 }
 
 var items = [item] ()

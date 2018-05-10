@@ -12,11 +12,7 @@ import FBSDKLoginKit
 
 import GoogleSignIn
 import GoogleToolboxForMac
-
-
 var user_email = ""
-
-
 
 
 class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate, GIDSignInDelegate {
@@ -170,9 +166,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
         }
         
         print("successfully  logged in ! ")
-        
-        
     }
+    
     
     func fetchProfile(){
         FBSDKGraphRequest(graphPath: "/me", parameters: ["fields" : "email, name, id, gender"])
@@ -187,14 +182,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
                 
                 user_email = email
             })
-
+        
     }
-    
-
-
-    
-    
-
-
 }
 
