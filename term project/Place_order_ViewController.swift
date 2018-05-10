@@ -46,11 +46,7 @@ class Place_order_ViewController: UIViewController {
         date_picker.minimumDate = minDate
         date_picker.maximumDate = maxDate
         
-        let currentDate = Date() // also get current time
-        
-        let oneDay = 24 * 60 * 60
-        let minDate = currentDate.addingTimeInterval(TimeInterval(0 * oneDay))
-        let maxDate = currentDate.addingTimeInterval(TimeInterval(7 * oneDay)) // save max time as well here ..
+     
         date_picker.minimumDate = minDate
         date_picker.maximumDate = maxDate
     }

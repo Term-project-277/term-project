@@ -60,6 +60,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
             
         }
         else{
+            
+            
          
             user_email = user.profile.email
             print("@@@@@@@@@@@@@@@@@@@@@@@@@ " + user.profile.email)
@@ -112,6 +114,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
     @IBOutlet var google_sign_out: UIButton!
     @IBAction func google_signout(_ sender: Any) {
          GIDSignIn.sharedInstance().signOut()
+       
         label.text = "Successsfully signed Out of Google!"
       
     }
