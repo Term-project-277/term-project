@@ -835,6 +835,9 @@
                                 <date key="date" timeIntervalSinceReferenceDate="547519631.52940094">
                                     <!--2018-05-09 00:47:11 +0000-->
                                 </date>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="546861600">
+                                    <!--2018-05-01 10:00:00 +0000-->
+                                </date>
                                 <connections>
                                     <action selector="date:" destination="oRz-wT-Hpr" eventType="valueChanged" id="vGI-O0-0DR"/>
                                     <action selector="date_picker:" destination="GSt-qS-OcE" eventType="valueChanged" id="bPT-hS-zKk"/>
@@ -876,6 +879,7 @@
                     </view>
                     <connections>
                         <outlet property="date_picker" destination="BnT-QP-EV2" id="Z7C-se-ngs"/>
+                        <outlet property="time_picker" destination="5ux-3q-ZCE" id="DoH-5l-ibw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4vi-dM-wt2" userLabel="First Responder" sceneMemberID="firstResponder"/>
