@@ -51,6 +51,7 @@ UINavigationControllerDelegate {
         imagePicker.sourceType = .photoLibrary
         
         present(imagePicker, animated: true, completion: nil)
+    
     }
     
     
