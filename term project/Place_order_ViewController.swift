@@ -206,10 +206,22 @@ class Place_order_ViewController: UIViewController {
                             var ss11 = "\((self.date_picker.date))"
                             
                             
+                            
+                            let dateFormatter1 = DateFormatter()
+                            let createdDate = dateFormatter1.date(fromSwapiString: date_time)
+                            
+                            let dateFormatter2 = DateFormatter()
+                            // short format like "12/9/14, 9:50 AM"
+                            dateFormatter2.dateStyle = .medium
+                            dateFormatter2.timeStyle = .short
+                            
+                            let availabletime = dateFormatter2.string(from: createdDate! )
+                            print(availabletime)
+                            
                             //\( Date.getFormattedDate(string: ss11 )
                             
                             DispatchQueue.main.async {
-                                let banner = NotificationBanner(title: "Placed order successfully! ", subtitle: "Pick up time at:  \( self.date_picker.date ) )!", style: .success)
+                                let banner = NotificationBanner(title: "Placed order successfully! ", subtitle: "Pick up time at:  \( availabletime )!", style: .success)
                                 banner.show()
                             }
                             
@@ -221,8 +233,20 @@ class Place_order_ViewController: UIViewController {
                             DispatchQueue.main.async {
                                 
                                 //Date.getFormattedDate(string: date_time
+                                let dateFormatter1 = DateFormatter()
+                                let createdDate = dateFormatter1.date(fromSwapiString: date_time)
                                 
-                                let banner = NotificationBanner(title: "Slot is not available! ", subtitle: "latest available time is: \( date_time) )!", style: .danger)
+                                let dateFormatter2 = DateFormatter()
+                                // short format like "12/9/14, 9:50 AM"
+                                dateFormatter2.dateStyle = .medium
+                                dateFormatter2.timeStyle = .short
+                                
+                                let availabletime = dateFormatter2.string(from: createdDate! )
+                                print(availabletime)
+                                
+                                
+                                
+                                let banner = NotificationBanner(title: "Slot is not available! ", subtitle: "latest available time is: \( availabletime)!", style: .danger)
                                 banner.show()
                             }
                             
