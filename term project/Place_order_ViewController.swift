@@ -11,10 +11,57 @@ import NotificationBannerSwift
 
 
 
+extension Date {
+    static func getFormattedDate(string: String ) -> String{
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ss+hh:mm"
+        
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "MMM dd,yyyy,HH:mm"
+        
+        let date: Date? = dateFormatterGet.date(from: string )
+        print("Date",dateFormatterPrint.string(from: date!)) // Feb 01,2018
+        return dateFormatterPrint.string(from: date!);
+    }
+}
 
 
 
 class Place_order_ViewController: UIViewController {
+    
+    
+    @IBOutlet var place_outlet: UIButton!
+    func loadcart()
+    {
+        let jsonurl = "https://mobile-ios-backend.herokuapp.com/cart/\(user_email)"
+        let url = URL(string: jsonurl )
+        
+        print(url )
+        
+        URLSession.shared.dataTask(with: url!) { (data, resp, err) in
+            
+            do {
+                
+                let myGroup = DispatchGroup()
+                myGroup.enter()
+                items = try JSONDecoder().decode([item].self, from: data!)
+                
+                myGroup.leave()
+                
+                myGroup.notify(queue: DispatchQueue.main) {
+                
+                }
+                
+            }
+            catch{
+                
+                print("printitng error here##############")
+                print(err)
+            }
+            
+            }.resume()
+    }
+
     
     
    
@@ -27,28 +74,29 @@ class Place_order_ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        if(items.count == 0 )
+        {
+                place_outlet.isEnabled = false
+        }
+        else{
+            place_outlet.isEnabled = true
+        }
+        
+        
     }
     
     
 
-    
-   
-    
-
     @IBAction func date(_ sender: Any) {
-        
-        
-        date_picker.timeZone = TimeZone.init(secondsFromGMT: 0)
+//        date_picker.timeZone = TimeZone.init(secondsFromGMT: 0)
         let currentDate = Date()
         let oneDay = 24 * 60 * 60
         let minDate = currentDate.addingTimeInterval(TimeInterval(0 * oneDay))
         let maxDate = currentDate.addingTimeInterval(TimeInterval(7 * oneDay))
         date_picker.minimumDate = minDate
         date_picker.maximumDate = maxDate
-        
-     
-        date_picker.minimumDate = minDate
-        date_picker.maximumDate = maxDate
+
     }
     
     
@@ -66,6 +114,9 @@ class Place_order_ViewController: UIViewController {
         }
         
         
+        loadcart()
+        // call loadcart here ..
+        
         var parameters = [
             "User": "",
            "PickupTime": "",
@@ -73,24 +124,46 @@ class Place_order_ViewController: UIViewController {
             ] as [String : Any]
         
         
-        parameters["PickupTime"] = " \(date_picker.date)"
-        var items11 = [
-            "Preparationtime" : 0
-            ] as [String : Any]
         
-        var items11s = [items11]
-        
-        parameters["User"] =  user_email
-       // parameters["Items"] =  items
-        // place order
-        
-    //    var i =0
-        for i in 0...items.count-1{
-             items11s[ i ]["Preparationtime"] = items[i].Preparationtime
+        if( items.count == 0 )
+        {
+            
+            
             
         }
         
-       parameters["Items"] = items11s
+        else
+        {
+            
+            parameters["PickupTime"] = " \(date_picker.date)"
+            var items11 = [
+                "Preparationtime" : items[0].Preparationtime,
+                "Quantity" : items[0].Quantity,
+                "MenuID" : items[0].ID,
+                "Name" : items[0].Name
+                ] as [String : Any]
+            
+            var items11s = [items11]
+            
+            
+            parameters["User"] =  user_email
+            // parameters["Items"] =  items
+            // place order
+            
+            //    var i =0
+            for i in 1..<items.count{
+                
+                items11s.append(["Preparationtime": items[i].Preparationtime , "Quantity": items[i].Quantity  , "MenuID": items[i].ID , "Name": items[i].Name ] )
+                
+                
+                
+            }
+            
+            parameters["Items"] = items11s
+            
+        }
+        
+        
         
         
         print(parameters)
@@ -131,15 +204,50 @@ class Place_order_ViewController: UIViewController {
                         if foo == "PLACED"
                         {
                             
+                            var ss11 = "\((self.date_picker.date))"
+                            
+                            
+                            
+                            let dateFormatter1 = DateFormatter()
+                            let createdDate = dateFormatter1.date(fromSwapiString: date_time)
+                            
+                            let dateFormatter2 = DateFormatter()
+                            // short format like "12/9/14, 9:50 AM"
+                            dateFormatter2.dateStyle = .medium
+                            dateFormatter2.timeStyle = .short
+                            
+                            let availabletime = dateFormatter2.string(from: createdDate! )
+                            print(availabletime)
+                            
+                            //\( Date.getFormattedDate(string: ss11 )
+                            
                             DispatchQueue.main.async {
-                                let banner = NotificationBanner(title: "Placed order successfully! ", subtitle: "Pick up time at \( self.date_picker.date)!", style: .success)
+                                let banner = NotificationBanner(title: "Placed order successfully! ", subtitle: "Pick up time at:  \( availabletime )!", style: .success)
                                 banner.show()
                             }
+                            
+                            self.place_outlet.isEnabled = false
+                            
                         }
                         else if foo == "SLOT_NOT_AVAILABLE"
                         {
                             DispatchQueue.main.async {
-                                let banner = NotificationBanner(title: "Slot is not available! ", subtitle: "latest available time is: \(date_time)!", style: .danger)
+                                
+                                //Date.getFormattedDate(string: date_time
+                                let dateFormatter1 = DateFormatter()
+                                let createdDate = dateFormatter1.date(fromSwapiString: date_time)
+                                
+                                let dateFormatter2 = DateFormatter()
+                                // short format like "12/9/14, 9:50 AM"
+                                dateFormatter2.dateStyle = .medium
+                                dateFormatter2.timeStyle = .short
+                                
+                                let availabletime = dateFormatter2.string(from: createdDate! )
+                                print(availabletime)
+                                
+                                
+                                
+                                let banner = NotificationBanner(title: "Slot is not available! ", subtitle: "latest available time is: \( availabletime)!", style: .danger)
                                 banner.show()
                             }
                             

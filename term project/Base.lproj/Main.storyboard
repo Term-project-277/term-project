@@ -230,10 +230,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hec-cQ-bJv">
+                                <rect key="frame" x="60" y="57" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="nhC-Yi-JII" kind="show" id="VE9-8C-P59"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="Google_signout" destination="bIY-6e-cgB" id="eo6-cE-Wlf"/>
                         <outlet property="Label" destination="8bC-Xf-vdC" id="l1w-fI-hOi"/>
@@ -604,12 +614,25 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
                                 <navigationItem title="Menu" largeTitleDisplayMode="always" id="X2n-ua-qPz">
-                                    <barButtonItem key="rightBarButtonItem" title="Item" image="shopping-cart.png" id="D0A-gG-ZSl">
-                                        <color key="tintColor" red="1" green="0.5409764051" blue="0.84731429820000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <barButtonItem key="leftBarButtonItem" title="Back" id="wJD-P6-MD9">
                                         <connections>
-                                            <segue destination="BIs-Db-1o2" kind="show" id="68e-B8-CQe"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="r4X-iH-Wki"/>
                                         </connections>
                                     </barButtonItem>
+                                    <rightBarButtonItems>
+                                        <barButtonItem title="Item" image="shopping-cart.png" id="D0A-gG-ZSl">
+                                            <color key="tintColor" red="1" green="0.5409764051" blue="0.84731429820000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <segue destination="BIs-Db-1o2" kind="show" id="68e-B8-CQe"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem title="Orders" id="Y58-IL-Rus">
+                                            <color key="tintColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <segue destination="GBU-2c-XgR" kind="show" id="SrM-UF-t9Q"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </rightBarButtonItems>
                                 </navigationItem>
                             </items>
                         </navigationBar>
@@ -637,6 +660,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cqI-tD-fNX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="38" y="910"/>
+        </scene>
+        <!--Order history Table View Controller-->
+        <scene sceneID="utc-8v-1CQ">
+            <objects>
+                <tableViewController id="GBU-2c-XgR" customClass="Order_history_TableViewController" customModule="term_project" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="MeD-i3-IrD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="3oN-69-vbR">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3oN-69-vbR" id="pMf-fU-Dpb">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="GBU-2c-XgR" id="zfS-9e-yyj"/>
+                            <outlet property="delegate" destination="GBU-2c-XgR" id="JgF-Ow-pCH"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vIf-gC-C5i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="454" y="1600"/>
         </scene>
         <!--User details View Controller-->
         <scene sceneID="nzQ-EV-6va">
@@ -780,16 +831,10 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
                                 <navigationItem id="6gG-T1-eyd">
-                                    <barButtonItem key="leftBarButtonItem" style="plain" id="tJt-aM-JpP">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="go5-wK-Oms">
-                                            <rect key="frame" x="16" y="7" width="48" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="&lt; Back">
-                                                <color key="titleColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </state>
-                                        </button>
+                                    <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="za7-q7-aGg">
+                                        <color key="tintColor" red="1" green="0.5409764051" blue="0.84731429820000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <segue destination="628-j1-c5D" kind="show" id="SDa-mQ-e0H"/>
+                                            <segue destination="SSs-Iv-Kvu" kind="show" id="yGH-re-cet"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem key="rightBarButtonItem" title="Place order" style="done" id="O3R-DQ-wOD">
@@ -838,6 +883,7 @@
                                 <date key="minimumDate" timeIntervalSinceReferenceDate="546861600">
                                     <!--2018-05-01 10:00:00 +0000-->
                                 </date>
+                                <locale key="locale" localeIdentifier="en_US_POSIX"/>
                                 <connections>
                                     <action selector="date:" destination="oRz-wT-Hpr" eventType="valueChanged" id="vGI-O0-0DR"/>
                                     <action selector="date_picker:" destination="GSt-qS-OcE" eventType="valueChanged" id="bPT-hS-zKk"/>
@@ -856,16 +902,6 @@
                                     <action selector="place_order_button:" destination="oRz-wT-Hpr" eventType="touchUpInside" id="Noz-hu-TIj"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lpm-j1-LKl">
-                                <rect key="frame" x="16" y="20" width="48" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="&lt; Back">
-                                    <color key="titleColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="BIs-Db-1o2" kind="show" id="Nxj-hh-eJO"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select pick up time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GdC-FW-gea">
                                 <rect key="frame" x="37" y="126" width="303" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -873,13 +909,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lpm-j1-LKl">
+                                <rect key="frame" x="37" y="67" width="48" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="&lt; Back">
+                                    <color key="titleColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="SSs-Iv-Kvu" kind="show" id="FhZ-cr-mwq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="iVh-1O-MlC"/>
                     </view>
                     <connections>
                         <outlet property="date_picker" destination="BnT-QP-EV2" id="Z7C-se-ngs"/>
-                        <outlet property="time_picker" destination="5ux-3q-ZCE" id="DoH-5l-ibw"/>
+                        <outlet property="place_outlet" destination="1oA-Xf-7Se" id="rKp-vn-eEe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4vi-dM-wt2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -896,11 +942,10 @@
         <image name="shopping-cart.png" width="29" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Nxj-hh-eJO"/>
-        <segue reference="SDa-mQ-e0H"/>
-        <segue reference="Ukz-ur-a3F"/>
+        <segue reference="yGH-re-cet"/>
         <segue reference="ffl-Mr-Q2e"/>
+        <segue reference="r4X-iH-Wki"/>
         <segue reference="Lfe-2H-fjt"/>
-        <segue reference="X4S-EU-1Nv"/>
+        <segue reference="VE9-8C-P59"/>
     </inferredMetricsTieBreakers>
 </document>
