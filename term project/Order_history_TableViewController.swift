@@ -155,7 +155,7 @@ class Order_history_TableViewController: UITableViewController {
         
         
            
-                    let firstTodoEndpoint: String = " https://mobile-ios-backend.herokuapp.com/order/cancel/\(orders[indexPath.row].OrderID)"
+                    let firstTodoEndpoint: String = "https://mobile-ios-backend.herokuapp.com/order/cancel/\(orders[indexPath.row].OrderID)"
         
                     var firstTodoUrlRequest = URLRequest(url: URL(string: firstTodoEndpoint)!)
                     firstTodoUrlRequest.httpMethod = "PUT"
@@ -178,6 +178,17 @@ class Order_history_TableViewController: UITableViewController {
         
                 }
             }
+    
+    
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteButton = UITableViewRowAction(style: .default, title: "Cancel order") { (action, indexPath) in
+            // here implement your delete code
+        }
+        
+       
+        return [deleteButton]
+    }
 
 }
 
