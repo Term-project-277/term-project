@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NotificationBannerSwift
 
 struct appet : Decodable {
     let ID : Int
@@ -82,6 +83,15 @@ class admin_menuTableViewController: UITableViewController {
                 return
             }
             print(" reset orders ok")
+            
+            DispatchQueue.main.async {
+                
+                let banner = NotificationBanner(title: "Reset orders Successful! ", subtitle: "", style: .success)
+                banner.show()
+                
+            }
+            
+            
         }
         task.resume()
 
