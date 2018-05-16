@@ -64,6 +64,32 @@ let cellID = "id"
 
 class admin_menuTableViewController: UITableViewController {
 
+    
+    @IBAction func reset_orders_action(_ sender: Any) {
+        
+        
+        let firstTodoEndpoint: String = "https://mobile-ios-backend.herokuapp.com/order/adminreset"
+        
+        var firstTodoUrlRequest = URLRequest(url: URL(string: firstTodoEndpoint)!)
+        firstTodoUrlRequest.httpMethod = "POST"
+        
+        let session = URLSession.shared
+        
+        let task = session.dataTask(with: firstTodoUrlRequest) {
+            (data, response, error) in
+            guard let _ = data else {
+                print("error calling POST on")
+                return
+            }
+            print(" reset orders ok")
+        }
+        task.resume()
+
+        
+        
+    }
+    
+    
     @IBOutlet var lab: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()

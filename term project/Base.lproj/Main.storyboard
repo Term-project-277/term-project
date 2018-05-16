@@ -270,6 +270,12 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
                                 <navigationItem title="Menu" largeTitleDisplayMode="always" id="Dws-c2-W00">
+                                    <barButtonItem key="leftBarButtonItem" title="Reset orders" id="Go6-lq-m6x">
+                                        <color key="tintColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="reset_orders_action:" destination="PuN-Gb-ACy" id="IEG-Hn-z7d"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <rightBarButtonItems>
                                         <barButtonItem title="Logout" style="plain" id="If6-7T-9Lh">
                                             <color key="tintColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1047,7 +1053,7 @@
         <segue reference="Ukz-ur-a3F"/>
         <segue reference="ffl-Mr-Q2e"/>
         <segue reference="r4X-iH-Wki"/>
-        <segue reference="Lfe-2H-fjt"/>
+        <segue reference="UPc-WQ-pGc"/>
         <segue reference="VE9-8C-P59"/>
     </inferredMetricsTieBreakers>
 </document>
