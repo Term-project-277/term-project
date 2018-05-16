@@ -157,13 +157,13 @@ class User_menu_TableViewController: UITableViewController {
         var o = "select how you want to sort!!! "
         let alert = UIAlertController(title: o, message: "", preferredStyle: .alert)
         
-        var po1 = "https://mobile-ios-backend.herokuapp.com/menu/MainCourse/Popularity"
         
         if(sender.tag == 0){
             
             print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
             var pr1 = "https://mobile-ios-backend.herokuapp.com/menu/Drink/Price"
             var n1 = "https://mobile-ios-backend.herokuapp.com/menu/Drink/Name"
+              var po1 = "https://mobile-ios-backend.herokuapp.com/menu/Drink/Popularity"
             
             
             alert.addAction(UIAlertAction(title: "Price", style: .default, handler: { action in self.sort_price(x: pr1 , y: sender.tag) } ))
@@ -176,6 +176,7 @@ class User_menu_TableViewController: UITableViewController {
             print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
             var pr1 = "https://mobile-ios-backend.herokuapp.com/menu/Appetizer/Price"
             var n1 = "https://mobile-ios-backend.herokuapp.com/menu/Appetizer/Name"
+            var po1 = "https://mobile-ios-backend.herokuapp.com/menu/Appetizer/Popularity"
             
             
             alert.addAction(UIAlertAction(title: "Price", style: .default, handler: { action in self.sort_price(x: pr1 , y: sender.tag) } ))
@@ -188,6 +189,7 @@ class User_menu_TableViewController: UITableViewController {
             print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
             var pr1 = "https://mobile-ios-backend.herokuapp.com/menu/MainCourse/Price"
             var n1 = "https://mobile-ios-backend.herokuapp.com/menu/MainCourse/Name"
+              var po1 = "https://mobile-ios-backend.herokuapp.com/menu/MainCourse/Popularity"
             
             
             alert.addAction(UIAlertAction(title: "Price", style: .default, handler: { action in self.sort_price(x: pr1 , y: sender.tag) } ))
@@ -200,6 +202,7 @@ class User_menu_TableViewController: UITableViewController {
             print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
             var pr1 = "https://mobile-ios-backend.herokuapp.com/menu/Desert/Price"
             var n1 = "https://mobile-ios-backend.herokuapp.com/menu/Desert/Name"
+              var po1 = "https://mobile-ios-backend.herokuapp.com/menu/Desert/Popularity"
             
             
             

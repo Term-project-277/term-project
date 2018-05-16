@@ -139,7 +139,7 @@ class Order_history_TableViewController: UITableViewController {
 
             let attributedString = NSMutableAttributedString(string: "\(orders[indexPath.row].OrderID) \t  \(orders[indexPath.row].Status)  \(readytime)", attributes:attributes)
         
-        let normalString = NSMutableAttributedString(string: "\n\n PickupTime: \( pickuptime )\nFulfillmentStartTime: \( fullfilmentstarttime )", attributes:attributes)
+        let normalString = NSMutableAttributedString(string: "\n\n Pickup Time: \( pickuptime )\n \n Fulfillment Start Time: \( fullfilmentstarttime )", attributes:attributes)
         
         
         attributedString.append(normalString)
@@ -153,26 +153,7 @@ class Order_history_TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
                 if editingStyle == .delete {
         
-        
-           
-                    let firstTodoEndpoint: String = "https://mobile-ios-backend.herokuapp.com/order/cancel/\(orders[indexPath.row].OrderID)"
-        
-                    var firstTodoUrlRequest = URLRequest(url: URL(string: firstTodoEndpoint)!)
-                    firstTodoUrlRequest.httpMethod = "PUT"
-        
-                    let session = URLSession.shared
-        
-                    let task = session.dataTask(with: firstTodoUrlRequest) {
-                        (data, response, error) in
-                        guard let _ = data else {
-                            print("error calling cancel on ")
-                            return
-                        }
-                        print("cancel ok")
-        
-                        self.loadorders()
-                    }
-                    task.resume()
+    
         
         
         
@@ -180,10 +161,38 @@ class Order_history_TableViewController: UITableViewController {
             }
     
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selected_section =  indexPath.section
+        selected_row =  indexPath.row
+        
+        performSegue(withIdentifier:"order_detail" , sender: self)
+    }
+    
+    
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let deleteButton = UITableViewRowAction(style: .default, title: "Cancel order") { (action, indexPath) in
+        let deleteButton = UITableViewRowAction(style: .default, title: "Cancel") { (action, indexPath) in
             // here implement your delete code
+        
+            let firstTodoEndpoint: String = "https://mobile-ios-backend.herokuapp.com/order/cancel/\(orders[indexPath.row].OrderID)"
+            
+            var firstTodoUrlRequest = URLRequest(url: URL(string: firstTodoEndpoint)!)
+            firstTodoUrlRequest.httpMethod = "PUT"
+            
+            let session = URLSession.shared
+            
+            let task = session.dataTask(with: firstTodoUrlRequest) {
+                (data, response, error) in
+                guard let _ = data else {
+                    print("error calling cancel on ")
+                    return
+                }
+                print("cancel ok")
+                
+                self.loadorders()
+            }
+            task.resume()
+        
         }
         
        

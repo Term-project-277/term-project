@@ -26,6 +26,7 @@
 		996DA3862090178D00C7E4E6 /* term_projectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996DA3852090178D00C7E4E6 /* term_projectTests.swift */; };
 		996DA3912090178D00C7E4E6 /* term_projectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996DA3902090178D00C7E4E6 /* term_projectUITests.swift */; };
 		99BF382D20AA86DB00CA249A /* Order_history_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BF382C20AA86DB00CA249A /* Order_history_TableViewController.swift */; };
+		99BF382F20ABC8AF00CA249A /* order_details_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BF382E20ABC8AF00CA249A /* order_details_ViewController.swift */; };
 		99C0823220A102BD00AC955D /* Cart_items_user_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C0823120A102BD00AC955D /* Cart_items_user_TableViewController.swift */; };
 		99C0823420A280F900AC955D /* Place_order_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C0823320A280F900AC955D /* Place_order_ViewController.swift */; };
 		C057CB2C209E308700E56177 /* WelcomeSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C057CB2B209E308700E56177 /* WelcomeSignInViewController.swift */; };
@@ -78,6 +79,7 @@
 		996DA3902090178D00C7E4E6 /* term_projectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = term_projectUITests.swift; sourceTree = "<group>"; };
 		996DA3922090178D00C7E4E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99BF382C20AA86DB00CA249A /* Order_history_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order_history_TableViewController.swift; sourceTree = "<group>"; };
+		99BF382E20ABC8AF00CA249A /* order_details_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = order_details_ViewController.swift; sourceTree = "<group>"; };
 		99C0823120A102BD00AC955D /* Cart_items_user_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart_items_user_TableViewController.swift; sourceTree = "<group>"; };
 		99C0823320A280F900AC955D /* Place_order_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place_order_ViewController.swift; sourceTree = "<group>"; };
 		9E06FBEB7018811DE7A4FFA6 /* Pods-term projectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-term projectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-term projectTests/Pods-term projectTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				9934E1A8209FD25800C486EE /* User_menu_TableViewController.swift */,
 				996DA37C2090178D00C7E4E6 /* Info.plist */,
 				9934E1AD209FE59C00C486EE /* User_details_ViewController.swift */,
+				99BF382E20ABC8AF00CA249A /* order_details_ViewController.swift */,
 				994CB7F320992B40000E5208 /* DetailsViewController.swift */,
 				99C0823320A280F900AC955D /* Place_order_ViewController.swift */,
 				994CB7F12099116A000E5208 /* admin_menuTableViewController.swift */,
@@ -470,6 +473,7 @@
 				994CB7F22099116A000E5208 /* admin_menuTableViewController.swift in Sources */,
 				99BF382D20AA86DB00CA249A /* Order_history_TableViewController.swift in Sources */,
 				996DA3732090178900C7E4E6 /* ViewController.swift in Sources */,
+				99BF382F20ABC8AF00CA249A /* order_details_ViewController.swift in Sources */,
 				996DA3712090178900C7E4E6 /* AppDelegate.swift in Sources */,
 				994692D8209CEE57004D2DDB /* Add_MenuViewController.swift in Sources */,
 				994CB7F420992B40000E5208 /* DetailsViewController.swift in Sources */,
@@ -655,7 +659,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7BHCDJ55EZ;
 				INFOPLIST_FILE = "term project/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-77.term-project";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -671,7 +678,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7BHCDJ55EZ;
 				INFOPLIST_FILE = "term project/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-77.term-project";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -687,7 +697,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "term projectTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-77.term-projectTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -704,7 +718,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "term projectTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-77.term-projectTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -720,7 +738,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "term projectUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-77.term-projectUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -736,7 +758,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "term projectUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-77.term-projectUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

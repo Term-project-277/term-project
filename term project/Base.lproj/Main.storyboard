@@ -684,10 +684,112 @@
                             <outlet property="delegate" destination="GBU-2c-XgR" id="JgF-Ow-pCH"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="6lk-Bm-7Tp" kind="show" identifier="order_detail" id="CtN-zr-tDm"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vIf-gC-C5i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="454" y="1600"/>
+        </scene>
+        <!--Order details View Controller-->
+        <scene sceneID="Ir8-5o-94F">
+            <objects>
+                <viewController id="6lk-Bm-7Tp" customClass="order_details_ViewController" customModule="term_project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gwx-Wj-MXB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Order ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ssk-4d-EXA">
+                                <rect key="frame" x="68" y="59" width="115" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oya-bo-q2t">
+                                <rect key="frame" x="36" y="539" width="93" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="★">
+                                    <color key="titleColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="oze-ZM-sMS">
+                                <rect key="frame" x="50" y="315" width="275" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8c0-I5-6sr">
+                                        <rect key="frame" x="0.0" y="0.0" width="51" height="72"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <state key="normal" title="☆">
+                                            <color key="titleColor" red="0.58105844259999995" green="0.12855249639999999" blue="0.57453137639999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="star_tapped:" destination="6lk-Bm-7Tp" eventType="touchUpInside" id="hKR-Ly-9bU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7Y-QE-Icx">
+                                        <rect key="frame" x="56" y="0.0" width="51" height="72"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <state key="normal" title="☆">
+                                            <color key="titleColor" red="0.58105844259999995" green="0.12855249639999999" blue="0.57453137639999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="star_tapped:" destination="6lk-Bm-7Tp" eventType="touchUpInside" id="Lna-Uu-S8r"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Wc-Os-SPg">
+                                        <rect key="frame" x="112" y="0.0" width="51" height="72"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <state key="normal" title="☆">
+                                            <color key="titleColor" red="0.58105844259999995" green="0.12855249639999999" blue="0.57453137639999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="star_tapped:" destination="6lk-Bm-7Tp" eventType="touchUpInside" id="a31-Yn-ykP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Gi-Xq-6YX">
+                                        <rect key="frame" x="168" y="0.0" width="51" height="72"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <state key="normal" title="☆">
+                                            <color key="titleColor" red="0.58105844259999995" green="0.12855249639999999" blue="0.57453137639999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="star_tapped:" destination="6lk-Bm-7Tp" eventType="touchUpInside" id="VyO-dh-U1M"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vmv-1J-XMB">
+                                        <rect key="frame" x="224" y="0.0" width="51" height="72"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <state key="normal" title="☆">
+                                            <color key="titleColor" red="0.58105844259999995" green="0.12855249639999999" blue="0.57453137639999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="star_tapped:" destination="6lk-Bm-7Tp" eventType="touchUpInside" id="7HY-Cx-w8p"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="nKH-nn-1Ww"/>
+                    </view>
+                    <connections>
+                        <outlet property="id" destination="ssk-4d-EXA" id="2HH-PS-oRC"/>
+                        <outletCollection property="star_buttons" destination="8c0-I5-6sr" collectionClass="NSMutableArray" id="bav-Fd-Y1O"/>
+                        <outletCollection property="star_buttons" destination="O7Y-QE-Icx" collectionClass="NSMutableArray" id="Vg1-KO-JzZ"/>
+                        <outletCollection property="star_buttons" destination="7Wc-Os-SPg" collectionClass="NSMutableArray" id="UiW-6O-Yvf"/>
+                        <outletCollection property="star_buttons" destination="9Gi-Xq-6YX" collectionClass="NSMutableArray" id="TvY-Lv-eFD"/>
+                        <outletCollection property="star_buttons" destination="vmv-1J-XMB" collectionClass="NSMutableArray" id="haS-St-fW0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tl0-Hj-AXZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1277.5999999999999" y="1635.832083958021"/>
         </scene>
         <!--User details View Controller-->
         <scene sceneID="nzQ-EV-6va">
@@ -942,7 +1044,7 @@
         <image name="shopping-cart.png" width="29" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yGH-re-cet"/>
+        <segue reference="Ukz-ur-a3F"/>
         <segue reference="ffl-Mr-Q2e"/>
         <segue reference="r4X-iH-Wki"/>
         <segue reference="Lfe-2H-fjt"/>
