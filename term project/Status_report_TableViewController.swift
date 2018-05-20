@@ -15,7 +15,9 @@ class Status_report_TableViewController: UITableViewController {
     @IBAction func refresh_action(_ sender: Any) {
         
         print("########################************************************************")
+       
         print(report_orders.count)
+        tableView.reloadData()
         
     }
     

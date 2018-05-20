@@ -50,16 +50,16 @@ class Fetch_status_report_ViewController: UIViewController {
         
         
         
-        performSegue(withIdentifier: "status_report_segue", sender: self)
+//        performSegue(withIdentifier: "status_report_segue", sender: self)
         
         
-//        DispatchQueue.main.async {
-//        self.load_status_report {
-//
-//             self.performSegue(withIdentifier: "status_report_segue", sender: self)
-//
-//        }
-//        }
+        DispatchQueue.main.async {
+        self.load_status_report {
+
+             self.performSegue(withIdentifier: "status_report_segue", sender: self)
+
+            }
+        }
         
         
 //        let myGroup = DispatchGroup()
@@ -82,7 +82,7 @@ class Fetch_status_report_ViewController: UIViewController {
         if segue.identifier == "status_report_segue"  {
             // status_report_segue
             
-                    load_status_report()
+//                    load_status_report()
 
             
          
@@ -91,8 +91,8 @@ class Fetch_status_report_ViewController: UIViewController {
     
 
    
-//    func load_status_report(completion: @escaping ()->() ) {
-    func load_status_report () {
+    func load_status_report(completion: @escaping ()->() ) {
+//    func load_status_report () {
     var parameters = [
             "fromDate": "",
             "toDate": "",
@@ -127,7 +127,7 @@ class Fetch_status_report_ViewController: UIViewController {
                     print(report_orders.count)
 //                    print(report_orders[0].TotalPrepTime)
                     
-//                    completion()
+                    completion()
                     
                 }catch {
                     

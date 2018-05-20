@@ -320,41 +320,32 @@
             <point key="canvasLocation" x="725.60000000000002" y="99.400299850074973"/>
         </scene>
         <!--Status report Table View Controller-->
-        <scene sceneID="CCX-rr-fLr">
+        <scene sceneID="zft-qF-W7t">
             <objects>
-                <tableViewController id="sTK-tk-Pqq" customClass="Status_report_TableViewController" customModule="term_project" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QgB-8j-PXC">
+                <tableViewController id="ZI1-7P-Nmo" customClass="Status_report_TableViewController" customModule="term_project" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="lQ6-QV-rlS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="Uig-hk-0Ri">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <items>
-                                <navigationItem title="Status Report" id="px2-Xt-67N">
-                                    <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="Z4X-nP-yea">
-                                        <color key="tintColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <segue destination="X1X-rF-88G" kind="show" id="4ka-6w-MZF"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="N2y-sH-tHD">
-                                        <connections>
-                                            <action selector="refresh_action:" destination="sTK-tk-Pqq" id="Zal-ZX-IQS"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </navigationItem>
-                            </items>
-                        </navigationBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="8YI-Ez-WSy">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8YI-Ez-WSy" id="Oly-yV-GpC">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="sTK-tk-Pqq" id="mAq-12-YgI"/>
-                            <outlet property="delegate" destination="sTK-tk-Pqq" id="yi3-aE-emk"/>
+                            <outlet property="dataSource" destination="ZI1-7P-Nmo" id="cEy-mh-yvs"/>
+                            <outlet property="delegate" destination="ZI1-7P-Nmo" id="oBF-ay-z6k"/>
                         </connections>
                     </tableView>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="y55-uQ-qw3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Fb-jS-FEU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-276" y="-824"/>
+            <point key="canvasLocation" x="-420" y="-861"/>
         </scene>
         <!--Fetch status report View Controller-->
         <scene sceneID="oHN-kM-cIL">
@@ -416,7 +407,7 @@
                     <connections>
                         <outlet property="from_date" destination="ZNR-Xh-xOe" id="g1W-Ht-3cq"/>
                         <outlet property="to_date" destination="hui-CD-JIK" id="yTT-lb-Yz7"/>
-                        <segue destination="sTK-tk-Pqq" kind="show" identifier="status_report_segue" id="LQM-xW-d0X"/>
+                        <segue destination="ZI1-7P-Nmo" kind="show" identifier="status_report_segue" id="smC-02-m9M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uVb-Dc-pj6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1262,7 +1253,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="FhZ-cr-mwq"/>
-        <segue reference="4ka-6w-MZF"/>
+        <segue reference="yyy-I1-sev"/>
         <segue reference="SmD-LW-0KX"/>
         <segue reference="r4X-iH-Wki"/>
         <segue reference="UPc-WQ-pGc"/>
