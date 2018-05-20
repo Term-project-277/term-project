@@ -8,6 +8,11 @@
 
 import UIKit
 
+var parameters = [
+    "fromDate": "",
+    "toDate": "",
+    ] as [String : Any]
+
 struct report_order : Decodable {
     let TotalPrepTime : Int
     let Status : String
@@ -109,16 +114,13 @@ class Fetch_status_report_ViewController: UIViewController {
    
     func load_status_report(completion: @escaping ()->() ) {
 //    func load_status_report () {
-    var parameters = [
-            "fromDate": "",
-            "toDate": "",
-            ] as [String : Any]
+   
         
-        //        parameters["fromDate"] = "\(from_date.date)"
-        parameters["fromDate"] = "01-01-2018"
+                parameters["fromDate"] = "\(from_date.date)"
+//        parameters["fromDate"] = "01-01-2018"
         
-        //        parameters["toDate"] = "\(to_date.date)"
-        parameters["toDate"] = "05-30-2018"
+              parameters["toDate"] = "\(to_date.date)"
+//        parameters["toDate"] = "05-30-2018"
         
         guard let url = URL(string: "https://mobile-ios-backend.herokuapp.com/order/report") else { return }
         var request = URLRequest(url: url)

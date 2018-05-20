@@ -9,12 +9,28 @@
 import UIKit
 import NotificationBannerSwift
 
+
+
+
 class order_details_ViewController: UIViewController {
 
     var no_of_stars  = 0
     
+    struct rating : Decodable {
+        let Rating: Int?
+    }
+    
+    var rat = rating(Rating:0)
+    
+    
     
     @IBOutlet var star_buttons: [UIButton]!
+    
+    @IBOutlet var error_label: UILabel!
+    
+    @IBOutlet var rate_button: UIButton!
+    
+    
     
     
     @IBAction func Rate_action(_ sender: Any) {
@@ -29,18 +45,19 @@ class order_details_ViewController: UIViewController {
         // useremail ,... seleced order id . selected menuid
         
         var parameters = [
-            "Name": "",
+            
             "rating": 0,
-            "Quantity" : 0,
-            "Preparationtime" : 0,
+            
             ] as [String : Any]
         
         parameters["rating"] = no_of_stars
         
+      
+        
+        print("###############################I am in rating action")
         
         
-        
-        guard let url = URL(string: "http://localhost:3000/order/rating/\(user_email)/\(selected_order_id)/\(selected_menu_id)") else { return }
+        guard let url = URL(string: "https://mobile-ios-backend.herokuapp.com/rating/\(user_email)/\(selected_menu_id)") else { return }
         print(url)
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -62,12 +79,8 @@ class order_details_ViewController: UIViewController {
                         let banner = NotificationBanner(title: " Ratings submitted successfully! ", subtitle: "", style: .success)
                         banner.show()
                     }
-                    
-                    
-                    
                 } catch {
                     print(error)
-                    
                 }
             }
             
@@ -86,11 +99,7 @@ class order_details_ViewController: UIViewController {
         for button in star_buttons {
             if( button.tag < no_of_stars)
             {
-             
                 button.setTitle("★", for: .normal )
-                
-               
-                
             } else {
                 
                 button.setTitle("☆", for: .normal )
@@ -104,37 +113,88 @@ class order_details_ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.get_ratings()
         
-       
+        id.text = selected_menu_name
         
-        id.text = String ( orders[selected_row].OrderID )
-        
-        if( orders[selected_row].Status == "PLACED" )
+        if( orders[selected_row].Status == "Fulfilled" )
         {
+            error_label.isHidden = true
+            rate_button.isHidden = false
+            
+            
+            error_label.text = "You have given \(rat.Rating)⭐️s to this menu previously!"
+            error_label.isHidden = false
             
             for button in star_buttons{
                 button.isHidden = false
             }
             
+            //prev given stars show here
+            
+            if rat.Rating != 0
+            {
+                error_label.text = "You have given \(rat.Rating)⭐️s to this menu previously!"
+                error_label.isHidden = false
+            }
+            
+            for button in star_buttons {
+                if( button.tag < rat.Rating!)
+                {
+                    button.setTitle("★", for: .normal )
+                } else {
+                    button.setTitle("☆", for: .normal )
+                }
+            }
+        
         }
         else {
+            
+            error_label.isHidden = false
+            rate_button.isHidden = true
             for button in star_buttons{
                 button.isHidden = true
             }
-            
         }
+    }
+    
+    
+    
+    
+    // func to get ratings from json
+    
+    func get_ratings()  {
+        
+        // get call on https://mobile-ios-backend.herokuapp.com/rating/nikhitha.reddy123@gmail.com/2
+        // store in no_of_stars
+        
+        
+        
+        
+        let jsonurl = "https://mobile-ios-backend.herokuapp.com/rating/\(user_email)/\(selected_menu_id)"
+        let url = URL(string: jsonurl )
+        
+        print(url )
+        
+        URLSession.shared.dataTask(with: url!) { (data, resp, err) in
+            
+            do {
+                self.rat = try JSONDecoder().decode(rating.self, from: data!)
+                
+                print("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
+               print(self.rat.Rating)
+            }
+            catch{
+                print(err)
+            }
+            
+            }.resume()
+        
+    }
 
+    
+
+    
    
-    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
