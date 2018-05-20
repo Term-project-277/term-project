@@ -54,8 +54,13 @@ class Order_detail_TableViewController: UITableViewController {
         //for i in 0...itemCount-1
         //{
             let length = orders[selected_row].Items[cnt].Name.count
-            let itemDetails = NSMutableAttributedString(string: "\n\nItem Name:\t\t\t\(orders[selected_row].Items[cnt].Name)\nQuantity\t\t\t\t\(orders[selected_row].Items[cnt].Quantity)\nMenu ID:\t\t\t\t\(orders[selected_row].Items[cnt].MenuID)\nPreparation Time:\t\t \(orders[selected_row].Items[cnt].Preparationtime)\n")
+            let itemDetails = NSMutableAttributedString(string: "\nItem Name:\t\t\t\(orders[selected_row].Items[cnt].Name)\nQuantity\t\t\t\t\(orders[selected_row].Items[cnt].Quantity)\nMenu ID:\t\t\t\t\(orders[selected_row].Items[cnt].MenuID)\nPreparation Time:\t\t \(orders[selected_row].Items[cnt].Preparationtime)\n")
             orderDetails.append(itemDetails)
+            var attributes = [NSAttributedStringKey: AnyObject]()
+            attributes[.foregroundColor] = UIColor.blue
+            attributes[.font] = UIFont.boldSystemFont(ofSize: 16) as AnyObject
+        let rateMessage = NSMutableAttributedString(string: "Click here to rate \(orders[selected_row].Items[cnt].Name)",attributes:attributes)
+            orderDetails.append(rateMessage)
         //}
         cell.textLabel?.attributedText = orderDetails
         // Configure the cell...
