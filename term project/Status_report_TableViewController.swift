@@ -48,7 +48,24 @@ class Status_report_TableViewController: UITableViewController {
         
         return report_orders.count
     }
-
+  
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        
+        let frame = tableView.frame
+        let rect1 = CGRect(x: 300, y: 30, width: 300, height: 40)
+        let headerView = UIView(frame: rect1)
+        headerView.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+        let rect = CGRect(x: 0, y: 0, width: 300, height: 30)
+        let label = UILabel(frame: rect)
+        label.text = "Status Report"
+        //vw.backgroundColor = UIColor.red
+        label.font = label.font.withSize(25)
+        label.textColor = UIColor.black
+        headerView.addSubview(label)
+        
+        return headerView
+    }
    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
