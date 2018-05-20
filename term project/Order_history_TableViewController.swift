@@ -152,8 +152,13 @@ class Order_history_TableViewController: UITableViewController {
 
         let attributedString = NSMutableAttributedString(string: "Order ID:\t\t\t\(orders[indexPath.row].OrderID)\nOrder Status:\t\t\(orders[indexPath.row].Status)\nReady Time:\t\t\(readytime)", attributes:attributes)
         
-        let normalString = NSMutableAttributedString(string: "\nPickup Time:\t\t\( pickuptime )\nFulfillment Time:\t\( fullfilmentstarttime )", attributes:attributes)
+        let normalString = NSMutableAttributedString(string: "\nPickup Time:\t\t\( pickuptime )\nFulfillment Time:\t\(fullfilmentstarttime)\n", attributes:attributes)
         attributedString.append(normalString)
+        var attribut = [NSAttributedStringKey: AnyObject]()
+        attribut[.foregroundColor] = UIColor.blue
+        attribut[.font] = UIFont.boldSystemFont(ofSize: 15) as AnyObject
+        let message = NSMutableAttributedString(string: "\nClick here to view the details of order \((orders[indexPath.row].OrderID))\n",attributes:attribut)
+        attributedString.append(message)
         cell.textLabel?.attributedText = attributedString
         return cell
     }
