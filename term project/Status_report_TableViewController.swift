@@ -24,7 +24,7 @@ class Status_report_TableViewController: UITableViewController {
     override func viewDidLoad() { super.viewDidLoad()
         
        
-         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+      
         tableView.rowHeight = UITableViewAutomaticDimension
         
         
@@ -51,9 +51,14 @@ class Status_report_TableViewController: UITableViewController {
 
    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-         cell.textLabel?.text = "\(report_orders[indexPath.row].TotalPrepTime)"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        cell.textLabel?.numberOfLines = 0
+        
+         cell.textLabel?.text = "\(report_orders[indexPath.row].Status) \n \(report_orders[indexPath.row].TotalPrepTime) \n \(report_orders[indexPath.row].OrderID) \n \(report_orders[indexPath.row].createdAt) \n \(report_orders[indexPath.row].PickupTime)"
+        
+        
+        
 
         return cell
     }

@@ -11,6 +11,13 @@ import UIKit
 struct report_order : Decodable {
     let TotalPrepTime : Int
     let Status : String
+    let User : String
+    let FulfillmentStartTime : String
+    let ReadyTime : String
+    let PickupTime : String
+    let createdAt : String
+    let updatedAt :  String
+    let OrderID : Int
     
 }
 var report_orders = [report_order] ()
