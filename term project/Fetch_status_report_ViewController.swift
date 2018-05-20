@@ -18,9 +18,18 @@ struct report_order : Decodable {
     let createdAt : String
     let updatedAt :  String
     let OrderID : Int
-    
+    let Items : [report_item]
 }
 var report_orders = [report_order] ()
+
+
+struct report_item : Decodable {
+    let Preparationtime : Int
+    let MenuID : Int
+    let Name : String
+    let Quantity : Int
+}
+var report_items = [report_item] ()
 
 class Fetch_status_report_ViewController: UIViewController {
 

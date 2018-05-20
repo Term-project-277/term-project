@@ -55,7 +55,7 @@ class Status_report_TableViewController: UITableViewController {
         
         cell.textLabel?.numberOfLines = 0
         
-         cell.textLabel?.text = "\(report_orders[indexPath.row].Status) \n \(report_orders[indexPath.row].TotalPrepTime) \n \(report_orders[indexPath.row].OrderID) \n \(report_orders[indexPath.row].createdAt) \n \(report_orders[indexPath.row].PickupTime)"
+         cell.textLabel?.text = "\(report_orders[indexPath.row].Status) \n \(report_orders[indexPath.row].TotalPrepTime) \n \(report_orders[indexPath.row].OrderID) \n \(report_orders[indexPath.row].createdAt) \n \(report_orders[indexPath.row].PickupTime) \n \n \(report_orders[indexPath.row].Items[0].Name)"
         
         
         
