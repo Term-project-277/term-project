@@ -118,7 +118,14 @@ class Status_report_TableViewController: UITableViewController {
         let itemCount = report_orders[indexPath.row].Items.count
         for i in 0...itemCount-1
         {
-            let itemDetails = NSMutableAttributedString(string: "\(report_orders[indexPath.row].Items[i].Name)\t\t\t\t\t\(report_orders[indexPath.row].Items[i].Quantity)")
+            let length = report_orders[indexPath.row].Items[i].Name.count
+            var spaces = ""
+            var diff = 44-length
+            for j in 1...diff
+            {
+                spaces += " "
+            }
+            let itemDetails = NSMutableAttributedString(string: "\(report_orders[indexPath.row].Items[i].Name)\(spaces)\(report_orders[indexPath.row].Items[i].Quantity)\n")
             orderDetails.append(itemDetails)
         }
         cell.textLabel?.attributedText = orderDetails
