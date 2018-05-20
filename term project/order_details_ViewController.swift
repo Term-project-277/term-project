@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import NotificationBannerSwift
 
 class order_details_ViewController: UIViewController {
 
+    var no_of_stars  = 0
     
     
     @IBOutlet var star_buttons: [UIButton]!
@@ -26,19 +28,63 @@ class order_details_ViewController: UIViewController {
 //        http://localhost:3000/order/rating/shwetaajit.kothari@sjsu.edu/279/2
         // useremail ,... seleced order id . selected menuid
         
+        var parameters = [
+            "Name": "",
+            "rating": 0,
+            "Quantity" : 0,
+            "Preparationtime" : 0,
+            ] as [String : Any]
         
+        parameters["rating"] = no_of_stars
+        
+        
+        
+        
+        guard let url = URL(string: "http://localhost:3000/order/rating/\(user_email)/\(selected_order_id)/\(selected_menu_id)") else { return }
+        print(url)
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
+        request.httpBody = httpBody
+        
+        let session = URLSession.shared
+        session.dataTask(with: request) { (data, response, error) in
+            if let response = response {
+                print(response)
+            }
+            
+            if let data = data {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    print(json)
+                    DispatchQueue.main.async {
+                        let banner = NotificationBanner(title: " Ratings submitted successfully! ", subtitle: "", style: .success)
+                        banner.show()
+                    }
+                    
+                    
+                    
+                } catch {
+                    print(error)
+                    
+                }
+            }
+            
+            }.resume()
+      
         
         
     }
     
     @IBAction func star_tapped(_ sender: UIButton) {
         
-        let tag = sender.tag
+        no_of_stars = sender.tag + 1
         
-         print("***************stars given - \(tag+1)" )
+         print("***************stars given - \(no_of_stars)" )
         
         for button in star_buttons {
-            if( button.tag <= tag)
+            if( button.tag < no_of_stars)
             {
              
                 button.setTitle("★", for: .normal )
