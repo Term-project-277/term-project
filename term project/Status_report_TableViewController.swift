@@ -24,7 +24,7 @@ class Status_report_TableViewController: UITableViewController {
     override func viewDidLoad() { super.viewDidLoad()
         
        
-      
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
         tableView.rowHeight = UITableViewAutomaticDimension
         
         
@@ -51,8 +51,22 @@ class Status_report_TableViewController: UITableViewController {
     
     @objc func buttonClicked(sender:UIButton)
     {
+        var msg = "select how you want to sort!!! "
+        let alert = UIAlertController(title: msg, message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Order time", style: .default, handler: { action in self.sort_order_time() } ))
+        alert.addAction(UIAlertAction(title: "Fulfillment start-time", style: .default, handler: { action in self.sort_fulfilment_time() } ))
+        self.present(alert, animated: true)
         
     }
+    
+    func sort_order_time(){
+        
+    }
+    
+    func sort_fulfilment_time(){
+        
+    }
+    
   
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
@@ -72,6 +86,7 @@ class Status_report_TableViewController: UITableViewController {
         button.tag = section
         var image:UIImage!
         button.setImage(UIImage(named: "connect-arrow-up-down-7.png"), for: UIControlState.normal)
+        button.tag = section;
         button.addTarget(self,action:#selector(buttonClicked),for:.touchUpInside)
         headerView.addSubview(label)
         headerView.addSubview(button)
