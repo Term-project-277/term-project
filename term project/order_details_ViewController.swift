@@ -13,7 +13,7 @@ import NotificationBannerSwift
 
 
 class order_details_ViewController: UIViewController {
-
+    
     var no_of_stars  = 0
     
     struct rating : Decodable {
@@ -36,12 +36,12 @@ class order_details_ViewController: UIViewController {
     @IBAction func Rate_action(_ sender: Any) {
         
         //do post {
-//        "Name":"Veg Biryani",
-//        "rating":5,
-//        "Quantity":1,
-//        "Preparationtime":5
-//    }
-//        http://localhost:3000/order/rating/shwetaajit.kothari@sjsu.edu/279/2
+        //        "Name":"Veg Biryani",
+        //        "rating":5,
+        //        "Quantity":1,
+        //        "Preparationtime":5
+        //    }
+        //        http://localhost:3000/order/rating/shwetaajit.kothari@sjsu.edu/279/2
         // useremail ,... seleced order id . selected menuid
         
         var parameters = [
@@ -52,7 +52,7 @@ class order_details_ViewController: UIViewController {
         
         parameters["rating"] = no_of_stars
         
-      
+        
         
         print("###############################I am in rating action")
         
@@ -85,7 +85,7 @@ class order_details_ViewController: UIViewController {
             }
             
             }.resume()
-      
+        
         
         
     }
@@ -94,7 +94,7 @@ class order_details_ViewController: UIViewController {
         
         no_of_stars = sender.tag + 1
         
-         print("***************stars given - \(no_of_stars)" )
+        print("***************stars given - \(no_of_stars)" )
         
         for button in star_buttons {
             if( button.tag < no_of_stars)
@@ -113,49 +113,59 @@ class order_details_ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.get_ratings()
-        
-        id.text = selected_menu_name
-        
-        if( orders[selected_row].Status == "Fulfilled" )
-        {
-            error_label.isHidden = true
-            rate_button.isHidden = false
+        self.get_ratings {
             
             
-            error_label.text = "You have given \(rat.Rating)⭐️s to this menu previously!"
-            error_label.isHidden = false
             
-            for button in star_buttons{
-                button.isHidden = false
-            }
             
-            //prev given stars show here
+            self.id.text = selected_menu_name
             
-            if rat.Rating != 0
+            if( orders[selected_row].Status == "Fulfilled" )
             {
-                error_label.text = "You have given \(rat.Rating)⭐️s to this menu previously!"
-                error_label.isHidden = false
-            }
-            
-            for button in star_buttons {
-                if( button.tag < rat.Rating!)
+                  self.error_label.isHidden = true
+                  self.rate_button.isHidden = false
+                
+                
+                  self.error_label.text = "You have given \(  self.rat.Rating)⭐️s to this menu previously!"
+                  self.error_label.isHidden = false
+                
+                for button in   self.star_buttons{
+                    button.isHidden = false
+                }
+                
+                //prev given stars show here
+                
+                if   self.rat.Rating != 0
                 {
-                    button.setTitle("★", for: .normal )
-                } else {
-                    button.setTitle("☆", for: .normal )
+                      self.error_label.text = "You have given \(  self.rat.Rating)⭐️s to this menu previously!"
+                      self.error_label.isHidden = false
+                }
+                
+                for button in   self.star_buttons {
+                    if( button.tag <   self.rat.Rating!)
+                    {
+                        button.setTitle("★", for: .normal )
+                    } else {
+                        button.setTitle("☆", for: .normal )
+                    }
+                }
+                
+            }
+            else {
+                
+                  self.error_label.isHidden = false
+                  self.rate_button.isHidden = true
+                for button in   self.star_buttons{
+                    button.isHidden = true
                 }
             }
+            
+            
+            
         
         }
-        else {
-            
-            error_label.isHidden = false
-            rate_button.isHidden = true
-            for button in star_buttons{
-                button.isHidden = true
-            }
-        }
+        
+        
     }
     
     
@@ -163,7 +173,7 @@ class order_details_ViewController: UIViewController {
     
     // func to get ratings from json
     
-    func get_ratings()  {
+    func get_ratings( completion: @escaping ()->() )  {
         
         // get call on https://mobile-ios-backend.herokuapp.com/rating/nikhitha.reddy123@gmail.com/2
         // store in no_of_stars
@@ -182,7 +192,9 @@ class order_details_ViewController: UIViewController {
                 self.rat = try JSONDecoder().decode(rating.self, from: data!)
                 
                 print("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
-               print(self.rat.Rating)
+                print(self.rat.Rating)
+                
+                completion()
             }
             catch{
                 print(err)
@@ -191,10 +203,10 @@ class order_details_ViewController: UIViewController {
             }.resume()
         
     }
-
     
-
     
-   
-
+    
+    
+    
+    
 }
