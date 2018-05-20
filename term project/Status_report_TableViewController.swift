@@ -124,10 +124,6 @@ class Status_report_TableViewController: UITableViewController {
         cell.textLabel?.attributedText = orderDetails
         //" \nItems: \n \(report_orders[indexPath.row].Items[0].Name)"
         
-        
-        
-        
-        
         /// count of Items ..
 
         return cell
