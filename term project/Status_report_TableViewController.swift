@@ -12,14 +12,6 @@ class Status_report_TableViewController: UITableViewController {
     
     
     
-    @IBAction func refresh_action(_ sender: Any) {
-        
-        print("########################************************************************")
-       
-        print(report_orders.count)
-        tableView.reloadData()
-        
-    }
     
     override func viewDidLoad() { super.viewDidLoad()
         
@@ -61,14 +53,87 @@ class Status_report_TableViewController: UITableViewController {
     
     func sort_order_time(){
         
-        
-        
-    }
+        DispatchQueue.main.async {
+            self.load_sorted_order_time( "https://mobile-ios-backend.herokuapp.com/order/report/OrderTime") {
+                DispatchQueue.main.async {
+                  self.tableView.reloadData()
+                }
+            }
+        }
+            
+   }
+    
+    
+    
     
     func sort_fulfilment_time(){
         
+        DispatchQueue.main.async {
+            self.load_sorted_order_time( "https://mobile-ios-backend.herokuapp.com/order/report/FulfillmentTime") {
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+        
     }
     
+    
+    
+    
+    
+    func load_sorted_order_time(_ x: String, completion: @escaping ()->() ) {
+        //    func load_status_report () {
+        var parameters = [
+            "fromDate": "",
+            "toDate": "",
+            ] as [String : Any]
+        
+        //        parameters["fromDate"] = "\(from_date.date)"
+        parameters["fromDate"] = "01-01-2018"
+        
+        //        parameters["toDate"] = "\(to_date.date)"
+        parameters["toDate"] = "05-30-2018"
+        
+        guard let url = URL(string: x) else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
+        request.httpBody = httpBody
+        
+        print(httpBody)
+        
+        let session = URLSession.shared
+        session.dataTask(with: request) { (data, response, error) in
+            if let response = response {
+                print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+                print(response)
+            }
+            
+            if let data = data {
+                do {   report_orders = try JSONDecoder().decode([report_order].self, from: data)
+                    
+                    print("*******************json*********************")
+                    print(report_orders.count)
+                    //                    print(report_orders[0].TotalPrepTime)
+                    
+                    completion()
+                    
+                }catch {
+                    
+                    print("###############################################")
+                    print(error)
+                }
+                
+            }
+            }.resume()
+        
+    }
+    
+
+
   
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
