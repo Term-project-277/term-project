@@ -95,7 +95,8 @@ class Order_history_TableViewController: UITableViewController {
         let label = UILabel()
         //          let rect = CGRect(x: 0, y: 0, width: 100, height: 100)
         //        label.bounds = rect
-        label.text = "ID\t  Status \t  Ready time"
+        //label.text = "ID\t  Status \t  Ready time"
+        label.text = "Order History"
         label.font = label.font.withSize(25)
         label.textColor = UIColor.black
         label.backgroundColor =  #colorLiteral(red: 1, green: 0.8323456645, blue: 0.4732058644, alpha: 1)
@@ -130,14 +131,14 @@ class Order_history_TableViewController: UITableViewController {
         let readytime = dateFormatter2.string(from: createdDate! )
         print(readytime)
         
-         let createdDate1 = dateFormatter1.date(fromSwapiString: orders[indexPath.row].FulfillmentStartTime)
-            let fullfilmentstarttime = dateFormatter2.string(from: createdDate1! )
+        let createdDate1 = dateFormatter1.date(fromSwapiString: orders[indexPath.row].FulfillmentStartTime)
+        let fullfilmentstarttime = dateFormatter2.string(from: createdDate1! )
         
         let createdDate2 = dateFormatter1.date(fromSwapiString: orders[indexPath.row].PickupTime)
         let pickuptime = dateFormatter2.string(from: createdDate2! )
         
 
-     let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
         
         
         
@@ -149,16 +150,12 @@ class Order_history_TableViewController: UITableViewController {
         attributes[.font] = UIFont.systemFont(ofSize: 15) as AnyObject
 
 
-            let attributedString = NSMutableAttributedString(string: "\(orders[indexPath.row].OrderID) \t  \(orders[indexPath.row].Status)  \(readytime)", attributes:attributes)
+        let attributedString = NSMutableAttributedString(string: "Order ID:\t\t\(orders[indexPath.row].OrderID)\nOrder Status:\t\t\(orders[indexPath.row].Status)\nReady Time:\t\t\(readytime)", attributes:attributes)
         
-        let normalString = NSMutableAttributedString(string: "\n\n Pickup Time: \( pickuptime )\n \n Fulfillment Start Time: \( fullfilmentstarttime )", attributes:attributes)
-        
-        
+        let normalString = NSMutableAttributedString(string: "\nPickup Time:\t\t\( pickuptime )\nFulfillment Start Time:\t\t\( fullfilmentstarttime )", attributes:attributes)
         attributedString.append(normalString)
-        
-            cell.textLabel?.attributedText = attributedString
-        
-             return cell
+        cell.textLabel?.attributedText = attributedString
+        return cell
     }
 
 
