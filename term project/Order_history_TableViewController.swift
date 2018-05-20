@@ -150,9 +150,9 @@ class Order_history_TableViewController: UITableViewController {
         attributes[.font] = UIFont.systemFont(ofSize: 15) as AnyObject
 
 
-        let attributedString = NSMutableAttributedString(string: "Order ID:\t\t\(orders[indexPath.row].OrderID)\nOrder Status:\t\t\(orders[indexPath.row].Status)\nReady Time:\t\t\(readytime)", attributes:attributes)
+        let attributedString = NSMutableAttributedString(string: "Order ID:\t\t\t\(orders[indexPath.row].OrderID)\nOrder Status:\t\t\(orders[indexPath.row].Status)\nReady Time:\t\t\(readytime)", attributes:attributes)
         
-        let normalString = NSMutableAttributedString(string: "\nPickup Time:\t\t\( pickuptime )\nFulfillment Start Time:\t\t\( fullfilmentstarttime )", attributes:attributes)
+        let normalString = NSMutableAttributedString(string: "\nPickup Time:\t\t\( pickuptime )\nFulfillment Time:\t\( fullfilmentstarttime )", attributes:attributes)
         attributedString.append(normalString)
         cell.textLabel?.attributedText = attributedString
         return cell
