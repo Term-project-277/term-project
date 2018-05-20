@@ -997,7 +997,7 @@
                             <items>
                                 <navigationItem id="L5x-yj-JKc">
                                     <barButtonItem key="leftBarButtonItem" style="plain" id="Rsg-Hy-4qm">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Spa-Ur-y6H">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Spa-Ur-y6H">
                                             <rect key="frame" x="16" y="4" width="83" height="36"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -1125,7 +1125,7 @@
                                 <items>
                                     <navigationItem id="nsB-q0-R4z">
                                         <barButtonItem key="leftBarButtonItem" style="plain" id="uaE-Tl-3Tz">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="viL-nB-jqx">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="viL-nB-jqx">
                                                 <rect key="frame" x="16" y="4" width="83" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -1436,13 +1436,12 @@
         <image name="shopping-cart.png" width="29" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="68e-B8-CQe"/>
         <segue reference="adS-Ge-UCs"/>
         <segue reference="SrM-UF-t9Q"/>
         <segue reference="PC7-ed-sy5"/>
         <segue reference="Xke-mG-83Z"/>
         <segue reference="QSl-Ha-Nds"/>
-        <segue reference="Z7F-Ic-Pad"/>
+        <segue reference="R4i-7V-LrX"/>
         <segue reference="r4X-iH-Wki"/>
         <segue reference="UPc-WQ-pGc"/>
         <segue reference="QA5-Ds-gvA"/>
