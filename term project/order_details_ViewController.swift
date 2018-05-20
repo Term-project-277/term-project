@@ -15,6 +15,21 @@ class order_details_ViewController: UIViewController {
     @IBOutlet var star_buttons: [UIButton]!
     
     
+    @IBAction func Rate_action(_ sender: Any) {
+        
+        //do post {
+//        "Name":"Veg Biryani",
+//        "rating":5,
+//        "Quantity":1,
+//        "Preparationtime":5
+//    }
+//        http://localhost:3000/order/rating/shwetaajit.kothari@sjsu.edu/279/2
+        // useremail ,... seleced order id . selected menuid
+        
+        
+        
+        
+    }
     
     @IBAction func star_tapped(_ sender: UIButton) {
         

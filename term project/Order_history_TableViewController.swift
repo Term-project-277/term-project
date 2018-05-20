@@ -21,14 +21,26 @@ extension DateFormatter {
 
 struct order : Decodable {
         let TotalPrepTime : Int
+        let User : String
         let Status : String
         let OrderID : Int
         let FulfillmentStartTime : String
         let ReadyTime : String
-    let PickupTime: String
+        let PickupTime: String
+        let Items : [order_item]
     }
 
     var orders = [order] ()
+
+
+struct order_item : Decodable {
+    let Preparationtime : Int
+    let MenuID : Int
+    let Name : String
+    let Quantity : Int
+}
+var order_items = [order_item] ()
+
 
 class Order_history_TableViewController: UITableViewController {
 
