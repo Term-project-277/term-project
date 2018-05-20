@@ -18,6 +18,7 @@
 		994CB7F22099116A000E5208 /* admin_menuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994CB7F12099116A000E5208 /* admin_menuTableViewController.swift */; };
 		994CB7F420992B40000E5208 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994CB7F320992B40000E5208 /* DetailsViewController.swift */; };
 		99618B2E20924DFF00B359F9 /* client_868442633715-a9elkntjjet7hsvvdlas1fjmrrck01c8.apps.googleusercontent.com.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99618B2D20924DFF00B359F9 /* client_868442633715-a9elkntjjet7hsvvdlas1fjmrrck01c8.apps.googleusercontent.com.plist */; };
+		996564DA20B151DC003E0612 /* Order_detail_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996564D920B151DC003E0612 /* Order_detail_TableViewController.swift */; };
 		996C4CB220AFABD300D88E7D /* Admin_more_Actions_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996C4CB120AFABD300D88E7D /* Admin_more_Actions_ViewController.swift */; };
 		996DA3712090178900C7E4E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996DA3702090178900C7E4E6 /* AppDelegate.swift */; };
 		996DA3732090178900C7E4E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996DA3722090178900C7E4E6 /* ViewController.swift */; };
@@ -69,6 +70,7 @@
 		994CB7F12099116A000E5208 /* admin_menuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = admin_menuTableViewController.swift; sourceTree = "<group>"; };
 		994CB7F320992B40000E5208 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		99618B2D20924DFF00B359F9 /* client_868442633715-a9elkntjjet7hsvvdlas1fjmrrck01c8.apps.googleusercontent.com.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "client_868442633715-a9elkntjjet7hsvvdlas1fjmrrck01c8.apps.googleusercontent.com.plist"; sourceTree = "<group>"; };
+		996564D920B151DC003E0612 /* Order_detail_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order_detail_TableViewController.swift; sourceTree = "<group>"; };
 		996C4CB120AFABD300D88E7D /* Admin_more_Actions_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Admin_more_Actions_ViewController.swift; sourceTree = "<group>"; };
 		996DA36D2090178900C7E4E6 /* term project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "term project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		996DA3702090178900C7E4E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				996C4CB120AFABD300D88E7D /* Admin_more_Actions_ViewController.swift */,
 				994CB7F320992B40000E5208 /* DetailsViewController.swift */,
 				99C0823320A280F900AC955D /* Place_order_ViewController.swift */,
+				996564D920B151DC003E0612 /* Order_detail_TableViewController.swift */,
 				994CB7F12099116A000E5208 /* admin_menuTableViewController.swift */,
 				99618B2D20924DFF00B359F9 /* client_868442633715-a9elkntjjet7hsvvdlas1fjmrrck01c8.apps.googleusercontent.com.plist */,
 				C057CB2B209E308700E56177 /* WelcomeSignInViewController.swift */,
@@ -495,6 +498,7 @@
 				99C0823420A280F900AC955D /* Place_order_ViewController.swift in Sources */,
 				C057CB2C209E308700E56177 /* WelcomeSignInViewController.swift in Sources */,
 				99E30EF920AFF75600B89350 /* Fetch_status_report_ViewController.swift in Sources */,
+				996564DA20B151DC003E0612 /* Order_detail_TableViewController.swift in Sources */,
 				C057CB2E209E363000E56177 /* AdminLoginViewController.swift in Sources */,
 				9934E1A9209FD25800C486EE /* User_menu_TableViewController.swift in Sources */,
 				9934E1AE209FE59C00C486EE /* User_details_ViewController.swift in Sources */,
