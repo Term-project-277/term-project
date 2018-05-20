@@ -426,7 +426,20 @@ class User_menu_TableViewController: UITableViewController {
             
             let attributedString = NSMutableAttributedString(string: "\( drinks[indexPath.row].Name )\n", attributes:attributes)
             let image1Attachment = NSTextAttachment()
-            image1Attachment.image = UIImage(named: "\(drinks[indexPath.row].Name).jpg")
+            //image1Attachment.image = UIImage(named: "\(drinks[indexPath.row].Name).jpg")
+            let drinksName = "\(drinks[indexPath.row].Name)"
+            let imName = drinksName.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
+
+            do {
+                let url = URL(string: "https://s3-us-west-2.amazonaws.com/cmpe277/\(imName).jpg")
+                if(url != nil){
+                let data = try Data(contentsOf: url!)
+                image1Attachment.image = UIImage(data: data)
+                }
+            }
+            catch{
+                print(error)
+            }
             let rect = CGRect(x: 0, y: 0, width: 100, height: 100)
             image1Attachment.bounds = rect
             // wrap the attachment in its own attributed string so we can append it
@@ -444,7 +457,19 @@ class User_menu_TableViewController: UITableViewController {
             let attributedString = NSMutableAttributedString(string: "\( appets[indexPath.row].Name )\n ", attributes:attributes)
             var name:String = "\(appets[indexPath.row].Name)"
             let image1Attachment = NSTextAttachment()
-            image1Attachment.image = UIImage(named: "\(name).jpg")
+            let appetName = "\(appets[indexPath.row].Name)"
+            let imName = appetName.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
+            
+            do {
+                let url = URL(string: "https://s3-us-west-2.amazonaws.com/cmpe277/\(imName).jpg")
+                if(url != nil){
+                    let data = try Data(contentsOf: url!)
+                    image1Attachment.image = UIImage(data: data)
+                }
+            }
+            catch{
+                print(error)
+            }
             let rect = CGRect(x: 0, y: 0, width: 100, height: 100)
             image1Attachment.bounds = rect
             // wrap the attachment in its own attributed string so we can append it
@@ -458,7 +483,19 @@ class User_menu_TableViewController: UITableViewController {
             
             let attributedString = NSMutableAttributedString(string: "\( mains[indexPath.row].Name )\n ", attributes:attributes)
             let image1Attachment = NSTextAttachment()
-            image1Attachment.image = UIImage(named:"\(mains[indexPath.row].Name).jpg")
+            let mainsName = "\(mains[indexPath.row].Name)"
+            let imName = mainsName.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
+            
+            do {
+                let url = URL(string: "https://s3-us-west-2.amazonaws.com/cmpe277/\(imName).jpg")
+                if(url != nil){
+                    let data = try Data(contentsOf: url!)
+                    image1Attachment.image = UIImage(data: data)
+                }
+            }
+            catch{
+                print(error)
+            }
             let rect = CGRect(x: 0, y: 0, width: 100, height: 100)
             image1Attachment.bounds = rect
             // wrap the attachment in its own attributed string so we can append it
@@ -476,7 +513,19 @@ class User_menu_TableViewController: UITableViewController {
             /*let normalString = NSMutableAttributedString(string: "Prep time: \(deserts[indexPath.row].Preparationtime!)\n\t\t\t\t\tCalories: \(deserts[indexPath.row].Calories!)\n\t\t\t\t\tUnit price: \(deserts[indexPath.row].Unitprice)")
              attributedString.append(normalString)*/
             let image1Attachment = NSTextAttachment()
-            image1Attachment.image = UIImage(named: "\(deserts[indexPath.row].Name).jpg")
+            let dessertsName = "\(deserts[indexPath.row].Name)"
+            let imName = dessertsName.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
+            
+            do {
+                let url = URL(string: "https://s3-us-west-2.amazonaws.com/cmpe277/\(imName).jpg")
+                if(url != nil){
+                    let data = try Data(contentsOf: url!)
+                    image1Attachment.image = UIImage(data: data)
+                }
+            }
+            catch{
+                print(error)
+            }
             let rect = CGRect(x: 0, y: 0, width: 100, height: 100)
             image1Attachment.bounds = rect
             // wrap the attachment in its own attributed string so we can append it
