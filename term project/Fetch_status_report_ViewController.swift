@@ -102,7 +102,7 @@ class Fetch_status_report_ViewController: UIViewController {
         parameters["fromDate"] = "01-01-2018"
         
         //        parameters["toDate"] = "\(to_date.date)"
-        parameters["toDate"] = "05-20-2018"
+        parameters["toDate"] = "05-30-2018"
         
         guard let url = URL(string: "https://mobile-ios-backend.herokuapp.com/order/report") else { return }
         var request = URLRequest(url: url)
