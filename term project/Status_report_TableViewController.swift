@@ -97,12 +97,41 @@ class Status_report_TableViewController: UITableViewController {
     }
    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let dateFormatter1 = DateFormatter()
+        let createdDate = dateFormatter1.date(fromSwapiString: "\(report_orders[indexPath.row].createdAt)")
+        let dateFormatter2 = DateFormatter()
+        // short format like "12/9/14, 9:50 AM"
+        dateFormatter2.dateStyle = .medium
+        dateFormatter2.timeStyle = .short
+        let readyTime = dateFormatter2.string(from: createdDate! )
+        
+        let pickupDate = dateFormatter1.date(fromSwapiString: "\(report_orders[indexPath.row].PickupTime)")
+        let dateFormatter3 = DateFormatter()
+        // short format like "12/9/14, 9:50 AM"
+        dateFormatter3.dateStyle = .medium
+        dateFormatter3.timeStyle = .short
+        let pickupTime = dateFormatter2.string(from: pickupDate! )
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         cell.textLabel?.numberOfLines = 0
-        
-         cell.textLabel?.text = "\(report_orders[indexPath.row].Status) \n \(report_orders[indexPath.row].TotalPrepTime) \n \(report_orders[indexPath.row].OrderID) \n \(report_orders[indexPath.row].createdAt) \n \(report_orders[indexPath.row].PickupTime) \n \n \(report_orders[indexPath.row].Items[0].Name)"
-        
+        let orderDetails = NSMutableAttributedString(string: "Order Status:\t\t \(report_orders[indexPath.row].Status)\nOrder ID:\t\t\t \(report_orders[indexPath.row].OrderID)\nTotal Prep Time:\t\(report_orders[indexPath.row].TotalPrepTime)\nReady Time:\t\t\(readyTime)\nPickup Time:\t\t\(pickupTime)\n\n\nItem Details\t\t\t\t\tQuantity\n")
+        let itemCount = report_orders[indexPath.row].Items.count
+        for i in 0...itemCount-1
+        {
+            let length = report_orders[indexPath.row].Items[i].Name.count
+            var spaces = ""
+            var diff = 44-length
+            for j in 1...diff
+            {
+                spaces += " "
+            }
+            let itemDetails = NSMutableAttributedString(string: "\(report_orders[indexPath.row].Items[i].Name)\(spaces)\(report_orders[indexPath.row].Items[i].Quantity)\n")
+            orderDetails.append(itemDetails)
+        }
+        cell.textLabel?.attributedText = orderDetails
+        //" \nItems: \n \(report_orders[indexPath.row].Items[0].Name)"
         
         /// count of Items ..
 

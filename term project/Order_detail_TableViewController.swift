@@ -10,6 +10,7 @@ import UIKit
 
 var selected_order_id = 0
 var selected_menu_id = 0
+var cnt:Int = 0
 
 
 
@@ -17,7 +18,7 @@ class Order_detail_TableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        cnt = 0
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -39,19 +40,31 @@ class Order_detail_TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        cnt = 0
         return orders[selected_row].Items.count
+        //return 1
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
+        let orderDetails = NSMutableAttributedString(string:"")
         cell.textLabel?.numberOfLines = 0
-        
-        cell.textLabel?.text = "\(orders[selected_row].Items[0].Name) \n \(orders[selected_row].Items[0].Quantity) \n \(orders[selected_row].Items[0].MenuID) \n \(orders[selected_row].Items[0].Preparationtime)"
-
+        //let itemCount = orders[selected_row].Items.count
+        //for i in 0...itemCount-1
+        //{
+            let length = orders[selected_row].Items[cnt].Name.count
+            let itemDetails = NSMutableAttributedString(string: "\nItem Name:\t\t\t\(orders[selected_row].Items[cnt].Name)\nQuantity\t\t\t\t\(orders[selected_row].Items[cnt].Quantity)\nMenu ID:\t\t\t\t\(orders[selected_row].Items[cnt].MenuID)\nPreparation Time:\t\t \(orders[selected_row].Items[cnt].Preparationtime)\n")
+            orderDetails.append(itemDetails)
+            var attributes = [NSAttributedStringKey: AnyObject]()
+            attributes[.foregroundColor] = UIColor.blue
+            attributes[.font] = UIFont.boldSystemFont(ofSize: 16) as AnyObject
+        let rateMessage = NSMutableAttributedString(string: "Click here to rate \(orders[selected_row].Items[cnt].Name)",attributes:attributes)
+            orderDetails.append(rateMessage)
+        //}
+        cell.textLabel?.attributedText = orderDetails
         // Configure the cell...
-
+        cnt += 1
         return cell
     }
     
