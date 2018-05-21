@@ -85,16 +85,16 @@ class Status_report_TableViewController: UITableViewController {
     
     func load_sorted_order_time(_ x: String, completion: @escaping ()->() ) {
         //    func load_status_report () {
-        var parameters = [
-            "fromDate": "",
-            "toDate": "",
-            ] as [String : Any]
+//        var parameters = [
+//            "fromDate": "",
+//            "toDate": "",
+//            ] as [String : Any]
         
-        //        parameters["fromDate"] = "\(from_date.date)"
-        parameters["fromDate"] = "01-01-2018"
-        
-        //        parameters["toDate"] = "\(to_date.date)"
-        parameters["toDate"] = "05-30-2018"
+//              parameters["fromDate"] = "\(from_date.date)"
+////        parameters["fromDate"] = "01-01-2018"
+//
+//        parameters["toDate"] = "\(to_date.date)"
+////        parameters["toDate"] = "05-30-2018"
         
         guard let url = URL(string: x) else { return }
         var request = URLRequest(url: url)
