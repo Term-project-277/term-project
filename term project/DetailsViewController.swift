@@ -28,7 +28,18 @@ class DetailsViewController: UIViewController {
         if selected_section == 0
         {
             var name = drinks[selected_row].Name
-            imageView.image = UIImage(named: name)
+            let imName = name.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
+            
+            do {
+                let url = URL(string: "https://s3-us-west-2.amazonaws.com/cmpe277/\(imName).jpg")
+                if(url != nil){
+                    let data = try Data(contentsOf: url!)
+                    imageView.image = UIImage(data: data)
+                }
+            }
+            catch{
+                print(error)
+            }
             name_label.text = name
             price_label.text = String( drinks[selected_row].Unitprice )
             prep_time_label.text = String(drinks[selected_row].Preparationtime!)
@@ -39,7 +50,18 @@ class DetailsViewController: UIViewController {
         if selected_section == 1
         {
             var name = appets[selected_row].Name
-            imageView.image = UIImage(named: name)
+            let imName = name.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
+            
+            do {
+                let url = URL(string: "https://s3-us-west-2.amazonaws.com/cmpe277/\(imName).jpg")
+                if(url != nil){
+                    let data = try Data(contentsOf: url!)
+                    imageView.image = UIImage(data: data)
+                }
+            }
+            catch{
+                print(error)
+            }
             name_label.text = name
             price_label.text =  String( appets[selected_row].Unitprice )
             prep_time_label.text = String(appets[selected_row].Preparationtime!)
@@ -49,7 +71,18 @@ class DetailsViewController: UIViewController {
         if selected_section == 2
         {
             var name = mains[selected_row].Name
-            imageView.image = UIImage(named: name)
+            let imName = name.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
+            
+            do {
+                let url = URL(string: "https://s3-us-west-2.amazonaws.com/cmpe277/\(imName).jpg")
+                if(url != nil){
+                    let data = try Data(contentsOf: url!)
+                    imageView.image = UIImage(data: data)
+                }
+            }
+            catch{
+                print(error)
+            }
             name_label.text = name
             price_label.text = String( mains[selected_row].Unitprice )
             prep_time_label.text = String(mains[selected_row].Preparationtime!)
@@ -59,7 +92,18 @@ class DetailsViewController: UIViewController {
         if selected_section == 3
         {
             var name = deserts[selected_row].Name
-            imageView.image = UIImage(named: name)
+            let imName = name.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
+            
+            do {
+                let url = URL(string: "https://s3-us-west-2.amazonaws.com/cmpe277/\(imName).jpg")
+                if(url != nil){
+                    let data = try Data(contentsOf: url!)
+                    imageView.image = UIImage(data: data)
+                }
+            }
+            catch{
+                print(error)
+            }
             name_label.text = name
             price_label.text = String( deserts[selected_row].Unitprice )
             prep_time_label.text = String(deserts[selected_row].Preparationtime!)

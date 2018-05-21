@@ -118,7 +118,18 @@ class User_details_ViewController: UIViewController, UIPickerViewDataSource, UIP
             calories = drinks[selected_row].Calories!
             name_label.text = name
             category = "Drinks"
-            imageView.image = UIImage(named: name)
+            let imName = name.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
+            
+            do {
+                let url = URL(string: "https://s3-us-west-2.amazonaws.com/cmpe277/\(imName).jpg")
+                if(url != nil){
+                    let data = try Data(contentsOf: url!)
+                    imageView.image = UIImage(data: data)
+                }
+            }
+            catch{
+                print(error)
+            }
             price_label.text = String(price)
             calories_label.text = String(calories)
             category_label.text = category
@@ -132,7 +143,18 @@ class User_details_ViewController: UIViewController, UIPickerViewDataSource, UIP
             calories = appets[selected_row].Calories!
             name_label.text = name
             category = "Appetizers"
-            imageView.image = UIImage(named: name)
+            let imName = name.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
+            
+            do {
+                let url = URL(string: "https://s3-us-west-2.amazonaws.com/cmpe277/\(imName).jpg")
+                if(url != nil){
+                    let data = try Data(contentsOf: url!)
+                    imageView.image = UIImage(data: data)
+                }
+            }
+            catch{
+                print(error)
+            }
             price_label.text = String(price)
             calories_label.text = String(calories)
             category_label.text = category
@@ -145,7 +167,18 @@ class User_details_ViewController: UIViewController, UIPickerViewDataSource, UIP
             calories = mains[selected_row].Calories!
             name_label.text = name
             category = "Main Course"
-            imageView.image = UIImage(named: name)
+            let imName = name.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
+            
+            do {
+                let url = URL(string: "https://s3-us-west-2.amazonaws.com/cmpe277/\(imName).jpg")
+                if(url != nil){
+                    let data = try Data(contentsOf: url!)
+                    imageView.image = UIImage(data: data)
+                }
+            }
+            catch{
+                print(error)
+            }
             price_label.text = String(price)
             calories_label.text = String(calories)
             category_label.text = category
@@ -158,7 +191,18 @@ class User_details_ViewController: UIViewController, UIPickerViewDataSource, UIP
             calories = deserts[selected_row].Calories!
             name_label.text = name
             category = "Deserts"
-            imageView.image = UIImage(named: name)
+            let imName = name.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
+            
+            do {
+                let url = URL(string: "https://s3-us-west-2.amazonaws.com/cmpe277/\(imName).jpg")
+                if(url != nil){
+                    let data = try Data(contentsOf: url!)
+                    imageView.image = UIImage(data: data)
+                }
+            }
+            catch{
+                print(error)
+            }
             price_label.text = String(price)
             calories_label.text = String(calories)
             category_label.text = category

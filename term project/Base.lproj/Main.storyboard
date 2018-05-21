@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fao-fV-jbL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nhC-Yi-JII">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,22 +11,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="552-j2-LNi">
-            <objects>
-                <navigationController id="fao-fV-jbL" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="euW-Dh-ZZ2">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="nhC-Yi-JII" kind="relationship" relationship="rootViewController" id="NjN-hk-Cws"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4bn-eN-oDC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1590" y="99"/>
-        </scene>
         <!--Welcome Sign In View Controller-->
         <scene sceneID="VTU-l9-YsK">
             <objects>
@@ -49,7 +33,7 @@
                                     </attributedString>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="cXp-qg-o5X"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" animates="NO" id="cXp-qg-o5X"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z27-o0-NDe">
@@ -58,7 +42,7 @@
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <state key="normal" title="Login as Admin"/>
                                 <connections>
-                                    <segue destination="RFY-Mo-npA" kind="show" id="Lfe-2H-fjt"/>
+                                    <segue destination="RFY-Mo-npA" kind="show" animates="NO" id="Lfe-2H-fjt"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="istock_000019639558_medium" translatesAutoresizingMaskIntoConstraints="NO" id="3QZ-ZG-VwA">
@@ -186,10 +170,10 @@
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NEc-dW-VZX">
                                                 <rect key="frame" x="16" y="1.5" width="83" height="41"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="&lt; Back"/>
                                                 <connections>
-                                                    <segue destination="nhC-Yi-JII" kind="show" id="LQx-WY-Ak3"/>
+                                                    <segue destination="nhC-Yi-JII" kind="show" animates="NO" id="LQx-WY-Ak3"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
@@ -203,7 +187,7 @@
                     <connections>
                         <outlet property="password" destination="VN7-vi-1dq" id="ZtT-fo-rgk"/>
                         <outlet property="username" destination="oD3-eH-rnK" id="pNB-vd-ir2"/>
-                        <segue destination="PuN-Gb-ACy" kind="presentation" identifier="adminLoginIdentifier" id="ffl-Mr-Q2e"/>
+                        <segue destination="PuN-Gb-ACy" kind="presentation" identifier="adminLoginIdentifier" animates="NO" id="ffl-Mr-Q2e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nx5-kZ-Xn9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -239,14 +223,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hec-cQ-bJv">
-                                <rect key="frame" x="60" y="57" width="34" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Back"/>
-                                <connections>
-                                    <segue destination="nhC-Yi-JII" kind="show" id="VE9-8C-P59"/>
-                                </connections>
-                            </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yBS-Yj-qnU">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem id="ixE-4L-xkI">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="l9a-Pb-aE1">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="O9u-Of-18t">
+                                                <rect key="frame" x="16" y="0.0" width="87" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="&lt; Back"/>
+                                                <connections>
+                                                    <segue destination="nhC-Yi-JII" kind="show" animates="NO" id="QA5-Ds-gvA"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -258,7 +253,7 @@
                         <outlet property="Label" destination="8bC-Xf-vdC" id="l1w-fI-hOi"/>
                         <outlet property="google_sign_out" destination="bIY-6e-cgB" id="dSb-17-gZq"/>
                         <outlet property="label" destination="r1q-ns-qEC" id="iwl-6N-uvh"/>
-                        <segue destination="SSs-Iv-Kvu" kind="show" identifier="user_logged_in1" id="Rwr-d1-vLH"/>
+                        <segue destination="SSs-Iv-Kvu" kind="show" identifier="user_logged_in1" animates="NO" id="Rwr-d1-vLH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -282,7 +277,7 @@
                                     <barButtonItem key="leftBarButtonItem" systemItem="action" id="Go6-lq-m6x">
                                         <color key="tintColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <segue destination="X1X-rF-88G" kind="show" id="yyy-I1-sev"/>
+                                            <segue destination="X1X-rF-88G" kind="show" animates="NO" id="yyy-I1-sev"/>
                                         </connections>
                                     </barButtonItem>
                                     <rightBarButtonItems>
@@ -296,7 +291,7 @@
                                         <barButtonItem systemItem="add" id="NYd-o5-5gG">
                                             <color key="tintColor" red="1" green="0.5409764051" blue="0.84731429820000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
-                                                <segue destination="Syb-Bp-JdI" kind="show" id="MAG-m2-UEi"/>
+                                                <segue destination="Syb-Bp-JdI" kind="show" animates="NO" id="MAG-m2-UEi"/>
                                             </connections>
                                         </barButtonItem>
                                     </rightBarButtonItems>
@@ -321,7 +316,7 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="mii-Y2-Vmf" kind="show" identifier="deatils_segue" id="aJd-2u-lSP"/>
+                        <segue destination="mii-Y2-Vmf" kind="show" identifier="deatils_segue" animates="NO" id="aJd-2u-lSP"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VzZ-xS-14P" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -345,10 +340,10 @@
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Sgn-iO-gCE">
                                             <rect key="frame" x="16" y="0.0" width="99" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <state key="normal" title="&lt; Back"/>
                                             <connections>
-                                                <segue destination="LXl-Sz-ie8" kind="show" id="2PH-Yk-Af3"/>
+                                                <segue destination="LXl-Sz-ie8" kind="show" animates="NO" id="2PH-Yk-Af3"/>
                                             </connections>
                                         </button>
                                     </barButtonItem>
@@ -433,10 +428,10 @@
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QvZ-8W-SfS">
                                                 <rect key="frame" x="16" y="1.5" width="83" height="41"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="&lt; Back"/>
                                                 <connections>
-                                                    <segue destination="X1X-rF-88G" kind="show" id="oUu-S8-Mef"/>
+                                                    <segue destination="X1X-rF-88G" kind="show" animates="NO" id="oUu-S8-Mef"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
@@ -457,7 +452,7 @@
                     <connections>
                         <outlet property="from_date" destination="ZNR-Xh-xOe" id="g1W-Ht-3cq"/>
                         <outlet property="to_date" destination="hui-CD-JIK" id="yTT-lb-Yz7"/>
-                        <segue destination="ZI1-7P-Nmo" kind="show" identifier="status_report_segue" id="smC-02-m9M"/>
+                        <segue destination="ZI1-7P-Nmo" kind="show" identifier="status_report_segue" animates="NO" id="smC-02-m9M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uVb-Dc-pj6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -493,7 +488,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="LXl-Sz-ie8" kind="show" id="QSl-Ha-Nds"/>
+                                    <segue destination="LXl-Sz-ie8" kind="show" animates="NO" id="QSl-Ha-Nds"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVl-au-nSY">
@@ -505,7 +500,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="txa-50-FYa" kind="show" id="BsP-af-XYa"/>
+                                    <segue destination="txa-50-FYa" kind="show" animates="NO" id="BsP-af-XYa"/>
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jaz-uZ-8ZR">
@@ -513,12 +508,12 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QGy-ZW-r0u">
-                                <rect key="frame" x="0.0" y="20" width="72" height="41"/>
+                                <rect key="frame" x="7" y="24" width="61" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="&lt; Back"/>
                                 <connections>
-                                    <segue destination="PuN-Gb-ACy" kind="show" id="aEd-4R-p9E"/>
+                                    <segue destination="PuN-Gb-ACy" kind="show" animates="NO" id="aEd-4R-p9E"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -546,7 +541,7 @@
                                     <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="eyI-I1-a6Z">
                                         <color key="tintColor" red="0.098499173470000007" green="0.60193796300000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <segue destination="X1X-rF-88G" kind="show" id="Xke-mG-83Z"/>
+                                            <segue destination="X1X-rF-88G" kind="show" animates="NO" id="Xke-mG-83Z"/>
                                         </connections>
                                     </barButtonItem>
                                 </navigationItem>
@@ -582,17 +577,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8yO-tQ-jGh">
-                                <rect key="frame" x="254" y="575" width="105" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="PuN-Gb-ACy" kind="show" id="Ebn-y5-5dG"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M13-Uy-Gkm">
                                 <rect key="frame" x="215" y="419" width="182" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -668,6 +652,25 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rF8-6s-4nJ">
+                                <rect key="frame" x="-2" y="20" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem id="Gam-iz-5AM">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="gAt-G6-DN4">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="awJ-Vu-1tK">
+                                                <rect key="frame" x="16" y="3" width="83" height="38"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="&lt; Back"/>
+                                                <connections>
+                                                    <segue destination="PuN-Gb-ACy" kind="show" animates="NO" id="R4i-7V-LrX"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="cH6-Bp-pFZ"/>
@@ -695,19 +698,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1qW-ib-1Nc">
-                                <rect key="frame" x="26" y="578" width="93" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="14"/>
-                                <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="PuN-Gb-ACy" kind="show" id="Nb2-Rz-Chg"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DSE-zv-uxN">
                                 <rect key="frame" x="173" y="397" width="186" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -844,6 +834,27 @@
                                     <action selector="camera_button:" destination="Syb-Bp-JdI" eventType="touchUpInside" id="aMG-YE-fU8"/>
                                 </connections>
                             </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lka-Hr-bi4">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem id="9ET-7d-SJ6">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="fjR-Kb-5tr">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BfP-CQ-bIQ">
+                                                <rect key="frame" x="16" y="4" width="83" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="&lt; Back">
+                                                    <color key="titleColor" red="0.098499173470000007" green="0.60193796300000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="PuN-Gb-ACy" kind="show" id="Z7F-Ic-Pad"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -875,22 +886,22 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
                                 <navigationItem title="Menu" largeTitleDisplayMode="always" id="X2n-ua-qPz">
-                                    <barButtonItem key="leftBarButtonItem" title="Back" id="wJD-P6-MD9">
+                                    <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="wJD-P6-MD9">
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="r4X-iH-Wki"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" animates="NO" id="r4X-iH-Wki"/>
                                         </connections>
                                     </barButtonItem>
                                     <rightBarButtonItems>
                                         <barButtonItem title="Item" image="shopping-cart.png" id="D0A-gG-ZSl">
                                             <color key="tintColor" red="1" green="0.5409764051" blue="0.84731429820000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
-                                                <segue destination="BIs-Db-1o2" kind="show" id="68e-B8-CQe"/>
+                                                <segue destination="BIs-Db-1o2" kind="show" animates="NO" id="68e-B8-CQe"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem title="Orders" id="Y58-IL-Rus">
                                             <color key="tintColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
-                                                <segue destination="GBU-2c-XgR" kind="show" id="SrM-UF-t9Q"/>
+                                                <segue destination="GBU-2c-XgR" kind="show" animates="NO" id="SrM-UF-t9Q"/>
                                             </connections>
                                         </barButtonItem>
                                     </rightBarButtonItems>
@@ -915,7 +926,7 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="628-j1-c5D" kind="show" identifier="user_details" id="xP1-HZ-dfw"/>
+                        <segue destination="628-j1-c5D" kind="show" identifier="user_details" animates="NO" id="xP1-HZ-dfw"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cqI-tD-fNX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -930,9 +941,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="Acu-7X-EJ3">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <navigationItem id="X1s-I3-M8m">
+                                    <barButtonItem key="leftBarButtonItem" style="plain" id="wCH-3e-676">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VCq-d1-lFs">
+                                            <rect key="frame" x="16" y="4" width="83" height="36"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <state key="normal" title="&lt; Back"/>
+                                            <connections>
+                                                <segue destination="SSs-Iv-Kvu" kind="show" animates="NO" id="dwO-gT-9hx"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                </navigationItem>
+                            </items>
+                        </navigationBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="3oN-69-vbR">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3oN-69-vbR" id="pMf-fU-Dpb">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -946,7 +976,7 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="4fb-Gq-JxT" kind="show" identifier="order_detail" id="0fm-Ip-FKi"/>
+                        <segue destination="4fb-Gq-JxT" kind="show" identifier="order_detail" animates="NO" id="0fm-Ip-FKi"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vIf-gC-C5i" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -961,9 +991,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="Q5Q-sI-gOQ">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <navigationItem id="L5x-yj-JKc">
+                                    <barButtonItem key="leftBarButtonItem" style="plain" id="Rsg-Hy-4qm">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Spa-Ur-y6H">
+                                            <rect key="frame" x="16" y="4" width="83" height="36"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <state key="normal" title="&lt; Back"/>
+                                            <connections>
+                                                <segue destination="GBU-2c-XgR" kind="show" animates="NO" id="V2z-AW-Hj7"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                </navigationItem>
+                            </items>
+                        </navigationBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="mRe-eY-Vvz">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mRe-eY-Vvz" id="2JI-Qw-Ufz">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -977,7 +1026,7 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="6lk-Bm-7Tp" kind="show" identifier="rate_item" id="e8a-wZ-mFe"/>
+                        <segue destination="6lk-Bm-7Tp" kind="show" identifier="rate_item" animates="NO" id="e8a-wZ-mFe"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DBq-JL-f79" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1069,12 +1118,32 @@
                                     <action selector="Rate_action:" destination="6lk-Bm-7Tp" eventType="touchUpInside" id="Vus-Yh-aG8"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Menu Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ssk-4d-EXA">
-                                <rect key="frame" x="16" y="100" width="343" height="145"/>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="auY-qh-7ut">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem id="nsB-q0-R4z">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="uaE-Tl-3Tz">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="viL-nB-jqx">
+                                                <rect key="frame" x="16" y="4" width="83" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="&lt; Back">
+                                                    <color key="titleColor" red="0.098499173470000007" green="0.60193796300000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="4fb-Gq-JxT" kind="show" animates="NO" id="adS-Ge-UCs"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Order ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ssk-4d-EXA">
+                                <rect key="frame" x="36" y="108" width="115" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="40"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -1168,7 +1237,7 @@
                                 </state>
                                 <connections>
                                     <action selector="addToCart_button:" destination="628-j1-c5D" eventType="touchUpInside" id="10Q-Z4-dZZ"/>
-                                    <segue destination="SSs-Iv-Kvu" kind="show" id="fWi-GI-wNR"/>
+                                    <segue destination="SSs-Iv-Kvu" kind="show" animates="NO" id="fWi-GI-wNR"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="anE-Gg-OhT">
@@ -1197,16 +1266,25 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QMo-1P-xzi">
-                                <rect key="frame" x="38" y="20" width="48" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="&lt; Back">
-                                    <color key="titleColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="SSs-Iv-Kvu" kind="show" id="Ukz-ur-a3F"/>
-                                </connections>
-                            </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bqQ-NT-0iS">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem id="Afc-Z3-P96">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="Q4d-mO-8eX">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BO7-J1-dxU">
+                                                <rect key="frame" x="16" y="4" width="83" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="&lt; Back"/>
+                                                <connections>
+                                                    <segue destination="SSs-Iv-Kvu" kind="show" animates="NO" id="gXN-NC-6gu"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="sHa-Q3-vjP"/>
@@ -1242,13 +1320,13 @@
                                     <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="za7-q7-aGg">
                                         <color key="tintColor" red="1" green="0.5409764051" blue="0.84731429820000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <segue destination="SSs-Iv-Kvu" kind="show" id="yGH-re-cet"/>
+                                            <segue destination="SSs-Iv-Kvu" kind="show" animates="NO" id="yGH-re-cet"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem key="rightBarButtonItem" title="Place order" style="done" id="O3R-DQ-wOD">
                                         <color key="tintColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <segue destination="oRz-wT-Hpr" kind="show" id="EMT-Nh-myp"/>
+                                            <segue destination="oRz-wT-Hpr" kind="show" animates="NO" id="EMT-Nh-myp"/>
                                         </connections>
                                     </barButtonItem>
                                 </navigationItem>
@@ -1317,16 +1395,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lpm-j1-LKl">
-                                <rect key="frame" x="37" y="67" width="48" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="&lt; Back">
-                                    <color key="titleColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="SSs-Iv-Kvu" kind="show" id="FhZ-cr-mwq"/>
-                                </connections>
-                            </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VaY-3I-KU8">
+                                <rect key="frame" x="0.0" y="40" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem id="CvJ-O1-sNC">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="ZPf-Sk-UD8">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hVx-DW-pFl">
+                                                <rect key="frame" x="16" y="3" width="83" height="38"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="&lt; Back"/>
+                                                <connections>
+                                                    <segue destination="SSs-Iv-Kvu" kind="show" animates="NO" id="PC7-ed-sy5"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="iVh-1O-MlC"/>
@@ -1350,12 +1437,14 @@
         <image name="shopping-cart.png" width="29" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FhZ-cr-mwq"/>
+        <segue reference="adS-Ge-UCs"/>
+        <segue reference="SrM-UF-t9Q"/>
+        <segue reference="PC7-ed-sy5"/>
         <segue reference="Xke-mG-83Z"/>
-        <segue reference="2PH-Yk-Af3"/>
-        <segue reference="ffl-Mr-Q2e"/>
+        <segue reference="QSl-Ha-Nds"/>
+        <segue reference="R4i-7V-LrX"/>
         <segue reference="r4X-iH-Wki"/>
         <segue reference="UPc-WQ-pGc"/>
-        <segue reference="LQx-WY-Ak3"/>
+        <segue reference="QA5-Ds-gvA"/>
     </inferredMetricsTieBreakers>
 </document>
