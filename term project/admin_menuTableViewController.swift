@@ -15,6 +15,7 @@ struct appet : Decodable {
     let Preparationtime: Int?
     let Calories: Int?
     let Unitprice: Double
+    let Rating: Int?
 }
 
  var appets = [appet] ()
@@ -25,6 +26,7 @@ struct drink : Decodable {
     let Preparationtime: Int?
     let Calories: Int?
     let Unitprice: Double
+    let Rating: Int?
 }
 
 var drinks = [drink] ()
@@ -36,6 +38,7 @@ struct main : Decodable {
     let Preparationtime: Int?
     let Calories: Int?
     let Unitprice: Double
+    let Rating: Int?
 }
 
 var mains = [main] ()
@@ -46,6 +49,7 @@ struct desert : Decodable {
     let Preparationtime: Int?
     let Calories: Int?
     let Unitprice: Double
+    let Rating: Int?
 }
 
 var deserts = [desert] ()

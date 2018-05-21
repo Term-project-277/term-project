@@ -17,7 +17,7 @@ class order_details_ViewController: UIViewController {
     var no_of_stars  = 0
     
     struct rating : Decodable {
-        let Rating: Int?
+        var Rating: Int?
     }
     
     var rat = rating(Rating:0)
@@ -116,18 +116,15 @@ class order_details_ViewController: UIViewController {
         self.get_ratings {
             
             
-            
-            
-            self.id.text = selected_menu_name
+            DispatchQueue.main.async{
+                self.id.text = selected_menu_name
+            }
+           
             
             if( orders[selected_row].Status == "Fulfilled" )
             {
-                  self.error_label.isHidden = true
+                
                   self.rate_button.isHidden = false
-                
-                
-                  self.error_label.text = "You have given \(  self.rat.Rating)⭐️s to this menu previously!"
-                  self.error_label.isHidden = false
                 
                 for button in   self.star_buttons{
                     button.isHidden = false
@@ -135,29 +132,38 @@ class order_details_ViewController: UIViewController {
                 
                 //prev given stars show here
                 
-                if   self.rat.Rating != 0
+                if   self.rat.Rating == nil
                 {
-                      self.error_label.text = "You have given \(  self.rat.Rating)⭐️s to this menu previously!"
-                      self.error_label.isHidden = false
-                }
-                
-                for button in   self.star_buttons {
-                    if( button.tag <   self.rat.Rating!)
-                    {
-                        button.setTitle("★", for: .normal )
-                    } else {
-                        button.setTitle("☆", for: .normal )
+                    DispatchQueue.main.async{
+                        self.error_label.text = "You have not rated this menu yet!"
+                       
                     }
                 }
+                else
+                {
+                    DispatchQueue.main.async{
+                         self.error_label.text = "You have given \(  self.rat.Rating!)⭐️s to this menu previously!"
+                    }
+                    
+                }
+                
+                
                 
             }
             else {
                 
-                  self.error_label.isHidden = false
-                  self.rate_button.isHidden = true
-                for button in   self.star_buttons{
-                    button.isHidden = true
+                DispatchQueue.main.async{
+                    self.error_label.text = "You cannot rate items which are not fulfilled yet!"
+                    
+                    self.rate_button.isHidden = true
+                    for button in   self.star_buttons{
+                        button.isHidden = true
+                    }
+                    
                 }
+                
+                
+                
             }
             
             
@@ -198,6 +204,10 @@ class order_details_ViewController: UIViewController {
             }
             catch{
                 print(err)
+                self.rat.Rating = nil
+                print("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
+                print(self.rat.Rating)
+                completion()
             }
             
             }.resume()

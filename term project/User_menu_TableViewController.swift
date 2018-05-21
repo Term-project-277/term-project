@@ -422,9 +422,24 @@ class User_menu_TableViewController: UITableViewController {
         attributes[.font] = UIFont.boldSystemFont(ofSize: 32) as AnyObject
         
         
+        var attributes11 = [NSAttributedStringKey: AnyObject]()
+        attributes11[.foregroundColor] =  #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
+        attributes11[.font] = UIFont.boldSystemFont(ofSize: 20) as AnyObject
+        
+        
         if indexPath.section == 0 {
+        
+            
+            var tt = ""
+            if let rat = drinks[indexPath.row].Rating {
+                tt = "\(drinks[indexPath.row].Rating!)⭐️s"
+            } else {
+                tt = "Be the first to rate!"
+            }
             
             let attributedString = NSMutableAttributedString(string: "\( drinks[indexPath.row].Name )\n", attributes:attributes)
+            let rs  =   NSMutableAttributedString(string: " \t Rating : \(tt)\n", attributes:attributes11)
+            attributedString.append(rs)
             let image1Attachment = NSTextAttachment()
             image1Attachment.image = UIImage(named: "\(drinks[indexPath.row].Name).jpg")
             let rect = CGRect(x: 0, y: 0, width: 100, height: 100)
@@ -432,7 +447,7 @@ class User_menu_TableViewController: UITableViewController {
             // wrap the attachment in its own attributed string so we can append it
             let image1String = NSAttributedString(attachment: image1Attachment)
             attributedString.append(image1String)
-            let normalString = NSMutableAttributedString(string: "\n\t\t\t\t\tCalories: \(drinks[indexPath.row].Calories!)\n\t\t\t\t\tUnit price: \(drinks[indexPath.row].Unitprice)")
+            let normalString = NSMutableAttributedString(string: "\n\t\t\t\t\tCalories: \(drinks[indexPath.row].Calories!)\n\t\t\t\t\tUnit price: \(drinks[indexPath.row].Unitprice) \n ")
             attributedString.append(normalString)
             
             // create our NSTextAttachment
@@ -441,7 +456,21 @@ class User_menu_TableViewController: UITableViewController {
         }
         
         if indexPath.section == 1 {
+            
+            
+            var tt = ""
+            if let rat = appets[indexPath.row].Rating {
+                 tt = "\(appets[indexPath.row].Rating!)⭐️s"
+            } else {
+               tt = "Be the first to rate!"
+            }
+            
+            
+           
+            
             let attributedString = NSMutableAttributedString(string: "\( appets[indexPath.row].Name )\n ", attributes:attributes)
+            let rs  =   NSMutableAttributedString(string: " \t Rating : \(tt)\n", attributes:attributes11)
+            attributedString.append(rs)
             var name:String = "\(appets[indexPath.row].Name)"
             let image1Attachment = NSTextAttachment()
             image1Attachment.image = UIImage(named: "\(name).jpg")
@@ -450,13 +479,22 @@ class User_menu_TableViewController: UITableViewController {
             // wrap the attachment in its own attributed string so we can append it
             let image1String = NSAttributedString(attachment: image1Attachment)
             attributedString.append(image1String)
-            let normalString = NSMutableAttributedString(string: "\n\t\t\t\t\tCalories: \(appets[indexPath.row].Calories!)\n\t\t\t\t\tUnit price : \(appets[indexPath.row].Unitprice)")
+            let normalString = NSMutableAttributedString(string: "\n\t\t\t\t\tCalories: \(appets[indexPath.row].Calories!)\n\t\t\t\t\tUnit price : \(appets[indexPath.row].Unitprice) \n \t\t\t\t Rating : \(tt)")
             attributedString.append(normalString)
             cell.textLabel?.attributedText = attributedString
         }
         if indexPath.section == 2 {
             
+            var tt = ""
+            if let rat = mains[indexPath.row].Rating {
+                tt = "\(mains[indexPath.row].Rating!)⭐️s"
+            } else {
+                tt = "Be the first to rate!"
+            }
+            
             let attributedString = NSMutableAttributedString(string: "\( mains[indexPath.row].Name )\n ", attributes:attributes)
+            let rs  =   NSMutableAttributedString(string: " \t Rating : \(tt)\n", attributes:attributes11)
+            attributedString.append(rs)
             let image1Attachment = NSTextAttachment()
             image1Attachment.image = UIImage(named:"\(mains[indexPath.row].Name).jpg")
             let rect = CGRect(x: 0, y: 0, width: 100, height: 100)
@@ -464,7 +502,7 @@ class User_menu_TableViewController: UITableViewController {
             // wrap the attachment in its own attributed string so we can append it
             let image1String = NSAttributedString(attachment: image1Attachment)
             attributedString.append(image1String)
-            let normalString = NSMutableAttributedString(string: "\n\t\t\t\t\tCalories: \(mains[indexPath.row].Calories!)\n\t\t\t\t\tUnit price : \(mains[indexPath.row].Unitprice)")
+            let normalString = NSMutableAttributedString(string: "\n\t\t\t\t\tCalories: \(mains[indexPath.row].Calories!)\n\t\t\t\t\tUnit price : \(mains[indexPath.row].Unitprice) \n \t\t\t\t Rating : \(tt)")
             attributedString.append(normalString)
             cell.textLabel?.attributedText = attributedString
             
@@ -472,7 +510,17 @@ class User_menu_TableViewController: UITableViewController {
         
         if indexPath.section == 3 {
             
+            var tt = ""
+            if let rat = deserts[indexPath.row].Rating {
+                tt = "\(deserts[indexPath.row].Rating!)⭐️s"
+            } else {
+                tt = "Be the first to rate!"
+            }
+            
+            
             let attributedString = NSMutableAttributedString(string: "\(deserts[indexPath.row].Name)\n ", attributes:attributes)
+            let rs  =   NSMutableAttributedString(string: " \t Rating : \(tt)\n", attributes:attributes11)
+            attributedString.append(rs)
             /*let normalString = NSMutableAttributedString(string: "Prep time: \(deserts[indexPath.row].Preparationtime!)\n\t\t\t\t\tCalories: \(deserts[indexPath.row].Calories!)\n\t\t\t\t\tUnit price: \(deserts[indexPath.row].Unitprice)")
              attributedString.append(normalString)*/
             let image1Attachment = NSTextAttachment()
@@ -482,7 +530,7 @@ class User_menu_TableViewController: UITableViewController {
             // wrap the attachment in its own attributed string so we can append it
             let image1String = NSAttributedString(attachment: image1Attachment)
             attributedString.append(image1String)
-            let normalString = NSMutableAttributedString(string: "\n\t\t\t\t\tCalories: \(deserts[indexPath.row].Calories!)\n\t\t\t\t\tUnit price : \(deserts[indexPath.row].Unitprice) \t\tID : \(deserts[indexPath.row].ID)")
+            let normalString = NSMutableAttributedString(string: "\n\t\t\t\t\tCalories: \(deserts[indexPath.row].Calories!)\n\t\t\t\t\tUnit price : \(deserts[indexPath.row].Unitprice) \n \t\t\t\t Rating : \(tt)")
             attributedString.append(normalString)
             cell.textLabel?.attributedText = attributedString
             
