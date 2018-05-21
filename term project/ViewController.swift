@@ -15,19 +15,36 @@ import GoogleToolboxForMac
 var user_email = ""
 
 
-class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate, GIDSignInDelegate {
+class ViewController: UIViewController,GIDSignInUIDelegate, GIDSignInDelegate, FBSDKLoginButtonDelegate {
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        if error != nil{
+            print(error)
+            return
+        } else {
+            print("Successfully logged in\n")
+        }
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        
+        print("Sucessfully logged ot...\n")
+    }
+    
     
     
     @IBOutlet var Google_signout: UIButton!
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        let loginManager = FBSDKLoginManager()
+        loginManager.logOut()
         
         // make google logout button look good here
-        Google_signout.bounds = CGRect(x: 30, y: 450, width: view.frame.width-80, height: 30)
+        Google_signout.bounds = CGRect(x: 30, y: 450, width: view.frame.width-60, height: 30)
     
         let loginButton = FBSDKLoginButton()
         view.addSubview(loginButton)
-        loginButton.frame = CGRect(x: 30, y: 250, width: view.frame.width-62, height: 50)
+        loginButton.frame = CGRect(x: 30, y: 300, width: view.frame.width-60, height: 50)
         loginButton.delegate =  self
         
        
@@ -122,11 +139,11 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
       
     }
     
-    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+    /*func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print("logged out ")
-    }
+    }*/
     
-    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+    /*func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         if error != nil{
              print(error)
             return
@@ -191,6 +208,6 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
                 user_email = email
             })
         
-    }
+    }*/
 }
 
